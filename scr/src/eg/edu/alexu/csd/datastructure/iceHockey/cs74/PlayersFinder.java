@@ -14,7 +14,7 @@ public class PlayersFinder implements IPlayersFinder {
 	Point max=new Point ();
 	boolean visited[][] ;
 
-	@Override
+	
 	public Point players(int row, int col, String[] photo, int team) {
 
 		if (min.x > row) {
