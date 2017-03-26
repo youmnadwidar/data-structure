@@ -12,7 +12,7 @@ public class MyCalculator implements ICalculator  {
 
 	
 	public float divide(int x, int y) {
-		return x/y;
+		return (float)x/(float)y;
 	}
 
 }
