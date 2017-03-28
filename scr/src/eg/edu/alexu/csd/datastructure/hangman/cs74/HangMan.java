@@ -42,7 +42,6 @@ public class HangMan implements IHangman {
 
 	public String guess(Character c) {
 		if (secretword == null)
-
 		{
 			return null;
 

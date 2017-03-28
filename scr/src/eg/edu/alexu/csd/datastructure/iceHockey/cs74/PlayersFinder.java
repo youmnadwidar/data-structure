@@ -13,6 +13,7 @@ public class PlayersFinder implements IPlayersFinder {
 	Point min = new Point();
 	Point max = new Point();
 	boolean visited[][];
+	int squares = 4;
 
 	public Point players(int row, int col, String[] photo, int team) {
 
@@ -58,7 +59,7 @@ public class PlayersFinder implements IPlayersFinder {
 			}
 		}
 
-		if (numofsquares * 4 >= numofsquaresrequired) {
+		if (numofsquares * squares >= numofsquaresrequired) {
 
 			return new Point(min.y + max.y + 1, min.x + max.x + 1);// *2+2 then
 																	// /2 gives
