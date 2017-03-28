@@ -45,6 +45,7 @@ public class HangMan implements IHangman {
 
 		{
 			return null;
+
 		}
 
 		else if (c == null) {
