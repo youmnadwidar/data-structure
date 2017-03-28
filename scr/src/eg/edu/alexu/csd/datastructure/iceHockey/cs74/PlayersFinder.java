@@ -6,6 +6,10 @@ import java.util.Arrays;
 import java.util.Comparator;
 import eg.edu.alexu.csd.datastructure.iceHockey.IPlayersFinder;
 
+/**
+ * @author HP
+ *
+ */
 public class PlayersFinder implements IPlayersFinder {
 
 	public int numofsquaresrequired;

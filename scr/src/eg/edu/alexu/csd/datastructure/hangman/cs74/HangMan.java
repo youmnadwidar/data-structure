@@ -4,6 +4,10 @@ import eg.edu.alexu.csd.datastructure.hangman.IHangman;
 
 import java.lang.String;
 
+/**
+ * @author HP
+ *
+ */
 public class HangMan implements IHangman {
 
 	private String[] dic_Words = null;
