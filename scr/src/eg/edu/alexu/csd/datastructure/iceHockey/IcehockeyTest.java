@@ -151,14 +151,5 @@ public class IcehockeyTest {
 		Assert.assertArrayEquals(expected, icehockey.findPlayers(photo, 4, 12));
 	}
 
-	@Test
-	public void test5() {
-		icehockey = (PlayersFinder) icehockey;
-		String[] photo = { "1G1E1T1J1U1Y1E1", "G1E1P1U1B1A1Y1W", "1G1E1T1J1U1Y1E1", "G1E1P1U1B1A1Y1W",
-				"1G1E1T1J1U1Y1E1", "G1E1P1U1B1A1Y1W", };
-		Point[] expected = {};
-
-		Assert.assertArrayEquals(expected, icehockey.findPlayers(photo, 1, 4));
-	}
-
+	
 }
