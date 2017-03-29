@@ -15,7 +15,7 @@ public class HangMan implements IHangman {
 	private String shownword = null;
 	public int maxNumofWrongGueses = 0;
 
-	public void setDictionary( String[] words) {
+	public void setDictionary(String[] words) {
 
 		dic_Words = words;
 
@@ -44,8 +44,7 @@ public class HangMan implements IHangman {
 	}
 
 	public String guess(Character c) {
-		if (secretword == null)
-		{
+		if (secretword == null) {
 			return null;
 
 		}
@@ -62,9 +61,7 @@ public class HangMan implements IHangman {
 			c = Character.toLowerCase(c.charValue());
 
 			for (int i = 0; i < word.length; i++) {
-				if (c == 
-						Character.toLowerCase(secretword.charAt(i)))
-				{
+				if (c == Character.toLowerCase(secretword.charAt(i))) {
 
 					flag = 1;
 					word[i] = secretword.charAt(i);
