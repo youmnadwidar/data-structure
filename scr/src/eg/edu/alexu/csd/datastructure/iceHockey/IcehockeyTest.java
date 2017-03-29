@@ -177,7 +177,7 @@ public class IcehockeyTest {
 				new Point(17,5),
 };
 
-		Assert.assertArrayEquals(expected, icehockey.findPlayers(photo, 1, 4));
+		Assert.assertArrayEquals(expected, icehockey.findPlayers(photo, 1, 3));
 	}
 
 }
