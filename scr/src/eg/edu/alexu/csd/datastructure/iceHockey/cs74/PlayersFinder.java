@@ -31,7 +31,8 @@ public class PlayersFinder implements IPlayersFinder {
 		if (max.y < col)
 			max.y = col;
 		if (col + 1 < photo[0].length()) {
-			if (photo[row].charAt(col + 1) == (team + '0') && visited[row][col + 1] == false) {
+			if (photo[row].charAt(col + 1) == (team + '0') &&
+					visited[row][col + 1] == false) {
 
 				numofsquares++;
 				visited[row][col + 1] = true;
@@ -40,7 +41,8 @@ public class PlayersFinder implements IPlayersFinder {
 			}
 		}
 		if ((col - 1 >= 0)) {
-			if (photo[row].charAt(col - 1) == team + '0' && visited[row][col - 1] == false) {
+			if (photo[row].charAt(col - 1) == team + '0'
+					&& visited[row][col - 1] == false) {
 				numofsquares++;
 				visited[row][col - 1] = true;
 
@@ -48,14 +50,16 @@ public class PlayersFinder implements IPlayersFinder {
 			}
 		}
 		if (row + 1 < photo.length) {
-			if (photo[row + 1].charAt(col) == team + '0' && visited[row + 1][col] == false) {
+			if (photo[row + 1].charAt(col) == team + '0'
+					&& visited[row + 1][col] == false) {
 				numofsquares++;
 				visited[row + 1][col] = true;
 				players(row + 1, col, photo, team);
 			}
 		}
 		if (row - 1 >= 0) {
-			if (photo[row - 1].charAt(col) == team + '0' && visited[row - 1][col] == false) {
+			if (photo[row - 1].charAt(col) == team + '0' && 
+					visited[row - 1][col] == false) {
 				numofsquares++;
 				visited[row - 1][col] = true;
 
@@ -65,10 +69,8 @@ public class PlayersFinder implements IPlayersFinder {
 
 		if (numofsquares * squares >= numofsquaresrequired) {
 
-			return new Point(min.y + max.y + 1, min.x + max.x + 1);// *2+2 then
-																	// /2 gives
-																	// us this
-																	// resault
+			return new Point(min.y + max.y + 1, min.x + max.x + 1);
+			// *2+2 then /2 gives us this resault
 		} else {
 			return null;
 		}

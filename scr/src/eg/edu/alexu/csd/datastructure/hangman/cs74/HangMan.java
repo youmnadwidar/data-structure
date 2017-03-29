@@ -62,7 +62,9 @@ public class HangMan implements IHangman {
 			c = Character.toLowerCase(c.charValue());
 
 			for (int i = 0; i < word.length; i++) {
-				if (c == Character.toLowerCase(secretword.charAt(i))) {
+				if (c == 
+						Character.toLowerCase(secretword.charAt(i)))
+				{
 
 					flag = 1;
 					word[i] = secretword.charAt(i);
