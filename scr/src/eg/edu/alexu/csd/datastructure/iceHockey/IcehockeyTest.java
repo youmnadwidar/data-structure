@@ -154,9 +154,28 @@ public class IcehockeyTest {
 	@Test
 	public void test5() {
 		icehockey = (PlayersFinder) icehockey;
-		String[] photo = { "1G1E1T1J1U1Y1E1", "G1E1P1U1B1A1Y1W", "1G1E1T1J1U1Y1E1", "G1E1P1U1B1A1Y1W",
-				"1G1E1T1J1U1Y1E1", "G1E1P1U1B1A1Y1W", };
-		Point[] expected = {};
+		String [] photo ={"1G1E1T1J1", "G1E1P1U1B", "1G1E1T1J1", "G1E1P1U1B" };
+
+		Point[] expected = {
+				new Point(1,1),
+				new Point(1,5),
+				new Point(3,3),
+				new Point(3,7),
+				new Point(5,1),
+				new Point(5,5),
+				new Point(7,3),
+				new Point(7,7),
+				new Point(9,1),
+				new Point(9,5),
+				new Point(11,3),
+				new Point(11,7),
+				new Point(13,1),
+				new Point(13,5),
+				new Point(15,3),
+				new Point(15,7),
+				new Point(17,1),
+				new Point(17,5),
+};
 
 		Assert.assertArrayEquals(expected, icehockey.findPlayers(photo, 1, 4));
 	}
