@@ -15,7 +15,7 @@ public class HangMan implements IHangman {
 	private String shownword = null;
 	public int maxNumofWrongGueses = 0;
 
-	public void setDictionary(String[] words) {
+	public void setDictionary( String[] words) {
 
 		dic_Words = words;
 
