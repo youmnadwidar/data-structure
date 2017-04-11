@@ -188,7 +188,7 @@ public class DoublyLinkedList implements ILinkedList {
 		return sub;
 	}
 
-	@Override
+	
 	public boolean contains(Object o) {
 		if (this.size()!=0){
 		
