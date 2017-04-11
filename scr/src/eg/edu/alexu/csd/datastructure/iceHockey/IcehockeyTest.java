@@ -151,6 +151,7 @@ public class IcehockeyTest {
 		Assert.assertArrayEquals(expected, icehockey.findPlayers(photo, 4, 12));
 	}
 
+<<<<<<< HEAD
 	@Test
 	public void test5() {
 		icehockey = (PlayersFinder) icehockey;
@@ -180,4 +181,7 @@ public class IcehockeyTest {
 		Assert.assertArrayEquals(expected, icehockey.findPlayers(photo, 1, 3));
 	}
 
+=======
+	
+>>>>>>> refs/remotes/origin/master
 }
