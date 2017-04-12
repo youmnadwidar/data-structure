@@ -3,206 +3,196 @@ package eg.edu.alexu.csd.datastructure.linkedList.cs74;
 import eg.edu.alexu.csd.datastructure.linkedList.ILinkedList;
 
 public class DoublyLinkedList implements ILinkedList {
-	NodeDL head=new NodeDL (null);
-	NodeDL tail=new NodeDL (null);
-	
+	NodeDL head = new NodeDL(null);
+	NodeDL tail = new NodeDL(null);
+	int size;
+
 	public DoublyLinkedList() {
 		head.setNext(tail);
 		head.setPrev(null);
 		tail.setNext(null);
 		tail.setPrev(head);
+		size = 0;
 	}
 
 	@Override
 	public void add(int index, Object element) {
-		NodeDL newNode =new NodeDL(null);
-		NodeDL current=head;
+		NodeDL newNode = new NodeDL(null);
+		NodeDL current = head;
 		newNode.setData(element);
-		if(this.size()>index)
-		{
-			int count=0;
-			while(count<index){
-				current=current.getNext();
+		if (this.size() > index) {
+
+			int count = 0;
+			while (count < index) {
+
+				current = current.getNext();
 				count++;
 			}
 			newNode.setPrev(current);
 			newNode.setNext(current.getNext());
+			current.getNext().setPrev(newNode);// add this line
 			current.setNext(newNode);
-		}
-		else
+
+			size++;
+		} else
 			return;
-		
+
 	}
 
 	@Override
 	public void add(Object element) {
-		NodeDL newNode =new NodeDL(null);
-		NodeDL current=head;
+		NodeDL newNode = new NodeDL(null);
+		NodeDL current = head;
 		newNode.setData(element);
-		
-		while(current.getNext()!=tail)
-			current=current.getNext();
-		
+
+		while (current.getNext() != tail)
+			current = current.getNext();
+
 		current.setNext(newNode);
 		newNode.setPrev(current);
 		newNode.setNext(tail);
 		tail.setPrev(newNode);
+		size++;
 
 	}
 
 	@Override
 	public Object get(int index) {
-		
-		NodeDL current=null;
-		
-		if(this.size()>index)
-		{
-			if(index<this.size()/2)
-			{
-				current=head;
-				int count=0;
-				while(count<=index){
-					current=current.getNext();
+
+		NodeDL current = null;
+
+		if (this.size() > index) {
+			if (index < this.size() / 2) {
+				current = head;
+				int count = 0;
+				while (count <= index) {
+					current = current.getNext();
 					count++;
 				}
-			}
-			else{
-				current=tail;
-				int count=this.size();
-				while(count>index){
-					current=current.getPrev();
+			} else {
+				current = tail;
+				int count = this.size();
+				while (count > index) {
+					current = current.getPrev();
 					count--;
 				}
 			}
-		}
-		return current.getData(); 
+			return current.getData();
+
+		} else
+			return null;
 	}
 
 	@Override
 	public void set(int index, Object element) {
-		NodeDL current=null;
-		if(this.size()<index)
-		{
-			if(index<this.size()/2)
-			{
-				current=head;
-				int count=0;
-				while(count<=index){
-					current=current.getNext();
+		NodeDL current = null;
+		if (this.size() > index) {
+			if (index < this.size() / 2) {
+				current = head;
+				int count = 0;
+				while (count <= index) {
+					current = current.getNext();
 					count++;
 				}
 				current.setData(element);
-			}
-			else{
-				current=tail;
-				int count=this.size();
-				while(count>index){
-					current=current.getPrev();
+			} else {
+				current = tail;
+				int count = this.size();
+				while (count > index) {
+					current = current.getPrev();
 					count--;
 				}
 				current.setData(element);
 			}
 		}
-		
+
 	}
 
 	@Override
 	public void clear() {
-		
+
 		head.setNext(tail);
 		tail.setPrev(head);
 	}
 
 	@Override
 	public boolean isEmpty() {
-		if (head.getNext()==null)
+		if (head.getNext() == tail)
 			return true;
-		else{
-		return false;
+		else {
+			return false;
 		}
 	}
 
 	@Override
 	public void remove(int index) {
 		int count;
-		if (this.size()>index)
-		{
+		if (this.size() > index) {
 			NodeDL current;
-			
-			if(this.size()/2>index){
-				current=head.getNext();
-				count=0;
-				while(count<index){
-					current=current.getNext();
+
+			if (this.size() / 2 > index) {
+				current = head.getNext();
+				count = 0;
+				while (count < index) {
+					current = current.getNext();
 					count++;
 				}
-			}
-				else {
-					current=tail.getPrev();
-					count=this.size()-1;
-					while(count>index){
-						count--;   
-						current=current.getPrev();
-					}
+			} else {
+				current = tail.getPrev();
+				count = this.size() - 1;
+				while (count > index) {
+					count--;
+					current = current.getPrev();
 				}
+			}
 			current.getPrev().setNext(current.getNext());
 			current.getNext().setPrev(current.getPrev());
-			current=null;
-				
-			}
+			current = null;
+			size--;
+
 		}
-		
-	
+	}
 
 	@Override
 	public int size() {
-		int count=0;
-		NodeDL newNode=head;
-		while(newNode.getNext()!=tail)
-			count++;
-		return count;
+		return this.size;
 	}
 
 	@Override
 	public ILinkedList sublist(int fromIndex, int toIndex) {
 		// TODO Auto-generated method stub
-		DoublyLinkedList sub =new DoublyLinkedList();
-		if(this.size()>fromIndex&&this.size()>toIndex&&toIndex>=0&&fromIndex>=0&&toIndex>fromIndex)
-		{
-			NodeDL current=head.getNext();
-			int count=0;
-			while(count<fromIndex)
-			{
-				current=current.getNext();
+		DoublyLinkedList sub = new DoublyLinkedList();
+		if (this.size() > fromIndex && this.size() > toIndex && toIndex >= 0 && fromIndex >= 0 && toIndex > fromIndex) {
+			NodeDL current = head.getNext();
+			int count = 0;
+			while (count < fromIndex) {
+				current = current.getNext();
 				count++;
 			}
-		
-			
-			while(count<=toIndex)
-			{
+
+			while (count <= toIndex) {
 				sub.add(current.getData());
-				current=current.getNext();
+				current = current.getNext();
 				count++;
 			}
 		}
 		return sub;
 	}
 
-	
 	public boolean contains(Object o) {
-		if (this.size()!=0){
-		
-			NodeDL current=head.getNext();
-			while (current!=tail){
+		if (this.size() != 0) {
+
+			NodeDL current = head.getNext();
+			while (current != tail) {
 				if (o.equals(current.getData()))
 					return true;
 				else {
-					current=current.getNext();
+					current = current.getNext();
 				}
-			
+
+			}
 		}
-		}
-		return false ;
+		return false;
 	}
-	
+
 }
