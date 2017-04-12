@@ -15,11 +15,15 @@ public class SinglyLinkedList implements ILinkedList {
 
 	@Override
 	public void add(int index, Object element) {
-
-		if (this.size > index && index >= 0) {
+		NodeSL newnode = new NodeSL(element);
+		
+		if (this.size >= index && index >= 0) {
 			if (index == 0) {
-				head = new NodeSL(element, head);// moshklaaaaaa
 
+				newnode.setNext(head);
+				head = newnode;
+				size++;
+				return;
 			}
 			int count = 0;
 			NodeSL current = head;
@@ -27,7 +31,7 @@ public class SinglyLinkedList implements ILinkedList {
 				current = current.getNext();
 				count++;
 			}
-			NodeSL newnode = new NodeSL(element, current.getNext());
+			newnode = new NodeSL(element, current.getNext());
 
 			current.setNext(newnode);
 			size++;
@@ -82,7 +86,7 @@ public class SinglyLinkedList implements ILinkedList {
 			}
 			current.setData(element);
 		} else {
-			return;
+			throw (null);
 		}
 	}
 
@@ -104,8 +108,13 @@ public class SinglyLinkedList implements ILinkedList {
 
 	@Override
 	public void remove(int index) {
-		NodeSL v = head;// remove first node
+		NodeSL v = head;
+
 		if (this.size > index && index >= 0) {
+			if (index == 0) {
+				head = head.getNext();
+				return;
+			}
 			for (int i = 0; i < index - 1; i++)
 				v = v.getNext();
 			v.setNext(v.getNext().getNext());

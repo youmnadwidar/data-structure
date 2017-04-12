@@ -35,7 +35,7 @@ public class DoublyLinkedList implements ILinkedList {
 
 			size++;
 		} else
-			return;
+			throw(null);
 
 	}
 
