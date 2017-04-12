@@ -47,4 +47,4 @@ public interface IPolynomialSolver {
 */
 int[][] multiply(char poly1, char poly2);
 }
-}
+
