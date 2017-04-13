@@ -89,12 +89,13 @@ public class SinglyLinkedList implements ILinkedList {
 	public void clear() {
 		head.setNext(null);
 		head = null;
+		size=0;
 
 	}
 
 	public boolean isEmpty() {
 
-		if (head == null)
+		if (head == null||size==0)
 			return true;
 
 		return false;
