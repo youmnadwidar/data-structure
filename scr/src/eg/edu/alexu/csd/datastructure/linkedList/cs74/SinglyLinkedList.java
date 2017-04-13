@@ -13,7 +13,6 @@ public class SinglyLinkedList implements ILinkedList {
 
 	}
 
-	@Override
 	public void add(int index, Object element) {
 		NodeSL newnode = new NodeSL(element);
 		
@@ -36,12 +35,11 @@ public class SinglyLinkedList implements ILinkedList {
 			current.setNext(newnode);
 			size++;
 		} else {
-			return;
+			throw null;
 		}
 
 	}
 
-	@Override
 	public void add(Object element) {
 		NodeSL newnode = new NodeSL(element);
 		if (head == null) {// head==null head.getData ==null
@@ -56,7 +54,6 @@ public class SinglyLinkedList implements ILinkedList {
 
 	}
 
-	@Override
 	public Object get(int index) {
 		if (this.size > index && index >= 0) {
 			int count = 0;
@@ -71,11 +68,10 @@ public class SinglyLinkedList implements ILinkedList {
 
 		else {
 
-			return null;
+			throw null;
 		}
 	}
 
-	@Override
 	public void set(int index, Object element) {
 		if (this.size > index && index >= 0) {
 			NodeSL current = head;
@@ -90,14 +86,12 @@ public class SinglyLinkedList implements ILinkedList {
 		}
 	}
 
-	@Override
 	public void clear() {
 		head.setNext(null);
 		head = null;
 
 	}
 
-	@Override
 	public boolean isEmpty() {
 
 		if (head == null)
@@ -106,7 +100,6 @@ public class SinglyLinkedList implements ILinkedList {
 		return false;
 	}
 
-	@Override
 	public void remove(int index) {
 		NodeSL v = head;
 
@@ -120,15 +113,13 @@ public class SinglyLinkedList implements ILinkedList {
 			v.setNext(v.getNext().getNext());
 			size--;
 		} else
-			return;
+			throw null;
 	}
 
-	@Override
 	public int size() {
 		return this.size;
 	}
 
-	@Override
 	public ILinkedList sublist(int fromIndex, int toIndex) {
 		SinglyLinkedList sub = new SinglyLinkedList();
 		if (this.size() > fromIndex && this.size() > toIndex && fromIndex >= 0 && toIndex >= 0 && toIndex > fromIndex) {
@@ -144,12 +135,12 @@ public class SinglyLinkedList implements ILinkedList {
 				current = current.getNext();
 				count++;
 			}
+			return sub;
 
 		}
-		return sub;
+		return null;
 	}
 
-	@Override
 	public boolean contains(Object o) {
 		NodeSL current = head;
 		if (head == null)
