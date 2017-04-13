@@ -5,10 +5,10 @@ import java.awt.Point;
 import eg.edu.alexu.csd.datastructure.linkedList.IPolynomialSolver;
 
 public class PolynomialSolver implements IPolynomialSolver {
-	DoublyLinkedList A = null;
-	DoublyLinkedList B = null;
-	DoublyLinkedList C = null;
-	DoublyLinkedList R = null;
+	DoublyLinkedList A ;
+	DoublyLinkedList B ;
+	DoublyLinkedList C ;
+	DoublyLinkedList R ;
 
 	@Override
 	public void setPolynomial(char poly, int[][] terms) {
@@ -16,11 +16,22 @@ public class PolynomialSolver implements IPolynomialSolver {
 		if (terms[0][0] == 0)
 			throw new RuntimeException();
 		if (poly == 'A')
+		{
+			A=new DoublyLinkedList();
 			setPoly(A, terms);
+		}
 		else if (poly == 'B')
+		{
+			B=new DoublyLinkedList();
 			setPoly(B, terms);
+		}
 		else if (poly == 'C')
+		{
+			C=new DoublyLinkedList();
+
+			
 			setPoly(C, terms);
+		}
 		else
 			throw new RuntimeException();
 
@@ -110,6 +121,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 	public int[][] add(char poly1, char poly2) {
 		poly1 = Character.toUpperCase(poly1);
 		poly2 = Character.toUpperCase(poly2);
+		R=new DoublyLinkedList();
 		if ((poly1 == 'A' || poly1 == 'B') && (poly2 == 'A' || poly2 == 'B')) {
 			if (A.size == 0 || B.size == 0)
 				throw new RuntimeException();
@@ -141,7 +153,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 	public int[][] subtract(char poly1, char poly2) {
 		poly1 = Character.toUpperCase(poly1);
 		poly2 = Character.toUpperCase(poly2);
-		R.clear();
+		R=new DoublyLinkedList();
 		if (poly1 == 'A') {
 			if (poly2 == 'B')
 				subtractLinked(A, B);
