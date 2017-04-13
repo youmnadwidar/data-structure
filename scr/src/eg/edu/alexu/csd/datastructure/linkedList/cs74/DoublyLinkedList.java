@@ -119,11 +119,7 @@ public class DoublyLinkedList implements ILinkedList {
 
 	@Override
 	public boolean isEmpty() {
-		if (head.getNext() == tail || size == 0)
-			return true;
-		else {
-			return false;
-		}
+		return (size==0);
 	}
 
 	@Override
@@ -165,7 +161,8 @@ public class DoublyLinkedList implements ILinkedList {
 	public ILinkedList sublist(int fromIndex, int toIndex) {
 		// TODO Auto-generated method stub
 		DoublyLinkedList sub = new DoublyLinkedList();
-		if (this.size() > fromIndex && this.size() > toIndex && toIndex >= 0 && fromIndex >= 0 && toIndex > fromIndex) {
+		if (this.size() > fromIndex && this.size() > toIndex && toIndex >= 0 && fromIndex >= 0
+				&& toIndex >= fromIndex) {
 			NodeDL current = head.getNext();
 			int count = 0;
 			while (count < fromIndex) {

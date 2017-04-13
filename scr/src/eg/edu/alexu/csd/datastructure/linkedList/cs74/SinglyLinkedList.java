@@ -95,20 +95,18 @@ public class SinglyLinkedList implements ILinkedList {
 
 	public boolean isEmpty() {
 
-		if (size == 0)
-			return true;
-
-		return false;
+		return (size==0);
 	}
 
 	public void remove(int index) {
 		NodeSL v = head;
-
-		if (this.size > index && index >= 0) {
-			if (index == 0) {
-				head = head.getNext();
-				return;
-			}
+		if (index == 0) {
+			head = head.getNext();
+			size--;
+			return;
+		}
+		if (this.size > index && index > 0) {
+			
 			for (int i = 0; i < index - 1; i++)
 				v = v.getNext();
 			v.setNext(v.getNext().getNext());
@@ -128,8 +126,9 @@ public class SinglyLinkedList implements ILinkedList {
 			NodeSL current = head;
 			int count = 0;
 			while (count < fromIndex) {
-				count++;
 				current = current.getNext();
+				count++;
+
 			}
 
 			while (count <= toIndex) {
@@ -145,8 +144,7 @@ public class SinglyLinkedList implements ILinkedList {
 
 	public boolean contains(Object o) {
 		NodeSL current = head;
-		if (size == 0)
-			return false;
+		
 		while (current != null) {
 			if (o.equals(current.getData()))
 				return true;
