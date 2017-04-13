@@ -82,7 +82,7 @@ public class SinglyLinkedList implements ILinkedList {
 			}
 			current.setData(element);
 		} else {
-			throw (null);
+			throw null;
 		}
 	}
 
@@ -139,7 +139,7 @@ public class SinglyLinkedList implements ILinkedList {
 			return sub;
 
 		}
-		return null;
+		throw null;
 	}
 
 	public boolean contains(Object o) {
