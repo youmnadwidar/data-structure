@@ -113,11 +113,12 @@ public class DoublyLinkedList implements ILinkedList {
 
 		head.setNext(tail);
 		tail.setPrev(head);
+		size=0;
 	}
 
 	@Override
 	public boolean isEmpty() {
-		if (head.getNext() == tail)
+		if (head.getNext() == tail||size==0)
 			return true;
 		else {
 			return false;
@@ -127,7 +128,7 @@ public class DoublyLinkedList implements ILinkedList {
 	@Override
 	public void remove(int index) {
 		int count;
-		if (this.size() > index) {
+		if (this.size() > index&&index>=0) {
 			NodeDL current;
 
 			if (this.size() / 2 > index) {
@@ -151,6 +152,8 @@ public class DoublyLinkedList implements ILinkedList {
 			size--;
 
 		}
+		else 
+			throw null;
 	}
 
 	@Override
