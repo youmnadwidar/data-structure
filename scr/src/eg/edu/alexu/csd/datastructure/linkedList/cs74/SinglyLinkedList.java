@@ -42,7 +42,7 @@ public class SinglyLinkedList implements ILinkedList {
 
 	public void add(Object element) {
 		NodeSL newnode = new NodeSL(element);
-		if (head == null) {// head==null head.getData ==null
+		if (head == null) {
 			head = newnode;
 		} else {
 			NodeSL current = head;
