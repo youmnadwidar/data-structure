@@ -15,7 +15,7 @@ public class SinglyLinkedList implements ILinkedList {
 
 	public void add(int index, Object element) {
 		NodeSL newnode = new NodeSL(element);
-		
+
 		if (this.size >= index && index >= 0) {
 			if (index == 0) {
 
@@ -87,15 +87,15 @@ public class SinglyLinkedList implements ILinkedList {
 	}
 
 	public void clear() {
-		head.setNext(null);
+		//head.setNext(null);
 		head = null;
-		size=0;
+		size = 0;
 
 	}
 
 	public boolean isEmpty() {
 
-		if (head == null||size==0)
+		if (size == 0)
 			return true;
 
 		return false;
