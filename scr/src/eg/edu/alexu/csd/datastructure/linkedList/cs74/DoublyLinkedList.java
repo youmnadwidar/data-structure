@@ -80,7 +80,7 @@ public class DoublyLinkedList implements ILinkedList {
 			return current.getData();
 
 		} else
-			return null;
+			throw null;
 	}
 
 	@Override
@@ -179,8 +179,10 @@ public class DoublyLinkedList implements ILinkedList {
 				current = current.getNext();
 				count++;
 			}
+			return sub;
+
 		}
-		return sub;
+		throw null;
 	}
 
 	public boolean contains(Object o) {
