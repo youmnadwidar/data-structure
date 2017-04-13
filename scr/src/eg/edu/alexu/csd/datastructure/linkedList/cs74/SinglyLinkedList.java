@@ -87,7 +87,7 @@ public class SinglyLinkedList implements ILinkedList {
 	}
 
 	public void clear() {
-		//head.setNext(null);
+		head.setNext(null);
 		head = null;
 		size = 0;
 
@@ -144,9 +144,9 @@ public class SinglyLinkedList implements ILinkedList {
 
 	public boolean contains(Object o) {
 		NodeSL current = head;
-		if (head == null)
+		if (size==0)
 			return false;
-		while (current.getNext() != null) {
+		while (current != null) {
 			if (o.equals(current.getData()))
 				return true;
 			current = current.getNext();
