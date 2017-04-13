@@ -6,8 +6,8 @@ public class NodeSL {
 
 	private NodeSL next;
 
-	public NodeSL(Object data) {
-		this.data = data;
+	public NodeSL(Object value) {
+		this.data = value;
 		this.next = null;
 	}
 
