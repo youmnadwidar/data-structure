@@ -20,7 +20,7 @@ public class DoublyLinkedList implements ILinkedList {
 		NodeDL newNode = new NodeDL(null);
 		NodeDL current = head;
 		newNode.setData(element);
-		if (this.size() >= index&&index>=0) {
+		if (this.size() >= index && index >= 0) {
 
 			int count = 0;
 			while (count < index) {
@@ -86,7 +86,7 @@ public class DoublyLinkedList implements ILinkedList {
 	@Override
 	public void set(int index, Object element) {
 		NodeDL current = null;
-		if (this.size() > index&&index>=0) {
+		if (this.size() > index && index >= 0) {
 			if (index < this.size() / 2) {
 				current = head;
 				int count = 0;
@@ -104,7 +104,7 @@ public class DoublyLinkedList implements ILinkedList {
 				}
 				current.setData(element);
 			}
-		}else 
+		} else
 			throw null;
 
 	}
@@ -114,12 +114,12 @@ public class DoublyLinkedList implements ILinkedList {
 
 		head.setNext(tail);
 		tail.setPrev(head);
-		size=0;
+		size = 0;
 	}
 
 	@Override
 	public boolean isEmpty() {
-		if (head.getNext() == tail||size==0)
+		if (head.getNext() == tail || size == 0)
 			return true;
 		else {
 			return false;
@@ -129,7 +129,7 @@ public class DoublyLinkedList implements ILinkedList {
 	@Override
 	public void remove(int index) {
 		int count;
-		if (this.size() > index&&index>=0) {
+		if (this.size() > index && index >= 0) {
 			NodeDL current;
 
 			if (this.size() / 2 > index) {
@@ -152,8 +152,7 @@ public class DoublyLinkedList implements ILinkedList {
 			current = null;
 			size--;
 
-		}
-		else 
+		} else
 			throw null;
 	}
 

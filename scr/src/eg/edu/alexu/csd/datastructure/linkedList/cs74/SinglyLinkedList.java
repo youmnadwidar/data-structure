@@ -144,7 +144,7 @@ public class SinglyLinkedList implements ILinkedList {
 
 	public boolean contains(Object o) {
 		NodeSL current = head;
-		if (size==0)
+		if (size == 0)
 			return false;
 		while (current != null) {
 			if (o.equals(current.getData()))
