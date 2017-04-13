@@ -123,7 +123,8 @@ public class SinglyLinkedList implements ILinkedList {
 
 	public ILinkedList sublist(int fromIndex, int toIndex) {
 		SinglyLinkedList sub = new SinglyLinkedList();
-		if (this.size() > fromIndex && this.size() > toIndex && fromIndex >= 0 && toIndex >= 0 && toIndex > fromIndex) {
+		if (this.size() > fromIndex && this.size() > toIndex && fromIndex >= 0 && toIndex >= 0
+				&& toIndex >= fromIndex) {
 			NodeSL current = head;
 			int count = 0;
 			while (count < fromIndex) {
