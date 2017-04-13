@@ -11,26 +11,26 @@ public class NodeSL {
 		this.next = null;
 	}
 
-	public NodeSL(Object data, NodeSL next) {
+	public NodeSL(Object value, NodeSL after) {
 
-		this.data = data;
-		this.next = next;
+		this.data = value;
+		this.next = after;
 	}
 
 	public Object getData() {
 		return data;
 	}
 
-	public void setData(Object data) {
-		this.data = data;
+	public void setData(Object value) {
+		this.data = value;
 	}
 
 	public NodeSL getNext() {
 		return next;
 	}
 
-	public void setNext(NodeSL next) {
-		this.next = next;
+	public void setNext(NodeSL after) {
+		this.next = after;
 	}
 
 }
