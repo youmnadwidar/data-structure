@@ -6,43 +6,43 @@ public class NodeDL {
 	private NodeDL next;
 	private NodeDL prev;
 
-	public NodeDL(Object data) {
-		this.data = data;
+	public NodeDL(Object value) {
+		this.data = value;
 		this.next = null;
 
 		this.prev = null;
 
 	}
 
-	public NodeDL(Object data, NodeDL next, NodeDL prev) {
+	public NodeDL(Object value, NodeDL after, NodeDL before) {
 		super();
-		this.data = data;
-		this.next = next;
-		this.prev = prev;
+		this.data = value;
+		this.next = after;
+		this.prev = before;
 	}
 
 	public Object getData() {
 		return data;
 	}
 
-	public void setData(Object data) {
-		this.data = data;
+	public void setData(Object value) {
+		this.data = value;
 	}
 
 	public NodeDL getNext() {
 		return next;
 	}
 
-	public void setNext(NodeDL next) {
-		this.next = next;
+	public void setNext(NodeDL after) {
+		this.next = after;
 	}
 
 	public NodeDL getPrev() {
 		return prev;
 	}
 
-	public void setPrev(NodeDL prev) {
-		this.prev = prev;
+	public void setPrev(NodeDL before) {
+		this.prev = before;
 	}
 
 }
