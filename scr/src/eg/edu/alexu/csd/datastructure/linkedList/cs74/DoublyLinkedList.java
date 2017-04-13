@@ -20,7 +20,7 @@ public class DoublyLinkedList implements ILinkedList {
 		NodeDL newNode = new NodeDL(null);
 		NodeDL current = head;
 		newNode.setData(element);
-		if (this.size() > index&&index>=0) {
+		if (this.size() >= index&&index>=0) {
 
 			int count = 0;
 			while (count < index) {
