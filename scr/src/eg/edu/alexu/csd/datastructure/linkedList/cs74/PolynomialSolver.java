@@ -137,8 +137,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 				throw new RuntimeException();
 
 			}
-		}
-		else if (poly1 == 'B') {
+		} else if (poly1 == 'B') {
 			switch (poly2) {
 			case 'A':
 				addLinked(B, A);
@@ -156,8 +155,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 				throw new RuntimeException();
 
 			}
-		}
-		else if (poly1 == 'C') {
+		} else if (poly1 == 'C') {
 			switch (poly2) {
 			case 'A':
 				addLinked(C, A);
@@ -175,9 +173,8 @@ public class PolynomialSolver implements IPolynomialSolver {
 				throw new RuntimeException();
 
 			}
-		}
-			else 
-				throw new RuntimeException();
+		} else
+			throw new RuntimeException();
 		NodeDL current = R.head.getNext();
 		int[][] resultArray = new int[R.size][2];
 		for (int i = 0; i < resultArray.length; i++) {
@@ -214,8 +211,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 				throw new RuntimeException();
 
 			}
-		}
-		else if (poly1 == 'B') {
+		} else if (poly1 == 'B') {
 			switch (poly2) {
 			case 'A':
 				subtractLinked(B, A);
@@ -233,8 +229,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 				throw new RuntimeException();
 
 			}
-		}
-		else if (poly1 == 'C') {
+		} else if (poly1 == 'C') {
 			switch (poly2) {
 			case 'A':
 				subtractLinked(C, A);
@@ -252,9 +247,8 @@ public class PolynomialSolver implements IPolynomialSolver {
 				throw new RuntimeException();
 
 			}
-		
-		}
-		else 
+
+		} else
 			throw new RuntimeException();
 		NodeDL current = R.head.getNext();
 		int[][] resaultArray = new int[R.size][2];
@@ -343,7 +337,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 
 				temp1 = temp1.getNext();
 			} else if (point1.y < point2.y) {
-				point3.x = 0-point2.x;
+				point3.x = 0 - point2.x;
 				point3.y = point2.y;
 				temp2 = temp2.getNext();
 			}
@@ -389,7 +383,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 			Point point = new Point(0, 0);
 			point = (Point) node.getData();
 			if (node.getPrev() != list.head && point.x > 0)
-				polyy += " + ";
+				polyy += "+";
 
 			if (point.x != 0) {
 				polyy += "" + point.x;
