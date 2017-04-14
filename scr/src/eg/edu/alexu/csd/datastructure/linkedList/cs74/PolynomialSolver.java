@@ -23,7 +23,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 
 
 		default:
-			throw new RuntimeException();
+			return false;
 		}
 	}
 
