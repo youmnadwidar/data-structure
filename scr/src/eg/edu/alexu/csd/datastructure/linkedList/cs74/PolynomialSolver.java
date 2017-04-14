@@ -13,7 +13,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 	@Override
 	public void setPolynomial(char poly, int[][] terms) {
 		poly = Character.toUpperCase(poly);
-		
+
 		if (poly == 'A') {
 			A = new DoublyLinkedList();
 			A.clear();
@@ -44,10 +44,9 @@ public class PolynomialSolver implements IPolynomialSolver {
 
 		else if (poly == 'C' && C != null && !C.isEmpty())
 			return printPoly(C, newNode);
-		else if (poly == 'R' && R != null&& !R.isEmpty())
+		else if (poly == 'R' && R != null && !R.isEmpty())
 			return printPoly(R, newNode);
-throw new RuntimeException();
-	//	return null;
+		return null;
 	}
 
 	@Override
