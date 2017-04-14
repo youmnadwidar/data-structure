@@ -52,19 +52,18 @@ public class PolynomialSolver implements IPolynomialSolver {
 	public String print(char poly) {
 		poly = Character.toUpperCase(poly);
 		NodeDL newNode = null;
-		if(this.isSet(poly)){
-		if (poly == 'A'&& !A.isEmpty())
+		
+		if (poly == 'A' && A != null && !A.isEmpty())
 			return printPoly(A, newNode);
 
-		else if (poly == 'B'&& !B.isEmpty())
+		else if (poly == 'B' && B != null && !B.isEmpty())
 			return printPoly(B, newNode);
 
-		else if (poly == 'C'  && !C.isEmpty())
+		else if (poly == 'C' && C != null && !C.isEmpty())
 			return printPoly(C, newNode);
-		else if (poly == 'R' && !R.isEmpty())
+		else if (poly == 'R' && R != null && !R.isEmpty())
 			return printPoly(R, newNode);
-		}
-		throw null;
+		return null;
 	}
 
 	@Override
