@@ -6,9 +6,9 @@ import java.awt.Point;
 import eg.edu.alexu.csd.datastructure.linkedList.IPolynomialSolver;
 
 public class PolynomialSolver implements IPolynomialSolver {
-	DoublyLinkedList A = new DoublyLinkedList();
-	DoublyLinkedList B = new DoublyLinkedList();
-	DoublyLinkedList C = new DoublyLinkedList();
+	DoublyLinkedList A =null;
+	DoublyLinkedList B = null;
+	DoublyLinkedList C = null;
 	DoublyLinkedList R = null;
 
 	@Override
@@ -17,11 +17,13 @@ public class PolynomialSolver implements IPolynomialSolver {
 		if (terms[0][0] == 0)
 			throw new RuntimeException();
 		if (poly == 'A') {
+			A = new DoublyLinkedList();
 			setPoly(A, terms);
 		} else if (poly == 'B') {
-
+			B = new DoublyLinkedList();
 			setPoly(B, terms);
 		} else if (poly == 'C') {
+			C = new DoublyLinkedList();
 			setPoly(C, terms);
 		} else
 			throw new RuntimeException();
@@ -223,7 +225,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 	}
 
 	public void addLinked(DoublyLinkedList list1, DoublyLinkedList list2) {
-		if(list1.size==0||list2.size==0)
+		if(list1==null||list2==null)
 			throw new RuntimeException();
 		NodeDL temp1 = list1.head.getNext(), temp2 = list2.head.getNext();
 
