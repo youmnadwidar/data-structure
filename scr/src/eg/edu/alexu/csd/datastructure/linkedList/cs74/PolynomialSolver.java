@@ -41,15 +41,15 @@ public class PolynomialSolver implements IPolynomialSolver {
 	public String print(char poly) {
 		poly = Character.toUpperCase(poly);
 		NodeDL newNode=null;;
-		if (poly == 'A') 
+		if (poly == 'A'&&A!=null) 
 			return printPoly(A, newNode);
 
-		else if (poly == 'B') 
+		else if (poly == 'B'&&B!=null) 
 			return printPoly(B, newNode);
 
-		else if (poly == 'C') 
+		else if (poly == 'C'&&C!=null) 
 			return printPoly(C, newNode);
-		 else if (poly == 'R') 
+		 else if (poly == 'R'&&R!=null) 
 			 return printPoly(R, newNode);
 
 		throw null;
@@ -76,7 +76,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 		int answer = 0;
 		NodeDL newNode;
 
-		if (poly == 'A' && !A.isEmpty()) {
+		if (poly == 'A' && A!=null) {
 
 			newNode = A.head.getNext();
 			while (newNode != A.tail) {
@@ -87,7 +87,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 				newNode = newNode.getNext();
 			}
 			return answer;
-		} else if (poly == 'B' && !B.isEmpty()) {
+		} else if (poly == 'B' && B!=null) {
 
 			newNode = B.head.getNext();
 			while (newNode != B.tail) {
@@ -100,7 +100,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 			return answer;
 		}
 
-		else if (poly == 'C' && !C.isEmpty()) {
+		else if (poly == 'C' &&C!=null) {
 
 			newNode = C.head.getNext();
 			while (newNode != C.tail) {
