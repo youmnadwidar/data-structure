@@ -414,23 +414,23 @@ public class PolynomialSolver implements IPolynomialSolver {
 			Point point3 = new Point(0, 0);
 
 			if (point1.y == point2.y) {
-				point3.x += point1.x - point2.x;
+				point3.x = point1.x - point2.x;
 				point3.y = point1.y;
 				temp1 = temp1.getNext();
 				temp2 = temp2.getNext();
 
 			} else if (point1.y > point2.y) {
-				point3.x += point1.x;
+				point3.x = point1.x;
 				point3.y = point1.y;
 				temp1 = temp1.getNext();
 
 			} else if (point1.y < point2.y) {
 				if (point2.x == 1)
-					point3.x += -1;
+					point3.x = -1;
 				else if (point2.x == -1)
-					point3.x += 1;
+					point3.x = 1;
 				else
-					point3.x += -point2.x;
+					point3.x = -point2.x;
 				point3.y = point2.y;
 				temp2 = temp2.getNext();
 			}
