@@ -115,7 +115,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 	public int[][] add(char poly1, char poly2) {
 		poly1 = Character.toUpperCase(poly1);
 		poly2 = Character.toUpperCase(poly2);
-		R = new DoublyLinkedList();
+		R.clear();
 		if ((poly1 == 'A' || poly1 == 'B') && (poly2 == 'A' || poly2 == 'B')) {
 			if (A == null || B == null)
 				throw new RuntimeException();
@@ -264,7 +264,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 	}
 
 	public void subtractLinked(DoublyLinkedList list1, DoublyLinkedList list2) {
-		R = new DoublyLinkedList();
+		R.clear();
 		if (list1.size == 0 || list2.size == 0)
 			throw new RuntimeException();
 		NodeDL temp1;
