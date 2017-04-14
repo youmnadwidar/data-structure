@@ -17,15 +17,13 @@ public class DoublyLinkedList implements ILinkedList {
 
 	@Override
 	public void add(int index, Object element) {
-		NodeDL newNode = new NodeDL(null);
+		NodeDL newNode = new NodeDL(element);
 		NodeDL current = head;
-		newNode.setData(element);
 		if (this.size() >= index && index >= 0) {
 
 			int count = 0;
 			while (count < index) {
-
-				current = current.getNext();
+         	current = current.getNext();
 				count++;
 			}
 			newNode.setPrev(current);
@@ -41,9 +39,8 @@ public class DoublyLinkedList implements ILinkedList {
 
 	@Override
 	public void add(Object element) {
-		NodeDL newNode = new NodeDL(null);
+		NodeDL newNode = new NodeDL(element);
 		NodeDL current = head;
-		newNode.setData(element);
 
 		while (current.getNext() != tail)
 			current = current.getNext();
