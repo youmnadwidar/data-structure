@@ -122,17 +122,17 @@ public class PolynomialSolver implements IPolynomialSolver {
 		poly2 = Character.toUpperCase(poly2);
 		if ((poly1 == 'A' || poly1 == 'B') && (poly2 == 'A' || poly2 == 'B')) {
 			if (A == null || B== null)
-				throw new RuntimeException();
+				return null;
 			addLinked(A, B);
 		}
 		if ((poly1 == 'A' || poly1 == 'C') && (poly2 == 'C' || poly2 == 'A')) {
 			if (A == null || C== null)
-				throw new RuntimeException();
+				return null;
 			addLinked(A, C);
 		}
 		if ((poly1 == 'B' || poly1 == 'C') && (poly2 == 'C' || poly2 == 'B')) {
 			if (B == null || C == null)
-				throw new RuntimeException();
+				return null;
 			addLinked(B, C);
 		}
 		NodeDL current = R.head.getNext();
