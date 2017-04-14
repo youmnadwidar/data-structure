@@ -230,7 +230,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 	}
 
 	public void addLinked(DoublyLinkedList list1, DoublyLinkedList list2) {
-		if (list1 == null || list2 == null)
+		if (list1.size == 0 || list2.size == 0 || list1 == null || list2 == null)
 			throw new RuntimeException();
 		NodeDL temp1 = list1.head.getNext(), temp2 = list2.head.getNext();
 
