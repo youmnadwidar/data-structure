@@ -95,7 +95,7 @@ public class SinglyLinkedList implements ILinkedList {
 
 	public boolean isEmpty() {
 
-		return (size==0);
+		return (size == 0);
 	}
 
 	public void remove(int index) {
@@ -106,7 +106,7 @@ public class SinglyLinkedList implements ILinkedList {
 			return;
 		}
 		if (this.size > index && index > 0) {
-			
+
 			for (int i = 0; i < index - 1; i++)
 				v = v.getNext();
 			v.setNext(v.getNext().getNext());
@@ -144,7 +144,7 @@ public class SinglyLinkedList implements ILinkedList {
 
 	public boolean contains(Object o) {
 		NodeSL current = head;
-		
+
 		while (current != null) {
 			if (o.equals(current.getData()))
 				return true;

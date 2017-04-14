@@ -77,9 +77,9 @@ public class DoublyLinkedList implements ILinkedList {
 					count--;
 				}
 			}
-			if (current.getData()==null||current==null)
+			if (current.getData() == null || current == null)
 				throw new RuntimeException();
-			
+
 			return current.getData();
 
 		} else
@@ -122,7 +122,7 @@ public class DoublyLinkedList implements ILinkedList {
 
 	@Override
 	public boolean isEmpty() {
-		return (size==0);
+		return (size == 0);
 	}
 
 	@Override
