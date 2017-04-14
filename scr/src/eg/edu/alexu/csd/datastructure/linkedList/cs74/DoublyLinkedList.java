@@ -78,7 +78,7 @@ public class DoublyLinkedList implements ILinkedList {
 				}
 			}
 			if (current.getData()==null||current==null)
-				throw new RuntimeException("akram");
+				throw new RuntimeException();
 			
 			return current.getData();
 
