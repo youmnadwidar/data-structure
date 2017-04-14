@@ -54,11 +54,18 @@ public class PolynomialSolver implements IPolynomialSolver {
 		poly = Character.toUpperCase(poly);
 
 		if (poly == 'A' && A != null)
+		{
 			A.clear();
-		else if (poly == 'B' && B != null)
+			A=null;
+		}
+		else if (poly == 'B' && B != null){
 			B.clear();
-		else if (poly == 'C' && C != null)
+			B=null;
+		}
+		else if (poly == 'C' && C != null){
 			C.clear();
+			C=null;
+		}
 		else
 			throw new RuntimeException();
 
