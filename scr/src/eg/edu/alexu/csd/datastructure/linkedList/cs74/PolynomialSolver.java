@@ -171,7 +171,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 
 			}
 		}
-		if (poly1 == 'B') {
+		else if (poly1 == 'B') {
 			switch (poly2) {
 			case 'A':
 				subtractLinked(B, A);
@@ -190,7 +190,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 
 			}
 		}
-		if (poly1 == 'C') {
+		else if (poly1 == 'C') {
 			switch (poly2) {
 			case 'A':
 				subtractLinked(C, A);
@@ -208,7 +208,10 @@ public class PolynomialSolver implements IPolynomialSolver {
 				throw new RuntimeException();
 
 			}
+		
 		}
+		else 
+			throw new RuntimeException();
 		NodeDL current = R.head.getNext();
 		int[][] resaultArray = new int[R.size][2];
 		for (int i = 0; i < resaultArray.length; i++) {
