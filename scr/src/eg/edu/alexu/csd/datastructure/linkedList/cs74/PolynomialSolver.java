@@ -64,6 +64,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 		else if (poly == 'R' && R != null && !R.isEmpty())
 			return printPoly(R, newNode);
 		return null;
+		
 	}
 
 	@Override
@@ -214,11 +215,12 @@ public class PolynomialSolver implements IPolynomialSolver {
 		R.clear();
 		if (!isSet(poly1) ||!isSet(poly2))
 			throw new RuntimeException();
+		if(poly1==poly2){
+			int [][] ans ={{0,0}};
+			return ans;
+		}
 		if (poly1 == 'A') {
 			switch (poly2) {
-			case 'A':
-				subtractLinked(A, A);
-				break;
 
 			case 'B':
 				subtractLinked(A, B);
@@ -238,10 +240,6 @@ public class PolynomialSolver implements IPolynomialSolver {
 				subtractLinked(B, A);
 				break;
 
-			case 'B':
-				subtractLinked(B, B);
-				break;
-
 			case 'C':
 				subtractLinked(B, C);
 				break;
@@ -258,10 +256,6 @@ public class PolynomialSolver implements IPolynomialSolver {
 
 			case 'B':
 				subtractLinked(C, B);
-				break;
-
-			case 'C':
-				subtractLinked(C, C);
 				break;
 
 			default:
