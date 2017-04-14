@@ -79,8 +79,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 		} else if (poly == 'C' && C != null) {
 			C.clear();
 			C = null;
-		} else
-			throw new RuntimeException();
+		} 
 
 	}
 
