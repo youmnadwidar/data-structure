@@ -53,15 +53,15 @@ public class PolynomialSolver implements IPolynomialSolver {
 		poly = Character.toUpperCase(poly);
 		NodeDL newNode = null;
 		if(this.isSet(poly)){
-		if (poly == 'A')
+		if (poly == 'A'&& !A.isEmpty())
 			return printPoly(A, newNode);
 
-		else if (poly == 'B')
+		else if (poly == 'B'&& !B.isEmpty())
 			return printPoly(B, newNode);
 
-		else if (poly == 'C')
+		else if (poly == 'C'  && !C.isEmpty())
 			return printPoly(C, newNode);
-		else if (poly == 'R' )
+		else if (poly == 'R' && !R.isEmpty())
 			return printPoly(R, newNode);
 		}
 		return null;
