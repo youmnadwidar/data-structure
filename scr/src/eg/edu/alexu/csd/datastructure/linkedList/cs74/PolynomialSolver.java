@@ -137,6 +137,8 @@ public class PolynomialSolver implements IPolynomialSolver {
 		poly2 = Character.toUpperCase(poly2);
 		R = new DoublyLinkedList();
 		R.clear();
+		if (!isSet(poly1) ||isSet(poly2))
+			throw new RuntimeException();
 		if (poly1 == 'A') {
 			switch (poly2) {
 			case 'A':
