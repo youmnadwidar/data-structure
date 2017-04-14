@@ -5,10 +5,10 @@ import java.awt.Point;
 import eg.edu.alexu.csd.datastructure.linkedList.IPolynomialSolver;
 
 public class PolynomialSolver implements IPolynomialSolver {
-	DoublyLinkedList A ;
-	DoublyLinkedList B ;
-	DoublyLinkedList C ;
-	DoublyLinkedList R ;
+	DoublyLinkedList A =null ;
+	DoublyLinkedList B =null;
+	DoublyLinkedList C =null;
+	DoublyLinkedList R =null;
 
 	@Override
 	public void setPolynomial(char poly, int[][] terms) {
