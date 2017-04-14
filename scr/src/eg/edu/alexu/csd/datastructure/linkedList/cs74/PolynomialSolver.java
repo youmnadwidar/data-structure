@@ -214,8 +214,8 @@ public class PolynomialSolver implements IPolynomialSolver {
 		R.clear();
 		if (!isSet(poly1) || !isSet(poly2))
 			throw new RuntimeException();
-		if(poly1==poly2){
-			int [][] ans ={{0,0}};
+		if (poly1 == poly2) {
+			int[][] ans = { { 0, 0 } };
 			return ans;
 		}
 		if (poly1 == 'A') {
@@ -256,7 +256,6 @@ public class PolynomialSolver implements IPolynomialSolver {
 				subtractLinked(C, B);
 				break;
 
-			
 			default:
 				throw new RuntimeException();
 
@@ -274,11 +273,10 @@ public class PolynomialSolver implements IPolynomialSolver {
 			current = current.getNext();
 
 		}
-		if (resaultArray[0][1]==-1)
-			resaultArray[0][1]=1;
+		if (resaultArray[0][1] == -1)
+			resaultArray[0][1] = 1;
 		return resaultArray;
-		}
-	
+	}
 
 	@Override
 	public int[][] multiply(char poly1, char poly2) {
@@ -408,13 +406,13 @@ public class PolynomialSolver implements IPolynomialSolver {
 		NodeDL temp2;
 		temp1 = list1.head.getNext();
 		temp2 = list2.head.getNext();
-		
+
 		while (temp1 != list1.tail && temp2 != list2.tail) {
 			Point point1 = new Point(0, 0);
 			Point point2 = new Point(0, 0);
 			point1 = (Point) temp1.getData();
 			point2 = (Point) temp2.getData();
-			Point point3 = new Point(0,0);
+			Point point3 = new Point(0, 0);
 
 			if (point1.y == point2.y) {
 				point3.x += point1.x - point2.x;
@@ -426,14 +424,14 @@ public class PolynomialSolver implements IPolynomialSolver {
 				point3.x += point1.x;
 				point3.y = point1.y;
 				temp1 = temp1.getNext();
-				
+
 			} else if (point1.y < point2.y) {
-				if(point2.x==1)
-					point3.x+=-1;
-				else if(point2.x==-1)
-					point3.x+=1;
+				if (point2.x == 1)
+					point3.x += -1;
+				else if (point2.x == -1)
+					point3.x += 1;
 				else
-					point3.x += - point2.x;
+					point3.x += -point2.x;
 				point3.y = point2.y;
 				temp2 = temp2.getNext();
 			}
@@ -446,9 +444,9 @@ public class PolynomialSolver implements IPolynomialSolver {
 			temp1 = temp1.getNext();
 		}
 		while (temp2 != list2.tail) {
-			Point point =new Point(0, 0);
-			point=(Point) temp2.getData();
-			point.x=-point.x;
+			Point point = new Point(0, 0);
+			point = (Point) temp2.getData();
+			point.x = -point.x;
 			R.add(temp2.getData());
 			temp2 = temp2.getNext();
 		}
