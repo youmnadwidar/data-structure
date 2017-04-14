@@ -64,7 +64,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 		else if (poly == 'R' && !R.isEmpty())
 			return printPoly(R, newNode);
 		}
-		return null;
+		throw null;
 	}
 
 	@Override
