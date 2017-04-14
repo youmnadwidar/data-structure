@@ -22,7 +22,8 @@ public class PolynomialSolver implements IPolynomialSolver {
 			return !(C == null);
 
 
-		default:throw new RuntimeException();
+		default:
+			throw new RuntimeException();
 		}
 	}
 
@@ -51,17 +52,18 @@ public class PolynomialSolver implements IPolynomialSolver {
 	public String print(char poly) {
 		poly = Character.toUpperCase(poly);
 		NodeDL newNode = null;
-		;
-		if (poly == 'A' && A != null && !A.isEmpty())
+		if(this.isSet(poly)){
+		if (poly == 'A')
 			return printPoly(A, newNode);
 
-		else if (poly == 'B' && B != null && !B.isEmpty())
+		else if (poly == 'B')
 			return printPoly(B, newNode);
 
-		else if (poly == 'C' && C != null && !C.isEmpty())
+		else if (poly == 'C')
 			return printPoly(C, newNode);
-		else if (poly == 'R' && R != null && !R.isEmpty())
+		else if (poly == 'R' )
 			return printPoly(R, newNode);
+		}
 		return null;
 	}
 
