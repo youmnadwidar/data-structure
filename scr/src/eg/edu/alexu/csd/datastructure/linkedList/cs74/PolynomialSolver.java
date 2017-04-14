@@ -48,7 +48,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 
 		else if (poly == 'C'&& C!=null) 
 			return printPoly(C, newNode);
-		 else if (poly == 'R') 
+		 else if (poly == 'R'&&R!=null) 
 			 return printPoly(R, newNode);
 
 		throw null;
