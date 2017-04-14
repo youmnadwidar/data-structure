@@ -13,8 +13,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 	@Override
 	public void setPolynomial(char poly, int[][] terms) {
 		poly = Character.toUpperCase(poly);
-		if (terms[0][1] == 0)
-			throw new RuntimeException();
+		
 		if (poly == 'A') {
 			A = new DoublyLinkedList();
 			A.clear();
