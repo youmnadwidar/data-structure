@@ -10,6 +10,22 @@ public class PolynomialSolver implements IPolynomialSolver {
 	DoublyLinkedList C = null;
 	DoublyLinkedList R = null;
 
+	public boolean Set(char poly) {
+		switch (poly) {
+		case 'A':
+			return !(A == null);
+
+		case 'B':
+			return !(B == null);
+
+		case 'C':
+			return !(C == null);
+
+
+		default:throw null;
+		}
+	}
+
 	@Override
 	public void setPolynomial(char poly, int[][] terms) {
 		poly = Character.toUpperCase(poly);
@@ -30,13 +46,15 @@ public class PolynomialSolver implements IPolynomialSolver {
 			throw new RuntimeException();
 
 	}
+	
 
 	@Override
 	public String print(char poly) {
 		poly = Character.toUpperCase(poly);
 		NodeDL newNode = null;
 		;
-		if (poly == 'A' && A != null && !A.isEmpty())
+		if(this.Set(poly)){
+		if (poly == 'A'  )
 			return printPoly(A, newNode);
 
 		else if (poly == 'B' && B != null && !B.isEmpty())
@@ -46,27 +64,27 @@ public class PolynomialSolver implements IPolynomialSolver {
 			return printPoly(C, newNode);
 		else if (poly == 'R' && R != null && !R.isEmpty())
 			return printPoly(R, newNode);
+		}
 		return null;
 	}
 
 	@Override
 	public void clearPolynomial(char poly) {
 		poly = Character.toUpperCase(poly);
-
-		if (poly == 'A' && A != null)
-		{
+if(this.Set(poly)){
+		if (poly == 'A' ) {
 			A.clear();
-			A=null;
-		}
-		else if (poly == 'B' && B != null){
+			A = null;
+		} else if (poly == 'B' ) {
 			B.clear();
-			B=null;
-		}
-		else if (poly == 'C' && C != null){
+			B = null;
+		} else if (poly == 'C') {
 			C.clear();
-			C=null;
-		}
-		else
+			C = null;
+		} else 
+			throw new RuntimeException();
+
+        }else
 			throw new RuntimeException();
 
 	}
@@ -76,8 +94,8 @@ public class PolynomialSolver implements IPolynomialSolver {
 		poly = Character.toUpperCase(poly);
 		int answer = 0;
 		NodeDL newNode;
-
-		if (poly == 'A' && A != null && !A.isEmpty()) {
+if (this.Set(poly)){
+		if (poly == 'A' ) {
 
 			newNode = A.head.getNext();
 			while (newNode != A.tail) {
@@ -88,7 +106,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 				newNode = newNode.getNext();
 			}
 			return answer;
-		} else if (poly == 'B' && B != null && !B.isEmpty()) {
+		} else if (poly == 'B' ) {
 
 			newNode = B.head.getNext();
 			while (newNode != B.tail) {
@@ -101,7 +119,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 			return answer;
 		}
 
-		else if (poly == 'C' && C != null && !C.isEmpty()) {
+		else if (poly == 'C') {
 
 			newNode = C.head.getNext();
 			while (newNode != C.tail) {
@@ -113,7 +131,10 @@ public class PolynomialSolver implements IPolynomialSolver {
 			}
 			return answer;
 		}
+		else 
+			throw new RuntimeException();
 
+}
 		else
 			throw new RuntimeException();
 	}
