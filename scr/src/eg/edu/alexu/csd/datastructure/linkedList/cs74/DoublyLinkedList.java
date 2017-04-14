@@ -1,4 +1,4 @@
-package eg.edu.alexu.csd.datastructure.linkedList.cs74;
+package eg.edu.alexu.csd.datastructure.linkedList.cs14;
 
 import eg.edu.alexu.csd.datastructure.linkedList.ILinkedList;
 
@@ -17,13 +17,15 @@ public class DoublyLinkedList implements ILinkedList {
 
 	@Override
 	public void add(int index, Object element) {
-		NodeDL newNode = new NodeDL(element);
+		NodeDL newNode = new NodeDL(null);
 		NodeDL current = head;
+		newNode.setData(element);
 		if (this.size() >= index && index >= 0) {
 
 			int count = 0;
 			while (count < index) {
-         	current = current.getNext();
+
+				current = current.getNext();
 				count++;
 			}
 			newNode.setPrev(current);
@@ -39,8 +41,9 @@ public class DoublyLinkedList implements ILinkedList {
 
 	@Override
 	public void add(Object element) {
-		NodeDL newNode = new NodeDL(element);
+		NodeDL newNode = new NodeDL(null);
 		NodeDL current = head;
+		newNode.setData(element);
 
 		while (current.getNext() != tail)
 			current = current.getNext();
@@ -74,6 +77,9 @@ public class DoublyLinkedList implements ILinkedList {
 					count--;
 				}
 			}
+			if (current.getData()==null||current==null)
+				throw new RuntimeException("akram");
+			
 			return current.getData();
 
 		} else
@@ -109,8 +115,8 @@ public class DoublyLinkedList implements ILinkedList {
 	@Override
 	public void clear() {
 
-		head.setNext(tail);
-		tail.setPrev(head);
+		this.head.setNext(this.tail);
+		this.tail.setPrev(this.head);
 		size = 0;
 	}
 
