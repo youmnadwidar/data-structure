@@ -3,11 +3,11 @@ package eg.edu.alexu.csd.datastructure.linkedList.cs74;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class DoubleTester {
+public class SingleTester {
 
 	@Test
 	public void testGet() {
-		DoublyLinkedList test = new DoublyLinkedList();
+		SinglyLinkedList test = new SinglyLinkedList();
 		test.add(12);
 		test.add(8);
 		test.add(7);
@@ -19,7 +19,7 @@ public class DoubleTester {
 	@Test(expected = NullPointerException.class)
 	public void testBiggerThanSize() {
 
-		DoublyLinkedList test = new DoublyLinkedList();
+		SinglyLinkedList test = new SinglyLinkedList();
 		test.add(8);
 		test.add(1);
 		test.add(2);
@@ -30,7 +30,7 @@ public class DoubleTester {
 	@Test(expected = NullPointerException.class)
 	public void testAddNegativeindex() {
 
-		DoublyLinkedList test = new DoublyLinkedList();
+		SinglyLinkedList test = new SinglyLinkedList();
 		test.add(8);
 		test.add(1);
 		test.add(2);
@@ -40,7 +40,7 @@ public class DoubleTester {
 
 	@Test
 	public void testGetAndSize() {
-		DoublyLinkedList test = new DoublyLinkedList();
+		SinglyLinkedList test = new SinglyLinkedList();
 		test.add(0);
 		test.add(1);
 		test.add(3);
@@ -56,10 +56,10 @@ public class DoubleTester {
 
 	}
 
-	@Test(expected = RuntimeException.class)
+	@Test(expected = NullPointerException.class)
 	public void testGetNegativeIndex() {
 
-		DoublyLinkedList test = new DoublyLinkedList();
+		SinglyLinkedList test = new SinglyLinkedList();
 		test.add(8);
 		test.add(1);
 		test.add(2);
@@ -70,7 +70,7 @@ public class DoubleTester {
 	@Test
 	public void testset() {
 
-		DoublyLinkedList test = new DoublyLinkedList();
+		SinglyLinkedList test = new SinglyLinkedList();
 		test.add(8);
 		test.add(1);
 		test.add(2);
@@ -84,7 +84,7 @@ public class DoubleTester {
 	@Test(expected = NullPointerException.class)
 	public void testSetOutOfBounds() {
 
-		DoublyLinkedList test = new DoublyLinkedList();
+		SinglyLinkedList test = new SinglyLinkedList();
 		test.add(8);
 		test.add(1);
 		test.add(2);
@@ -95,13 +95,13 @@ public class DoubleTester {
 
 	@Test
 	public void testClearAndIsEmpty() {
-		DoublyLinkedList test = new DoublyLinkedList();
+		SinglyLinkedList test = new SinglyLinkedList();
 		test.add(0);
 		test.add(1);
 		test.add(3);
 		Assert.assertEquals(3, test.size);
 		test.clear();
-		Assert.assertEquals(test.tail, test.head.getNext());
+		Assert.assertEquals(null, test.head);
 		Assert.assertEquals(true, test.isEmpty());
 		Assert.assertEquals(0, test.size);
 
@@ -109,7 +109,7 @@ public class DoubleTester {
 
 	@Test
 	public void testRemoveHead() {
-		DoublyLinkedList test = new DoublyLinkedList();
+		SinglyLinkedList test = new SinglyLinkedList();
 		test.add(0);
 		test.add(1);
 		test.add(3);
@@ -120,7 +120,7 @@ public class DoubleTester {
 
 	@Test(expected = NullPointerException.class)
 	public void testRemoveLast() {
-		DoublyLinkedList test = new DoublyLinkedList();
+		SinglyLinkedList test = new SinglyLinkedList();
 		test.add(0);
 		test.add(1);
 		test.add(3);
@@ -128,11 +128,12 @@ public class DoubleTester {
 		Assert.assertEquals(3, test.get(2));
 		Assert.assertEquals(2, test.size());
 
+
 	}
 
 	@Test
 	public void testRemoveMiddle() {
-		DoublyLinkedList test = new DoublyLinkedList();
+		SinglyLinkedList test = new SinglyLinkedList();
 		test.add(0);
 		test.add(1);
 		test.add(3);
@@ -140,11 +141,12 @@ public class DoubleTester {
 		Assert.assertEquals(3, test.get(1));
 		Assert.assertEquals(2, test.size());
 
+
 	}
 
 	@Test(expected = NullPointerException.class)
 	public void testRemoveOut() {
-		DoublyLinkedList test = new DoublyLinkedList();
+		SinglyLinkedList test = new SinglyLinkedList();
 		test.add(0);
 		test.add(1);
 		test.add(3);
@@ -155,7 +157,7 @@ public class DoubleTester {
 
 	@Test
 	public void testContains() {
-		DoublyLinkedList test = new DoublyLinkedList();
+		SinglyLinkedList test = new SinglyLinkedList();
 		test.add(0);
 		test.add(1);
 		test.add(3);
@@ -168,7 +170,7 @@ public class DoubleTester {
 
 	@Test
 	public void testSubList() {
-		DoublyLinkedList test = new DoublyLinkedList();
+		SinglyLinkedList test = new SinglyLinkedList();
 		test.add(20);
 		test.add(1);
 		test.add(3);
@@ -179,15 +181,12 @@ public class DoubleTester {
 		Assert.assertEquals(20, test.sublist(0, 0).get(0));
 		Assert.assertEquals(6, test.sublist(4, 4).get(0));
 		Assert.assertEquals(3, test.sublist(0, 4).get(2));
-		Assert.assertEquals(3, test.sublist(1, 3).size());
-		Assert.assertEquals(1, test.sublist(0, 0).size());
-
 
 	}
 
 	@Test(expected = NullPointerException.class)
 	public void testSubListFromBiggerThanTo() {
-		DoublyLinkedList test = new DoublyLinkedList();
+		SinglyLinkedList test = new SinglyLinkedList();
 		test.add(20);
 		test.add(1);
 		test.add(3);
@@ -199,7 +198,7 @@ public class DoubleTester {
 
 	@Test(expected = NullPointerException.class)
 	public void testSubListOutOfBounds() {
-		DoublyLinkedList test = new DoublyLinkedList();
+		SinglyLinkedList test = new SinglyLinkedList();
 		test.add(20);
 		test.add(1);
 		test.add(3);
@@ -212,7 +211,7 @@ public class DoubleTester {
 
 	@Test(expected = NullPointerException.class)
 	public void testSubListNegativeIndex() {
-		DoublyLinkedList test = new DoublyLinkedList();
+		SinglyLinkedList test = new SinglyLinkedList();
 		test.add(20);
 		test.add(1);
 		test.add(3);
@@ -221,8 +220,9 @@ public class DoubleTester {
 		test.sublist(-1, 5);
 
 	}
+	@Test
 	public void testAddMiddle() {
-		DoublyLinkedList test =new DoublyLinkedList();
+		SinglyLinkedList test =new SinglyLinkedList();
 		test.add(20);
 		test.add(1);
 		test.add(3);
@@ -239,5 +239,4 @@ public class DoubleTester {
 		
 	}
 	
-
 }
