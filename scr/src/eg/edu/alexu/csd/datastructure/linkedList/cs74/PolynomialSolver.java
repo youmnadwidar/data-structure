@@ -217,6 +217,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 		if(poly1==poly2){
 			int [][] ans ={{0,0}};
 			return ans;
+		}
 		if (poly1 == 'A') {
 			switch (poly2) {
 
@@ -275,7 +276,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 		}
 		return resaultArray;
 		}
-	}
+	
 
 	@Override
 	public int[][] multiply(char poly1, char poly2) {
