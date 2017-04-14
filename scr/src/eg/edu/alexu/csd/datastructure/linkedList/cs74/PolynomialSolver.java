@@ -119,21 +119,65 @@ public class PolynomialSolver implements IPolynomialSolver {
 		poly2 = Character.toUpperCase(poly2);
 		R = new DoublyLinkedList();
 		R.clear();
-		if ((poly1 == 'A' || poly1 == 'B') && (poly2 == 'A' || poly2 == 'B')) {
-			if (A == null || B == null)
+		if (poly1 == 'A') {
+			switch (poly2) {
+			case 'A':
+				addLinked(A, A);
+				break;
+
+			case 'B':
+				addLinked(A, B);
+				break;
+
+			case 'C':
+				addLinked(A, C);
+				break;
+
+			default:
 				throw new RuntimeException();
-			addLinked(A, B);
+
+			}
 		}
-		if ((poly1 == 'A' || poly1 == 'C') && (poly2 == 'C' || poly2 == 'A')) {
-			if (A == null || C == null)
+		else if (poly1 == 'B') {
+			switch (poly2) {
+			case 'A':
+				addLinked(B, A);
+				break;
+
+			case 'B':
+				addLinked(B, B);
+				break;
+
+			case 'C':
+				addLinked(B, C);
+				break;
+
+			default:
 				throw new RuntimeException();
-			addLinked(A, C);
+
+			}
 		}
-		if ((poly1 == 'B' || poly1 == 'C') && (poly2 == 'C' || poly2 == 'B')) {
-			if (B == null || C == null)
+		else if (poly1 == 'C') {
+			switch (poly2) {
+			case 'A':
+				addLinked(C, A);
+				break;
+
+			case 'B':
+				addLinked(C, B);
+				break;
+
+			case 'C':
+				addLinked(C, C);
+				break;
+
+			default:
 				throw new RuntimeException();
-			addLinked(B, C);
+
+			}
 		}
+			else 
+				throw new RuntimeException();
 		NodeDL current = R.head.getNext();
 		int[][] resultArray = new int[R.size][2];
 		for (int i = 0; i < resultArray.length; i++) {
