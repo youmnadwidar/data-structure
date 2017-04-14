@@ -213,6 +213,8 @@ public class PolynomialSolver implements IPolynomialSolver {
 		poly2 = Character.toUpperCase(poly2);
 		R = new DoublyLinkedList();
 		R.clear();
+		if (!isSet(poly1) ||!isSet(poly2))
+			throw new RuntimeException();
 		if (poly1 == 'A') {
 			switch (poly2) {
 			case 'A':
@@ -286,6 +288,8 @@ public class PolynomialSolver implements IPolynomialSolver {
 
 	@Override
 	public int[][] multiply(char poly1, char poly2) {
+		if (!isSet(poly1) ||!isSet(poly2))
+			throw new RuntimeException();
 
 		return null;
 	}
