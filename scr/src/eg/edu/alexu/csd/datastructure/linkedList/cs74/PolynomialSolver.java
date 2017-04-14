@@ -8,7 +8,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 	DoublyLinkedList A = null;
 	DoublyLinkedList B = null;
 	DoublyLinkedList C = null;
-	DoublyLinkedList R =null;
+	DoublyLinkedList R = null;
 
 	@Override
 	public void setPolynomial(char poly, int[][] terms) {
@@ -117,7 +117,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 	public int[][] add(char poly1, char poly2) {
 		poly1 = Character.toUpperCase(poly1);
 		poly2 = Character.toUpperCase(poly2);
-		R=new DoublyLinkedList();
+		R = new DoublyLinkedList();
 		R.clear();
 		if ((poly1 == 'A' || poly1 == 'B') && (poly2 == 'A' || poly2 == 'B')) {
 			if (A == null || B == null)
@@ -150,7 +150,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 	public int[][] subtract(char poly1, char poly2) {
 		poly1 = Character.toUpperCase(poly1);
 		poly2 = Character.toUpperCase(poly2);
-		R=new DoublyLinkedList();
+		R = new DoublyLinkedList();
 		R.clear();
 		if (poly1 == 'A') {
 			switch (poly2) {
@@ -270,7 +270,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 
 	public void subtractLinked(DoublyLinkedList list1, DoublyLinkedList list2) {
 		R.clear();
-		if (list1.size == 0 || list2.size == 0)
+		if (list1.size == 0 || list2.size == 0 || list1 == null || list2 == null)
 			throw new RuntimeException();
 		NodeDL temp1;
 		NodeDL temp2;
@@ -295,7 +295,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 				point3.y = point1.y;
 
 				temp1 = temp1.getNext();
-			} else {
+			} else if (point1.y < point2.y) {
 				point3.x = -point2.x;
 				point3.y = point2.y;
 				temp2 = temp2.getNext();
