@@ -8,7 +8,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 	DoublyLinkedList A = null;
 	DoublyLinkedList B = null;
 	DoublyLinkedList C = null;
-	DoublyLinkedList R = new DoublyLinkedList();
+	DoublyLinkedList R =null;
 
 	@Override
 	public void setPolynomial(char poly, int[][] terms) {
@@ -117,6 +117,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 	public int[][] add(char poly1, char poly2) {
 		poly1 = Character.toUpperCase(poly1);
 		poly2 = Character.toUpperCase(poly2);
+		R=new DoublyLinkedList();
 		R.clear();
 		if ((poly1 == 'A' || poly1 == 'B') && (poly2 == 'A' || poly2 == 'B')) {
 			if (A == null || B == null)
@@ -149,6 +150,8 @@ public class PolynomialSolver implements IPolynomialSolver {
 	public int[][] subtract(char poly1, char poly2) {
 		poly1 = Character.toUpperCase(poly1);
 		poly2 = Character.toUpperCase(poly2);
+		R=new DoublyLinkedList();
+		R.clear();
 		if (poly1 == 'A') {
 			switch (poly2) {
 			case 'A':
