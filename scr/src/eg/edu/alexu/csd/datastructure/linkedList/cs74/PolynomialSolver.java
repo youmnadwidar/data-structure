@@ -52,7 +52,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 		 else if (poly == 'R'&&R!=null) 
 			 return printPoly(R, newNode);
 
-		throw null;
+		throw new RuntimeException();
 	}
 
 	@Override
