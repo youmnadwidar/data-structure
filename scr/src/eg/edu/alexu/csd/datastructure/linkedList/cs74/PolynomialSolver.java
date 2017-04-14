@@ -10,7 +10,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 	DoublyLinkedList C = null;
 	DoublyLinkedList R = null;
 
-	public boolean Set(char poly) {
+	public boolean isSet(char poly) {
 		switch (poly) {
 		case 'A':
 			return !(A == null);
@@ -22,7 +22,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 			return !(C == null);
 
 
-		default:throw null;
+		default:throw new RuntimeException();
 		}
 	}
 
@@ -46,15 +46,13 @@ public class PolynomialSolver implements IPolynomialSolver {
 			throw new RuntimeException();
 
 	}
-	
 
 	@Override
 	public String print(char poly) {
 		poly = Character.toUpperCase(poly);
 		NodeDL newNode = null;
 		;
-		if(this.Set(poly)){
-		if (poly == 'A'  )
+		if (poly == 'A' && A != null && !A.isEmpty())
 			return printPoly(A, newNode);
 
 		else if (poly == 'B' && B != null && !B.isEmpty())
@@ -64,27 +62,23 @@ public class PolynomialSolver implements IPolynomialSolver {
 			return printPoly(C, newNode);
 		else if (poly == 'R' && R != null && !R.isEmpty())
 			return printPoly(R, newNode);
-		}
 		return null;
 	}
 
 	@Override
 	public void clearPolynomial(char poly) {
 		poly = Character.toUpperCase(poly);
-if(this.Set(poly)){
-		if (poly == 'A' ) {
+
+		if (poly == 'A' && A != null) {
 			A.clear();
 			A = null;
-		} else if (poly == 'B' ) {
+		} else if (poly == 'B' && B != null) {
 			B.clear();
 			B = null;
-		} else if (poly == 'C') {
+		} else if (poly == 'C' && C != null) {
 			C.clear();
 			C = null;
-		} else 
-			throw new RuntimeException();
-
-        }else
+		} else
 			throw new RuntimeException();
 
 	}
@@ -94,8 +88,8 @@ if(this.Set(poly)){
 		poly = Character.toUpperCase(poly);
 		int answer = 0;
 		NodeDL newNode;
-if (this.Set(poly)){
-		if (poly == 'A' ) {
+
+		if (poly == 'A' && A != null && !A.isEmpty()) {
 
 			newNode = A.head.getNext();
 			while (newNode != A.tail) {
@@ -106,7 +100,7 @@ if (this.Set(poly)){
 				newNode = newNode.getNext();
 			}
 			return answer;
-		} else if (poly == 'B' ) {
+		} else if (poly == 'B' && B != null && !B.isEmpty()) {
 
 			newNode = B.head.getNext();
 			while (newNode != B.tail) {
@@ -119,7 +113,7 @@ if (this.Set(poly)){
 			return answer;
 		}
 
-		else if (poly == 'C') {
+		else if (poly == 'C' && C != null && !C.isEmpty()) {
 
 			newNode = C.head.getNext();
 			while (newNode != C.tail) {
@@ -131,10 +125,7 @@ if (this.Set(poly)){
 			}
 			return answer;
 		}
-		else 
-			throw new RuntimeException();
 
-}
 		else
 			throw new RuntimeException();
 	}
