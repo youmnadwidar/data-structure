@@ -9,7 +9,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 	DoublyLinkedList A =null;
 	DoublyLinkedList B = null;
 	DoublyLinkedList C = null;
-	DoublyLinkedList R = null;
+	DoublyLinkedList R = new DoublyLinkedList();
 
 	@Override
 	public void setPolynomial(char poly, int[][] terms) {
