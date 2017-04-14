@@ -152,7 +152,6 @@ public class PolynomialSolver implements IPolynomialSolver {
 	public int[][] subtract(char poly1, char poly2) {
 		poly1 = Character.toUpperCase(poly1);
 		poly2 = Character.toUpperCase(poly2);
-        R=new DoublyLinkedList();
 		if (poly1 == 'A'&&A!=null) {
 			if (poly2 == 'B'&&B!=null)
 				subtractLinked(A, B);
@@ -229,6 +228,8 @@ public class PolynomialSolver implements IPolynomialSolver {
 	}
 
 	public void subtractLinked(DoublyLinkedList list1, DoublyLinkedList list2) {
+        R=new DoublyLinkedList();
+
 		NodeDL temp1;
 		NodeDL temp2;
 		temp1 = list1.head.getNext();
