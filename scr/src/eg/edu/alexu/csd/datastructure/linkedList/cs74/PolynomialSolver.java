@@ -420,4 +420,5 @@ public class PolynomialSolver implements IPolynomialSolver {
 		}
 		return polyy;
 	}
+
 }
