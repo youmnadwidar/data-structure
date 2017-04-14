@@ -1,4 +1,4 @@
-package eg.edu.alexu.csd.datastructure.linkedList.cs14;
+package eg.edu.alexu.csd.datastructure.linkedList.cs74;
 
 import eg.edu.alexu.csd.datastructure.linkedList.ILinkedList;
 
