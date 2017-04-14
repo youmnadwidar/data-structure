@@ -122,17 +122,17 @@ public class PolynomialSolver implements IPolynomialSolver {
 		poly2 = Character.toUpperCase(poly2);
 		if ((poly1 == 'A' || poly1 == 'B') && (poly2 == 'A' || poly2 == 'B')) {
 			if (A == null || B== null)
-				return null;
+				throw new RuntimeException();
 			addLinked(A, B);
 		}
 		if ((poly1 == 'A' || poly1 == 'C') && (poly2 == 'C' || poly2 == 'A')) {
 			if (A == null || C== null)
-				return null;
+				throw new RuntimeException();
 			addLinked(A, C);
 		}
 		if ((poly1 == 'B' || poly1 == 'C') && (poly2 == 'C' || poly2 == 'B')) {
 			if (B == null || C == null)
-				return null;
+				throw new RuntimeException();
 			addLinked(B, C);
 		}
 		NodeDL current = R.head.getNext();
@@ -151,23 +151,23 @@ public class PolynomialSolver implements IPolynomialSolver {
 	public int[][] subtract(char poly1, char poly2) {
 		poly1 = Character.toUpperCase(poly1);
 		poly2 = Character.toUpperCase(poly2);
-R=new DoublyLinkedList();
-		if (poly1 == 'A') {
-			if (poly2 == 'B')
+        R=new DoublyLinkedList();
+		if (poly1 == 'A'&&A!=null) {
+			if (poly2 == 'B'&&B!=null)
 				subtractLinked(A, B);
-			if (poly2 == 'C')
+			if (poly2 == 'C'&&C!=null)
 				subtractLinked(A, C);
 		}
-		if (poly1 == 'B') {
-			if (poly2 == 'A')
+		if (poly1 == 'B'&&B!=null) {
+			if (poly2 == 'A'&&A!=null)
 				subtractLinked(B, A);
-			if (poly2 == 'C')
+			if (poly2 == 'C'&&C!=null)
 				subtractLinked(B, C);
 		}
-		if (poly1 == 'C') {
-			if (poly2 == 'B')
+		if (poly1 == 'C'&&C!=null) {
+			if (poly2 == 'B'&&B!=null)
 				subtractLinked(C, B);
-			if (poly2 == 'A')
+			if (poly2 == 'A'&&A!=null)
 				subtractLinked(C, A);
 		}
 		NodeDL current = R.head.getNext();
