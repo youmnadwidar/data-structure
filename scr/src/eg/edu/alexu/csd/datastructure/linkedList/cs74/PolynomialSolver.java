@@ -299,7 +299,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 
 				temp1 = temp1.getNext();
 			} else if (point1.y < point2.y) {
-				point3.x = point2.x;
+				point3.x = 0-point2.x;
 				point3.y = point2.y;
 				temp2 = temp2.getNext();
 			}
