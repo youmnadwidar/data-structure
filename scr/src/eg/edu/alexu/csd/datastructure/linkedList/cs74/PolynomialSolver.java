@@ -1,6 +1,5 @@
 package eg.edu.alexu.csd.datastructure.linkedList.cs74;
 
-import java.awt.List;
 import java.awt.Point;
 
 import eg.edu.alexu.csd.datastructure.linkedList.IPolynomialSolver;
@@ -18,12 +17,15 @@ public class PolynomialSolver implements IPolynomialSolver {
 			throw new RuntimeException();
 		if (poly == 'A') {
 			A = new DoublyLinkedList();
+			A.clear();
 			setPoly(A, terms);
 		} else if (poly == 'B') {
 			B = new DoublyLinkedList();
+			B.clear();
 			setPoly(B, terms);
 		} else if (poly == 'C') {
 			C = new DoublyLinkedList();
+			C.clear();
 			setPoly(C, terms);
 		} else
 			throw new RuntimeException();
@@ -35,16 +37,16 @@ public class PolynomialSolver implements IPolynomialSolver {
 		poly = Character.toUpperCase(poly);
 		NodeDL newNode = null;
 		;
-		if (poly == 'A' && A != null)
+		if (poly == 'A' && A != null&&!A.isEmpty())
 			return printPoly(A, newNode);
 
-		else if (poly == 'B' && B != null)
+		else if (poly == 'B' && B != null&&!B.isEmpty())
 			return printPoly(B, newNode);
 
-		else if (poly == 'C' && C != null)
+		else if (poly == 'C' && C != null&&!C.isEmpty())
 			return printPoly(C, newNode);
-		// else if (poly == 'R'&&R!=null)
-		// return printPoly(R, newNode);
+		 else if (poly == 'R'&&R!=null)
+		 return printPoly(R, newNode);
 
 		return null;
 	}
