@@ -44,10 +44,10 @@ public class PolynomialSolver implements IPolynomialSolver {
 
 		else if (poly == 'C' && C != null && !C.isEmpty())
 			return printPoly(C, newNode);
-		else if (poly == 'R' && R != null)
+		else if (poly == 'R' && R != null&& !R.isEmpty())
 			return printPoly(R, newNode);
-
-		return null;
+throw new RuntimeException();
+	//	return null;
 	}
 
 	@Override
