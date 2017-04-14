@@ -1,39 +1,28 @@
-package eg.edu.alexu.csd.datastructure.linkedList.cs74;
+package eg.edu.alexu.csd.datastructure.linkedList.cs14;
 
 import java.awt.Point;
 
 import eg.edu.alexu.csd.datastructure.linkedList.IPolynomialSolver;
 
 public class PolynomialSolver implements IPolynomialSolver {
-	DoublyLinkedList A =null ;
-	DoublyLinkedList B =null;
-	DoublyLinkedList C =null;
-	DoublyLinkedList R =null;
+	DoublyLinkedList A = null;
+	DoublyLinkedList B = null;
+	DoublyLinkedList C = null;
+	DoublyLinkedList R = null;
 
 	@Override
 	public void setPolynomial(char poly, int[][] terms) {
 		poly = Character.toUpperCase(poly);
 		if (terms[0][0] == 0)
-			throw  null;
+			throw new RuntimeException();
 		if (poly == 'A')
-		{
-			A=new DoublyLinkedList();
 			setPoly(A, terms);
-		}
 		else if (poly == 'B')
-		{
-			B=new DoublyLinkedList();
 			setPoly(B, terms);
-		}
 		else if (poly == 'C')
-		{
-			C=new DoublyLinkedList();
-
-			
 			setPoly(C, terms);
-		}
 		else
-			throw  null;
+			throw new RuntimeException();
 
 	}
 
@@ -41,18 +30,18 @@ public class PolynomialSolver implements IPolynomialSolver {
 	public String print(char poly) {
 		poly = Character.toUpperCase(poly);
 		NodeDL newNode=null;;
-		if (poly == 'A'&&A!=null) 
+		if (poly == 'A') 
 			return printPoly(A, newNode);
 
-		else if (poly == 'B'&&B!=null) 
+		else if (poly == 'B') 
 			return printPoly(B, newNode);
 
-		else if (poly == 'C'&&C!=null) 
+		else if (poly == 'C') 
 			return printPoly(C, newNode);
-		 else if (poly == 'R'&&R!=null) 
+		 else if (poly == 'R') 
 			 return printPoly(R, newNode);
 
-		throw new RuntimeException();
+		throw null;
 	}
 
 	@Override
@@ -76,7 +65,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 		int answer = 0;
 		NodeDL newNode;
 
-		if (poly == 'A' && A!=null) {
+		if (poly == 'A' && !A.isEmpty()) {
 
 			newNode = A.head.getNext();
 			while (newNode != A.tail) {
@@ -87,7 +76,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 				newNode = newNode.getNext();
 			}
 			return answer;
-		} else if (poly == 'B' && B!=null) {
+		} else if (poly == 'B' && !B.isEmpty()) {
 
 			newNode = B.head.getNext();
 			while (newNode != B.tail) {
@@ -100,7 +89,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 			return answer;
 		}
 
-		else if (poly == 'C' &&C!=null) {
+		else if (poly == 'C' && !C.isEmpty()) {
 
 			newNode = C.head.getNext();
 			while (newNode != C.tail) {
@@ -121,20 +110,19 @@ public class PolynomialSolver implements IPolynomialSolver {
 	public int[][] add(char poly1, char poly2) {
 		poly1 = Character.toUpperCase(poly1);
 		poly2 = Character.toUpperCase(poly2);
-		R=new DoublyLinkedList();
 		if ((poly1 == 'A' || poly1 == 'B') && (poly2 == 'A' || poly2 == 'B')) {
-			if (A == null || B== null)
-				throw null;
+			if (A.size == 0 || B.size == 0)
+				throw new RuntimeException();
 			addLinked(A, B);
 		}
 		if ((poly1 == 'A' || poly1 == 'C') && (poly2 == 'C' || poly2 == 'A')) {
-			if (A == null || C== null)
-				throw null;
+			if (A.size == 0 || C.size == 0)
+				throw new RuntimeException();
 			addLinked(A, C);
 		}
 		if ((poly1 == 'B' || poly1 == 'C') && (poly2 == 'C' || poly2 == 'B')) {
-			if (C == null || B== null)
-				throw null;
+			if (B.size == 0 || C.size == 0)
+				throw new RuntimeException();
 			addLinked(B, C);
 		}
 		NodeDL current = R.head.getNext();
@@ -153,7 +141,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 	public int[][] subtract(char poly1, char poly2) {
 		poly1 = Character.toUpperCase(poly1);
 		poly2 = Character.toUpperCase(poly2);
-		R=new DoublyLinkedList();
+		R.clear();
 		if (poly1 == 'A') {
 			if (poly2 == 'B')
 				subtractLinked(A, B);
@@ -194,6 +182,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 
 	public void addLinked(DoublyLinkedList list1, DoublyLinkedList list2) {
 		NodeDL temp1 = list1.head.getNext(), temp2 = list2.head.getNext();
+		R.clear();
 		while (temp1 != list1.tail && temp2 != list2.tail) {
 			Point point1 = new Point(0, 0);
 			Point point2 = new Point(0, 0);
