@@ -194,7 +194,6 @@ public class PolynomialSolver implements IPolynomialSolver {
 
 	public void addLinked(DoublyLinkedList list1, DoublyLinkedList list2) {
 		NodeDL temp1 = list1.head.getNext(), temp2 = list2.head.getNext();
-		R.clear();
 		while (temp1 != list1.tail && temp2 != list2.tail) {
 			Point point1 = new Point(0, 0);
 			Point point2 = new Point(0, 0);
