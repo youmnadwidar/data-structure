@@ -1,4 +1,4 @@
-package eg.edu.alexu.csd.datastructure.linkedList.cs14;
+package eg.edu.alexu.csd.datastructure.linkedList.cs74;
 
 import java.awt.Point;
 
@@ -15,12 +15,22 @@ public class PolynomialSolver implements IPolynomialSolver {
 		poly = Character.toUpperCase(poly);
 		if (terms[0][0] == 0)
 			throw new RuntimeException();
-		if (poly == 'A')
+		if (poly == 'A'){
+			A=new DoublyLinkedList();
 			setPoly(A, terms);
+		}
 		else if (poly == 'B')
+		{	
+			B=new DoublyLinkedList();
+
 			setPoly(B, terms);
+		}
 		else if (poly == 'C')
+		{
+			C=new DoublyLinkedList();
+
 			setPoly(C, terms);
+		}
 		else
 			throw new RuntimeException();
 
@@ -30,13 +40,13 @@ public class PolynomialSolver implements IPolynomialSolver {
 	public String print(char poly) {
 		poly = Character.toUpperCase(poly);
 		NodeDL newNode=null;;
-		if (poly == 'A') 
+		if (poly == 'A' && A!=null) 
 			return printPoly(A, newNode);
 
-		else if (poly == 'B') 
+		else if (poly == 'B'&&B!=null) 
 			return printPoly(B, newNode);
 
-		else if (poly == 'C') 
+		else if (poly == 'C'&& C!=null) 
 			return printPoly(C, newNode);
 		 else if (poly == 'R') 
 			 return printPoly(R, newNode);
@@ -48,11 +58,11 @@ public class PolynomialSolver implements IPolynomialSolver {
 	public void clearPolynomial(char poly) {
 		poly = Character.toUpperCase(poly);
 
-		if (poly == 'A' && !A.isEmpty())
+		if (poly == 'A' && A!=null)
 			A = null;
-		else if (poly == 'B' && !B.isEmpty())
+		else if (poly == 'B'&& B!=null)
 			B = null;
-		else if (poly == 'C' && !C.isEmpty())
+		else if (poly == 'C' && C!=null)
 			C = null;
 		else
 			throw new RuntimeException();
@@ -65,7 +75,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 		int answer = 0;
 		NodeDL newNode;
 
-		if (poly == 'A' && !A.isEmpty()) {
+		if (poly == 'A' && A!=null) {
 
 			newNode = A.head.getNext();
 			while (newNode != A.tail) {
@@ -76,7 +86,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 				newNode = newNode.getNext();
 			}
 			return answer;
-		} else if (poly == 'B' && !B.isEmpty()) {
+		} else if (poly == 'B' && B!=null) {
 
 			newNode = B.head.getNext();
 			while (newNode != B.tail) {
@@ -89,7 +99,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 			return answer;
 		}
 
-		else if (poly == 'C' && !C.isEmpty()) {
+		else if (poly == 'C' && C!=null) {
 
 			newNode = C.head.getNext();
 			while (newNode != C.tail) {
@@ -111,17 +121,17 @@ public class PolynomialSolver implements IPolynomialSolver {
 		poly1 = Character.toUpperCase(poly1);
 		poly2 = Character.toUpperCase(poly2);
 		if ((poly1 == 'A' || poly1 == 'B') && (poly2 == 'A' || poly2 == 'B')) {
-			if (A.size == 0 || B.size == 0)
+			if (A == null || B== null)
 				throw new RuntimeException();
 			addLinked(A, B);
 		}
 		if ((poly1 == 'A' || poly1 == 'C') && (poly2 == 'C' || poly2 == 'A')) {
-			if (A.size == 0 || C.size == 0)
+			if (A == null || C== null)
 				throw new RuntimeException();
 			addLinked(A, C);
 		}
 		if ((poly1 == 'B' || poly1 == 'C') && (poly2 == 'C' || poly2 == 'B')) {
-			if (B.size == 0 || C.size == 0)
+			if (B == null || C == null)
 				throw new RuntimeException();
 			addLinked(B, C);
 		}
@@ -141,7 +151,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 	public int[][] subtract(char poly1, char poly2) {
 		poly1 = Character.toUpperCase(poly1);
 		poly2 = Character.toUpperCase(poly2);
-		R.clear();
+R=new DoublyLinkedList();
 		if (poly1 == 'A') {
 			if (poly2 == 'B')
 				subtractLinked(A, B);
