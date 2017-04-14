@@ -274,6 +274,8 @@ public class PolynomialSolver implements IPolynomialSolver {
 			current = current.getNext();
 
 		}
+		if (resaultArray[0][1]==-1)
+			resaultArray[0][1]=1;
 		return resaultArray;
 		}
 	
@@ -399,51 +401,55 @@ public class PolynomialSolver implements IPolynomialSolver {
 	}
 
 	public void subtractLinked(DoublyLinkedList list1, DoublyLinkedList list2) {
-		R.clear();
 		if (list1.size == 0 || list2.size == 0 || list1 == null || list2 == null)
 			throw new RuntimeException();
+		R.clear();
 		NodeDL temp1;
 		NodeDL temp2;
 		temp1 = list1.head.getNext();
 		temp2 = list2.head.getNext();
+		
 		while (temp1 != list1.tail && temp2 != list2.tail) {
 			Point point1 = new Point(0, 0);
 			Point point2 = new Point(0, 0);
 			point1 = (Point) temp1.getData();
 			point2 = (Point) temp2.getData();
-			Point point3 = new Point();
+			Point point3 = new Point(0,0);
 
 			if (point1.y == point2.y) {
-				point3.x = point1.x - point2.x;
+				point3.x += point1.x - point2.x;
 				point3.y = point1.y;
-
 				temp1 = temp1.getNext();
 				temp2 = temp2.getNext();
 
 			} else if (point1.y > point2.y) {
-				point3.x = point1.x;
+				point3.x += point1.x;
 				point3.y = point1.y;
-
 				temp1 = temp1.getNext();
+				
 			} else if (point1.y < point2.y) {
-				point3.x = 0 - point2.x;
+				if(point2.x==1)
+					point3.x+=-1;
+				else if(point2.x==-1)
+					point3.x+=1;
+				else
+					point3.x += - point2.x;
 				point3.y = point2.y;
 				temp2 = temp2.getNext();
 			}
 			if (point3.x != 0)
 				R.add(point3);
-
 		}
 
 		while (temp1 != list1.tail) {
 			R.add(temp1.getData());
-
 			temp1 = temp1.getNext();
 		}
 		while (temp2 != list2.tail) {
-
+			Point point =new Point(0, 0);
+			point=(Point) temp2.getData();
+			point.x=-point.x;
 			R.add(temp2.getData());
-
 			temp2 = temp2.getNext();
 		}
 
