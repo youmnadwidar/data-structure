@@ -21,7 +21,6 @@ public class PolynomialSolver implements IPolynomialSolver {
 		case 'C':
 			return !(C == null);
 
-
 		default:
 			return false;
 		}
@@ -52,7 +51,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 	public String print(char poly) {
 		poly = Character.toUpperCase(poly);
 		NodeDL newNode = null;
-		
+
 		if (poly == 'A' && A != null && !A.isEmpty())
 			return printPoly(A, newNode);
 
@@ -64,7 +63,6 @@ public class PolynomialSolver implements IPolynomialSolver {
 		else if (poly == 'R' && R != null && !R.isEmpty())
 			return printPoly(R, newNode);
 		return null;
-		
 	}
 
 	@Override
@@ -80,7 +78,8 @@ public class PolynomialSolver implements IPolynomialSolver {
 		} else if (poly == 'C' && C != null) {
 			C.clear();
 			C = null;
-		} 
+		} else
+			throw new RuntimeException();
 
 	}
 
@@ -137,20 +136,20 @@ public class PolynomialSolver implements IPolynomialSolver {
 		poly2 = Character.toUpperCase(poly2);
 		R = new DoublyLinkedList();
 		R.clear();
-		if (!isSet(poly1) ||!isSet(poly2))
+		if (!isSet(poly1) || !isSet(poly2))
 			throw new RuntimeException();
 		if (poly1 == 'A') {
 			switch (poly2) {
 			case 'A':
-				addLinked(A, A);
+				addLinked(A, A,R);
 				break;
 
 			case 'B':
-				addLinked(A, B);
+				addLinked(A, B,R);
 				break;
 
 			case 'C':
-				addLinked(A, C);
+				addLinked(A, C,R);
 				break;
 
 			default:
@@ -160,15 +159,15 @@ public class PolynomialSolver implements IPolynomialSolver {
 		} else if (poly1 == 'B') {
 			switch (poly2) {
 			case 'A':
-				addLinked(B, A);
+				addLinked(B, A,R);
 				break;
 
 			case 'B':
-				addLinked(B, B);
+				addLinked(B, B,R);
 				break;
 
 			case 'C':
-				addLinked(B, C);
+				addLinked(B, C,R);
 				break;
 
 			default:
@@ -178,15 +177,15 @@ public class PolynomialSolver implements IPolynomialSolver {
 		} else if (poly1 == 'C') {
 			switch (poly2) {
 			case 'A':
-				addLinked(C, A);
+				addLinked(C, A,R);
 				break;
 
 			case 'B':
-				addLinked(C, B);
+				addLinked(C, B,R);
 				break;
 
 			case 'C':
-				addLinked(C, C);
+				addLinked(C, C,R);
 				break;
 
 			default:
@@ -213,14 +212,13 @@ public class PolynomialSolver implements IPolynomialSolver {
 		poly2 = Character.toUpperCase(poly2);
 		R = new DoublyLinkedList();
 		R.clear();
-		if (!isSet(poly1) ||!isSet(poly2))
+		if (!isSet(poly1) || !isSet(poly2))
 			throw new RuntimeException();
-		if(poly1==poly2){
-			int [][] ans ={{0,0}};
-			return ans;
-		}
 		if (poly1 == 'A') {
 			switch (poly2) {
+			case 'A':
+				subtractLinked(A, A);
+				break;
 
 			case 'B':
 				subtractLinked(A, B);
@@ -240,6 +238,10 @@ public class PolynomialSolver implements IPolynomialSolver {
 				subtractLinked(B, A);
 				break;
 
+			case 'B':
+				subtractLinked(B, B);
+				break;
+
 			case 'C':
 				subtractLinked(B, C);
 				break;
@@ -256,6 +258,10 @@ public class PolynomialSolver implements IPolynomialSolver {
 
 			case 'B':
 				subtractLinked(C, B);
+				break;
+
+			case 'C':
+				subtractLinked(C, C);
 				break;
 
 			default:
@@ -281,15 +287,87 @@ public class PolynomialSolver implements IPolynomialSolver {
 
 	@Override
 	public int[][] multiply(char poly1, char poly2) {
-		if (!isSet(poly1) ||!isSet(poly2))
+		poly1 = Character.toUpperCase(poly1);
+		poly2 = Character.toUpperCase(poly2);
+		R = new DoublyLinkedList();
+		R.clear();
+		if (!isSet(poly1) || !isSet(poly2))
 			throw new RuntimeException();
+		if (poly1 == 'A') {
+			switch (poly2) {
+			case 'A':
+				multiplyLists(A, A);
+				break;
 
-		return null;
+			case 'B':
+				multiplyLists(A, B);
+				break;
+
+			case 'C':
+				multiplyLists(A, C);
+				break;
+
+			default:
+				throw new RuntimeException();
+
+			}
+		} else if (poly1 == 'B') {
+			switch (poly2) {
+			case 'A':
+				multiplyLists(B, A);
+				break;
+
+			case 'B':
+				multiplyLists(B, B);
+				break;
+
+			case 'C':
+				multiplyLists(B, C);
+				break;
+
+			default:
+				throw new RuntimeException();
+
+			}
+		} else if (poly1 == 'C') {
+			switch (poly2) {
+			case 'A':
+				multiplyLists(C, A);
+				break;
+
+			case 'B':
+				multiplyLists(C, B);
+				break;
+
+			case 'C':
+				multiplyLists(C, C);
+				break;
+
+			default:
+				throw new RuntimeException();
+
+			}
+
+		} else
+			throw new RuntimeException();
+		NodeDL current = R.head.getNext();
+		int[][] resaultArray = new int[R.size][2];
+		for (int i = 0; i < resaultArray.length; i++) {
+			Point point = new Point();
+			point = (Point) current.getData();
+			resaultArray[i][0] = point.x;
+			resaultArray[i][1] = point.y;
+			current = current.getNext();
+
+		}
+		return resaultArray;
+
 	}
 
-	public void addLinked(DoublyLinkedList list1, DoublyLinkedList list2) {
+	public void addLinked(DoublyLinkedList list1, DoublyLinkedList list2,DoublyLinkedList result) {
 		if (list1 == null || list2 == null)
 			throw new RuntimeException();
+		result.clear();
 		NodeDL temp1 = list1.head.getNext(), temp2 = list2.head.getNext();
 
 		while (temp1 != list1.tail && temp2 != list2.tail) {
@@ -313,15 +391,15 @@ public class PolynomialSolver implements IPolynomialSolver {
 				point3.y = point2.y;
 				temp2 = temp2.getNext();
 			}
-			R.add(point3);
+			result.add(point3);
 		}
 		while (temp1 != list1.tail) {
-			R.add(temp1.getData());
+			result.add(temp1.getData());
 			temp1 = temp1.getNext();
 
 		}
 		while (temp2 != list2.tail) {
-			R.add(temp2.getData());
+			result.add(temp2.getData());
 			temp2 = temp2.getNext();
 		}
 	}
@@ -414,5 +492,58 @@ public class PolynomialSolver implements IPolynomialSolver {
 		}
 		return polyy;
 	}
+
+	public void multiplyLists(DoublyLinkedList list1, DoublyLinkedList list2) {
+		R.clear();
+		NodeDL temp1 = list1.head.getNext(), temp2 = list2.head.getNext();
+		DoublyLinkedList templist1 =new DoublyLinkedList();
+		DoublyLinkedList templist2 = new DoublyLinkedList();
+		DoublyLinkedList templist3 = new DoublyLinkedList();
+		
+		while (temp1 != list1.tail) {
+			Point point1 = new Point(0, 0);
+			point1 = (Point) temp1.getData();
+			templist1.clear();
+			templist3.clear();
+			temp2 = list2.head.getNext();
+			while (temp2 != list2.tail) {
+
+				Point point2 = new Point(0, 0);
+				Point point3 = new Point(0, 0);
+				point2 = (Point) temp2.getData();
+				point3.x = point1.x * point2.x;
+				point3.y = point1.y + point2.y;
+				templist1.add(point3);
+				temp2 = temp2.getNext();
+			}
+			if(templist2.head.getNext()==templist2.tail)
+			{
+				templist3.head.setNext(templist1.head.getNext());
+				templist1.head.getNext().setPrev(templist3.head);
+				templist3.tail.setPrev(templist1.tail.getPrev());
+				templist1.tail.getPrev().setNext(templist3.tail);
+			}
+			else
+				addLinked(templist1, templist2, templist3);
+				
+			templist2.head.setNext(templist3.head.getNext());
+			templist3.head.getNext().setPrev(templist2.head);
+			templist2.tail.setPrev(templist3.tail.getPrev());
+			templist3.tail.getPrev().setNext(templist2.tail);
+			temp1=temp1.getNext();
+		}
+		R.head.setNext(templist2.head.getNext());
+		templist2.head.getNext().setPrev(R.head);
+		templist2.tail.getPrev().setNext(R.tail);
+		R.tail.setPrev(templist2.tail.getPrev());
+		NodeDL getSizeNode=R.head.getNext();
+		while(getSizeNode!=R.tail)
+		{
+			R.size++;
+			getSizeNode=getSizeNode.getNext();
+		}
+	}
+	
+	
 
 }
