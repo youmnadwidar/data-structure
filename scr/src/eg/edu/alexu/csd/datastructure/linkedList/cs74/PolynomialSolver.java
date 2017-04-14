@@ -273,8 +273,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 			current = current.getNext();
 
 		}
-//		if (resaultArray[0][1] == -1)
-	//		resaultArray[0][1] = 1;
+
 		return resaultArray;
 	}
 
