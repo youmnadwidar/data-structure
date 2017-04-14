@@ -9,7 +9,6 @@ public class PolynomialSolver implements IPolynomialSolver {
 	DoublyLinkedList B = null;
 	DoublyLinkedList C = null;
 	DoublyLinkedList R = null;
-	private Float float1;
 
 	@Override
 	public void setPolynomial(char poly, int[][] terms) {
@@ -49,8 +48,8 @@ public class PolynomialSolver implements IPolynomialSolver {
 
 		else if (poly == 'C'&& C!=null) 
 			return printPoly(C, newNode);
-		 else if (poly == 'R'&&R!=null) 
-			 return printPoly(R, newNode);
+		// else if (poly == 'R'&&R!=null) 
+		//	 return printPoly(R, newNode);
 
 		return null;
 	}
@@ -111,10 +110,10 @@ public class PolynomialSolver implements IPolynomialSolver {
 				newNode = newNode.getNext();
 			}
 			return answer;
-		} else {
-			float1 = (Float) null;
-			return float1;
 		}
+
+		else
+			throw new RuntimeException();
 	}
 
 	@Override
@@ -124,17 +123,17 @@ public class PolynomialSolver implements IPolynomialSolver {
 		R=new DoublyLinkedList();
 		if ((poly1 == 'A' || poly1 == 'B') && (poly2 == 'A' || poly2 == 'B')) {
 			if (A == null || B== null)
-				return null;
+				throw new RuntimeException();
 			addLinked(A, B);
 		}
 		if ((poly1 == 'A' || poly1 == 'C') && (poly2 == 'C' || poly2 == 'A')) {
 			if (A == null || C== null)
-				return null;
+				throw new RuntimeException();
 			addLinked(A, C);
 		}
 		if ((poly1 == 'B' || poly1 == 'C') && (poly2 == 'C' || poly2 == 'B')) {
 			if (B == null || C == null)
-				return null;
+				throw new RuntimeException();
 			addLinked(B, C);
 		}
 		NodeDL current = R.head.getNext();
