@@ -9,6 +9,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 	DoublyLinkedList B = null;
 	DoublyLinkedList C = null;
 	DoublyLinkedList R = null;
+	private Float float1;
 
 	@Override
 	public void setPolynomial(char poly, int[][] terms) {
@@ -110,10 +111,10 @@ public class PolynomialSolver implements IPolynomialSolver {
 				newNode = newNode.getNext();
 			}
 			return answer;
+		} else {
+			float1 = (Float) null;
+			return float1;
 		}
-
-		else
-			throw new RuntimeException();
 	}
 
 	@Override
@@ -128,12 +129,12 @@ public class PolynomialSolver implements IPolynomialSolver {
 		}
 		if ((poly1 == 'A' || poly1 == 'C') && (poly2 == 'C' || poly2 == 'A')) {
 			if (A == null || C== null)
-				throw new RuntimeException();
+				return null;
 			addLinked(A, C);
 		}
 		if ((poly1 == 'B' || poly1 == 'C') && (poly2 == 'C' || poly2 == 'B')) {
 			if (B == null || C == null)
-				throw new RuntimeException();
+				return null;
 			addLinked(B, C);
 		}
 		NodeDL current = R.head.getNext();
