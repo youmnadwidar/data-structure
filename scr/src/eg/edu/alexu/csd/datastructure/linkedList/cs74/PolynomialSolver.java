@@ -120,6 +120,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 	public int[][] add(char poly1, char poly2) {
 		poly1 = Character.toUpperCase(poly1);
 		poly2 = Character.toUpperCase(poly2);
+		R=new DoublyLinkedList();
 		if ((poly1 == 'A' || poly1 == 'B') && (poly2 == 'A' || poly2 == 'B')) {
 			if (A == null || B== null)
 				throw new RuntimeException();
