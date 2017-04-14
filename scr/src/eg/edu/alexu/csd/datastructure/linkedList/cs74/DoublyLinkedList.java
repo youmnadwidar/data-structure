@@ -175,7 +175,7 @@ public class DoublyLinkedList implements ILinkedList {
 			return sub;
 
 		}
-		return null;
+		throw null;
 	}
 
 	public boolean contains(Object o) {
