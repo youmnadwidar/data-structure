@@ -153,7 +153,7 @@ public class DoublyLinkedList implements ILinkedList {
     setSize(0);
   }
 /**
- * check whether the list is empty;
+ * check whether the list is empty.
  */
   public boolean isEmpty() {
     return (getSize() == 0);
