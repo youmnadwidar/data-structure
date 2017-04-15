@@ -46,8 +46,9 @@ public class SinglyLinkedList implements ILinkedList {
       head = newnode;
     } else {
       NodeSL current = head;
-      while (current.getNext() != null)
+      while (current.getNext() != null) {
         current = current.getNext();
+      }
       current.setNext(newnode);
     }
     size++;
@@ -63,7 +64,8 @@ public class SinglyLinkedList implements ILinkedList {
         current = current.getNext();
         count++;
       }
-      return current.getData();}
+      return current.getData();
+       } 
 
     else {
 
@@ -106,12 +108,14 @@ public class SinglyLinkedList implements ILinkedList {
     }
     if (this.size > index && index > 0) {
 
-      for (int i = 0; i < index - 1; i++)
+      for (int i = 0; i < index - 1; i++) {
         v = v.getNext();
+      }
       v.setNext(v.getNext().getNext());
       size--;
-    } else
+    } else {
       throw null;
+    }
   }
 
   public int size() {
@@ -120,7 +124,8 @@ public class SinglyLinkedList implements ILinkedList {
 
   public ILinkedList sublist(int fromIndex, int toIndex) {
     SinglyLinkedList sub = new SinglyLinkedList();
-    if (this.size() > fromIndex && this.size() > toIndex && fromIndex >= 0 && toIndex >= 0
+    if (this.size() > fromIndex && this.size() > toIndex 
+        && fromIndex >= 0 && toIndex >= 0
         && toIndex >= fromIndex) {
       NodeSL current = head;
       int count = 0;
@@ -145,8 +150,9 @@ public class SinglyLinkedList implements ILinkedList {
     NodeSL current = head;
 
     while (current != null) {
-      if (o.equals(current.getData()))
+      if (o.equals(current.getData())) {
         return true;
+      }
       current = current.getNext();
     }
     return false;
