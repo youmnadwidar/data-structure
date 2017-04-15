@@ -195,7 +195,7 @@ public class PolynomialSolver implements IPolynomialSolver {
     } else
       throw new RuntimeException();
     NodeDL current = R.head.getNext();
-    int[][] resultArray = new int[R.size][2];
+    int[][] resultArray = new int[R.getSize()][2];
     for (int i = 0; i < resultArray.length; i++) {
       Point point = new Point(0, 0);
       point = (Point) current.getData();
@@ -264,7 +264,7 @@ public class PolynomialSolver implements IPolynomialSolver {
     } else
       throw new RuntimeException();
     NodeDL current = R.head.getNext();
-    int[][] resaultArray = new int[R.size][2];
+    int[][] resaultArray = new int[R.getSize()][2];
     for (int i = 0; i < resaultArray.length; i++) {
       Point point = new Point();
       point = (Point) current.getData();
@@ -344,7 +344,7 @@ public class PolynomialSolver implements IPolynomialSolver {
     } else
       throw new RuntimeException();
     NodeDL current = R.head.getNext();
-    int[][] resaultArray = new int[R.size][2];
+    int[][] resaultArray = new int[R.getSize()][2];
     for (int i = 0; i < resaultArray.length; i++) {
       Point point = new Point();
       point = (Point) current.getData();
@@ -399,7 +399,7 @@ public class PolynomialSolver implements IPolynomialSolver {
   }
 
   public void subtractLinked(DoublyLinkedList list1, DoublyLinkedList list2) {
-    if (list1.size == 0 || list2.size == 0 || list1 == null || list2 == null)
+    if (list1.getSize() == 0 || list2.getSize() == 0 || list1 == null || list2 == null)
       throw new RuntimeException();
     R.clear();
     NodeDL temp1;
@@ -534,7 +534,7 @@ public class PolynomialSolver implements IPolynomialSolver {
     R.tail.setPrev(templist2.tail.getPrev());
     NodeDL getSizeNode = R.head.getNext();
     while (getSizeNode != R.tail) {
-      R.size++;
+      R.setSize(R.getSize() + 1);
       getSizeNode = getSizeNode.getNext();
     }
   }

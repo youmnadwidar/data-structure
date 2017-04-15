@@ -54,7 +54,7 @@ public class DoubleTester {
     Assert.assertEquals(z4, test.get(z1));
     Assert.assertEquals(z1, test.get(z2));
     Assert.assertEquals(z12, test.get(z3));
-    Assert.assertEquals(z4, test.size);
+    Assert.assertEquals(z4, test.getSize());
 
   }
 
@@ -101,11 +101,11 @@ public class DoubleTester {
     test.add(z0);
     test.add(z1);
     test.add(z3);
-    Assert.assertEquals(z3, test.size);
+    Assert.assertEquals(z3, test.getSize());
     test.clear();
     Assert.assertEquals(test.tail, test.head.getNext());
     Assert.assertEquals(true, test.isEmpty());
-    Assert.assertEquals(z0, test.size);
+    Assert.assertEquals(z0, test.getSize());
 
   }
 
@@ -236,7 +236,7 @@ public class DoubleTester {
     Assert.assertEquals(z4, test.get(z3));
     Assert.assertEquals(z5, test.get(z4));
     Assert.assertEquals(z6, test.get(z5));
-    Assert.assertEquals(z6, test.size);
+    Assert.assertEquals(z6, test.getSize());
 
   }
 

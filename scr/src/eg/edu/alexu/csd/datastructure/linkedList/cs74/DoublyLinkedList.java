@@ -23,7 +23,7 @@ public class DoublyLinkedList implements ILinkedList {
     head.setPrev(null);
     tail.setNext(null);
     tail.setPrev(head);
-    size = 0;
+    setSize(0);
   }
 /**the index to insert the element in
  * @param index
@@ -47,7 +47,7 @@ public class DoublyLinkedList implements ILinkedList {
       current.getNext().setPrev(newNode);
       current.setNext(newNode);
 
-      size++;
+      setSize(getSize() + 1);
     } else {
       throw null;
     }
@@ -71,7 +71,7 @@ public class DoublyLinkedList implements ILinkedList {
     newNode.setPrev(current);
     newNode.setNext(tail);
     tail.setPrev(newNode);
-    size++;
+    setSize(getSize() + 1);
 
   }
 
@@ -143,11 +143,11 @@ public class DoublyLinkedList implements ILinkedList {
 
     this.head.setNext(this.tail);
     this.tail.setPrev(this.head);
-    size = 0;
+    setSize(0);
   }
 
   public boolean isEmpty() {
-    return (size == 0);
+    return (getSize() == 0);
   }
 
   public void remove(final int index) {
@@ -173,7 +173,7 @@ public class DoublyLinkedList implements ILinkedList {
       current.getPrev().setNext(current.getNext());
       current.getNext().setPrev(current.getPrev());
       current = null;
-      size--;
+      setSize(getSize() - 1);
 
     } else {
       throw null;
@@ -182,7 +182,7 @@ public class DoublyLinkedList implements ILinkedList {
 
   
   public int size() {
-    return this.size;
+    return this.getSize();
   }
 
   public ILinkedList sublist(final int fromIndex, int toIndex) {
@@ -228,5 +228,11 @@ public class DoublyLinkedList implements ILinkedList {
     }
     return false;
   }
+public int getSize() {
+  return size;
+}
+public void setSize(int size) {
+  this.size = size;
+}
 
 }
