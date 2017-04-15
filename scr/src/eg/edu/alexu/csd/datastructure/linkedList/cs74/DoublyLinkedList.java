@@ -186,7 +186,6 @@ public class DoublyLinkedList implements ILinkedList {
   }
 
   public ILinkedList sublist(final int fromIndex, int toIndex) {
-    // TODO Auto-generated method stub
     DoublyLinkedList sub = new DoublyLinkedList();
     if (this.size() > fromIndex && this.size() > toIndex &&
         toIndex >= 0 && fromIndex >= 0
@@ -213,7 +212,7 @@ public class DoublyLinkedList implements ILinkedList {
  * @param o
  * return whether it is found or not
  */
-  public final boolean contains(Object o) {
+  public final boolean contains(final Object o) {
     if (this.size() != 0) {
 
       NodeDL current = head.getNext();

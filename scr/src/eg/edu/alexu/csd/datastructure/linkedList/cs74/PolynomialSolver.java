@@ -110,8 +110,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 
         newNode = newNode.getNext();
       }
-      return answer;
-    }
+      return answer; }
 
     else if (poly == 'C' && C != null && !C.isEmpty()) {
 
@@ -123,8 +122,7 @@ public class PolynomialSolver implements IPolynomialSolver {
 
         newNode = newNode.getNext();
       }
-      return answer;
-    }
+      return answer;}
 
     else
       throw new RuntimeException();
@@ -215,7 +213,7 @@ public class PolynomialSolver implements IPolynomialSolver {
     if (!isSet(poly1) || !isSet(poly2))
       throw new RuntimeException();
     if (poly1 == poly2) {
-      int[][] ans = { { 0, 0 } };
+      int[][] ans = {{0, 0}};
       return ans;
     }
     if (poly1 == 'A') {

@@ -63,8 +63,7 @@ public class SinglyLinkedList implements ILinkedList {
         current = current.getNext();
         count++;
       }
-      return current.getData();
-    }
+      return current.getData();}
 
     else {
 
