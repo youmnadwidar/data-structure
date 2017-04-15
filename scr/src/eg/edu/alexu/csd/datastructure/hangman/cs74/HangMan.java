@@ -45,8 +45,7 @@ public class HangMan implements IHangman {
 
   public String guess(Character c) {
     if (secretword == null) {
-      return null;
-  }
+      return null; }
 
     else if (c == null) {
       return shownword;
@@ -66,10 +65,12 @@ public class HangMan implements IHangman {
           word[i] = secretword.charAt(i);
         }
       }
-      if (flag == 0)
+      if (flag == 0) {
         maxNumofWrongGueses--;
-      if ((maxNumofWrongGueses <= 0))
+      }
+      if ((maxNumofWrongGueses <= 0)) {
         return null;
+      }
 
       shownword = String.valueOf(word);
       return shownword;

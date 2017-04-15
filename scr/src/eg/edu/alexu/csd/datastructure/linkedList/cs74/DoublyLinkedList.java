@@ -3,20 +3,20 @@ package eg.edu.alexu.csd.datastructure.linkedList.cs74;
 import eg.edu.alexu.csd.datastructure.linkedList.ILinkedList;
 
 public class DoublyLinkedList implements ILinkedList {
-  /**
-   * dummy node for the head
+  /** .
+   * dummy node for the head.
    */
   NodeDL head = new NodeDL(null);
-  /**
-   * dummy node for the tail
+  /** .
+   * dummy node for the tail.
    */
   NodeDL tail = new NodeDL(null);
-  /**
-   * size variable for the list size
+  /**.
+   * size variable for the list size.
    */
   private int size;
-/**
- * constructor
+/**.
+ * constructor.
  */
   public DoublyLinkedList() {
     head.setNext(tail);
@@ -25,12 +25,13 @@ public class DoublyLinkedList implements ILinkedList {
     tail.setPrev(head);
     setSize(0);
   }
-/**the index to insert the element in
+/**
+ * the index to insert the element in.
  * @param index
  * the value of the inserted node
  * @param element
  */
-  public void add(final int index, Object element) {
+  public void add(final int index, final Object element) {
     NodeDL newNode = new NodeDL(null);
     NodeDL current = head;
     newNode.setData(element);
@@ -54,8 +55,8 @@ public class DoublyLinkedList implements ILinkedList {
 
   }
 /**
- * the value of the inserted node
- * @param element
+ * the value of the inserted node.
+ * @param element 
  */
   public void add(final Object element) {
     NodeDL newNode = new NodeDL(null);
@@ -76,9 +77,9 @@ public class DoublyLinkedList implements ILinkedList {
   }
 
 /**
- * the index of the wanted element
- * @param
- * return the data of the object
+ * the index of the wanted element.
+ * @param index
+ * @return the data of the object
  */
   public Object get(final int index) {
 
@@ -110,9 +111,13 @@ public class DoublyLinkedList implements ILinkedList {
       throw null;
     }
   }
-
-  
-  public void set(final int index, Object element) {
+  /**
+   * the index of the node.
+   * @param index
+   * the value of the node 
+   * @param element
+   */
+  public final void set(final int index, final Object element) {
     NodeDL current = null;
     if (this.size() > index && index >= 0) {
       if (index < this.size() / 2) {
@@ -137,7 +142,9 @@ public class DoublyLinkedList implements ILinkedList {
     }
 
   }
-
+  /**
+   * clear the linkedlist.
+   */
   
   public void clear() {
 
@@ -145,11 +152,16 @@ public class DoublyLinkedList implements ILinkedList {
     this.tail.setPrev(this.head);
     setSize(0);
   }
-
+/**
+ * check whether the list is empty;
+ */
   public boolean isEmpty() {
     return (getSize() == 0);
   }
-
+/**
+ * the index of the element that whats to be removed.
+ * @param index
+ */
   public void remove(final int index) {
     int count;
     if (this.size() > index && index >= 0) {
@@ -179,16 +191,25 @@ public class DoublyLinkedList implements ILinkedList {
       throw null;
     }
   }
-
-  
+  /**
+   * the size of the linked list.
+   * @return
+   */
   public int size() {
     return this.getSize();
   }
 
-  public ILinkedList sublist(final int fromIndex, int toIndex) {
+  /**
+   * Returns a view of the portion of this list between the specified.
+   *  fromIndex and toIndex inclusively.
+   *  @param from index
+   *  @param toindex;
+   */
+
+  public ILinkedList sublist(final int fromIndex, final int toIndex) {
     DoublyLinkedList sub = new DoublyLinkedList();
-    if (this.size() > fromIndex && this.size() > toIndex &&
-        toIndex >= 0 && fromIndex >= 0
+    if (this.size() > fromIndex && this.size() > toIndex 
+        && toIndex >= 0 && fromIndex >= 0
         && toIndex >= fromIndex) {
       NodeDL current = head.getNext();
       int count = 0;
@@ -208,9 +229,9 @@ public class DoublyLinkedList implements ILinkedList {
     throw null;
   }
 /**
- * the value of the node
+ * the value of the node.
  * @param o
- * return whether it is found or not
+ * @return whether it is found or not
  */
   public final boolean contains(final Object o) {
     if (this.size() != 0) {
@@ -227,10 +248,18 @@ public class DoublyLinkedList implements ILinkedList {
     }
     return false;
   }
+  /**
+   * getter for the size.
+   * @return
+   */
 public int getSize() {
   return size;
 }
-public void setSize(int size) {
+/**
+ * setter for the size.
+ * @param size
+ */
+public void setSize(final int size) {
   this.size = size;
 }
 
