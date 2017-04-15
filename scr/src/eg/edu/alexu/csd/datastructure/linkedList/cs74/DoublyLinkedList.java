@@ -3,10 +3,21 @@ package eg.edu.alexu.csd.datastructure.linkedList.cs74;
 import eg.edu.alexu.csd.datastructure.linkedList.ILinkedList;
 
 public class DoublyLinkedList implements ILinkedList {
+  /**
+   * dummy node for the head
+   */
   NodeDL head = new NodeDL(null);
+  /**
+   * dummy node for the tail
+   */
   NodeDL tail = new NodeDL(null);
-  int size;
-
+  /**
+   * size variable for the list size
+   */
+  private int size;
+/**
+ * constructor
+ */
   public DoublyLinkedList() {
     head.setNext(tail);
     head.setPrev(null);
@@ -14,9 +25,12 @@ public class DoublyLinkedList implements ILinkedList {
     tail.setPrev(head);
     size = 0;
   }
-
-  @Override
-  public void add(int index, Object element) {
+/**the index to insert the element in
+ * @param index
+ * the value of the inserted node
+ * @param element
+ */
+  public void add(final int index, Object element) {
     NodeDL newNode = new NodeDL(null);
     NodeDL current = head;
     newNode.setData(element);
@@ -34,13 +48,16 @@ public class DoublyLinkedList implements ILinkedList {
       current.setNext(newNode);
 
       size++;
-    } else
+    } else {
       throw null;
+    }
 
   }
-
-  @Override
-  public void add(Object element) {
+/**
+ * the value of the inserted node
+ * @param element
+ */
+  public void add(final Object element) {
     NodeDL newNode = new NodeDL(null);
     NodeDL current = head;
     newNode.setData(element);
@@ -58,8 +75,12 @@ public class DoublyLinkedList implements ILinkedList {
 
   }
 
-  @Override
-  public Object get(int index) {
+/**
+ * the index of the wanted element
+ * @param
+ * return the data of the object
+ */
+  public Object get(final int index) {
 
     NodeDL current = null;
 
@@ -79,17 +100,19 @@ public class DoublyLinkedList implements ILinkedList {
           count--;
         }
       }
-      if (current.getData() == null || current == null)
+      if (current.getData() == null || current == null) {
         throw new RuntimeException();
+      }
 
       return current.getData();
 
-    } else
+    } else {
       throw null;
+    }
   }
 
-  @Override
-  public void set(int index, Object element) {
+  
+  public void set(final int index, Object element) {
     NodeDL current = null;
     if (this.size() > index && index >= 0) {
       if (index < this.size() / 2) {
@@ -109,12 +132,13 @@ public class DoublyLinkedList implements ILinkedList {
         }
         current.setData(element);
       }
-    } else
+    } else {
       throw null;
+    }
 
   }
 
-  @Override
+  
   public void clear() {
 
     this.head.setNext(this.tail);
@@ -122,13 +146,11 @@ public class DoublyLinkedList implements ILinkedList {
     size = 0;
   }
 
-  @Override
   public boolean isEmpty() {
     return (size == 0);
   }
 
-  @Override
-  public void remove(int index) {
+  public void remove(final int index) {
     int count;
     if (this.size() > index && index >= 0) {
       NodeDL current;
@@ -153,20 +175,21 @@ public class DoublyLinkedList implements ILinkedList {
       current = null;
       size--;
 
-    } else
+    } else {
       throw null;
+    }
   }
 
-  @Override
+  
   public int size() {
     return this.size;
   }
 
-  @Override
-  public ILinkedList sublist(int fromIndex, int toIndex) {
+  public ILinkedList sublist(final int fromIndex, int toIndex) {
     // TODO Auto-generated method stub
     DoublyLinkedList sub = new DoublyLinkedList();
-    if (this.size() > fromIndex && this.size() > toIndex && toIndex >= 0 && fromIndex >= 0
+    if (this.size() > fromIndex && this.size() > toIndex &&
+        toIndex >= 0 && fromIndex >= 0
         && toIndex >= fromIndex) {
       NodeDL current = head.getNext();
       int count = 0;
@@ -185,15 +208,19 @@ public class DoublyLinkedList implements ILinkedList {
     }
     throw null;
   }
-
-  public boolean contains(Object o) {
+/**
+ * the value of the node
+ * @param o
+ * return whether it is found or not
+ */
+  public final boolean contains(Object o) {
     if (this.size() != 0) {
 
       NodeDL current = head.getNext();
       while (current != tail) {
-        if (o.equals(current.getData()))
+        if (o.equals(current.getData())) {
           return true;
-        else {
+        } else {
           current = current.getNext();
         }
 
