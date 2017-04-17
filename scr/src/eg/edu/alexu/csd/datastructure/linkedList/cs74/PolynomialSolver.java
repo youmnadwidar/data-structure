@@ -15,7 +15,8 @@ public class PolynomialSolver implements IPolynomialSolver {
  * @param poly
  * @return
  */
-  public final boolean isSet(final char poly) {
+  public final boolean isSet(char poly) {
+    poly=Character.toUpperCase(poly);
     switch (poly) {
     case 'A':
       return !(A == null);
@@ -89,8 +90,6 @@ public class PolynomialSolver implements IPolynomialSolver {
     } else if (poly == 'C' && C != null) {
       C.clear();
       C = null;
-    } else {
-      throw new RuntimeException();
     }
 
   }

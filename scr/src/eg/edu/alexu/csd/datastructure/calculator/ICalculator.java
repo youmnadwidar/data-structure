@@ -2,8 +2,8 @@ package eg.edu.alexu.csd.datastructure.calculator;
 
 public interface ICalculator {
   /**
-   * Adds given two numbers
-   * 
+   * Adds given two numbers.
+   *
    * @param x
    *          first number
    * @param y
@@ -13,7 +13,7 @@ public interface ICalculator {
   int add(int x, int y);
 
   /**
-   * Divids two numbers
+   * Divids two numbers.
    * 
    * @param x
    *          first number
