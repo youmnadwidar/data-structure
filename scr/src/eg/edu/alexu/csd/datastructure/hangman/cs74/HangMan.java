@@ -9,19 +9,36 @@ import java.lang.String;
  *
  */
 public class HangMan implements IHangman {
-
+/**
+ * array of words.
+ */
   private String[] dic_Words = null;
+  /**
+   * the secret word chosen from the dic. 
+   */
   private String secretword = null;
+  /**
+   * the dashed word.
+   */
   private String shownword = null;
+  /**
+   * the number of the max wrong guesses.
+   */
   public int maxNumofWrongGueses = 0;
 
-  public void setDictionary(String[] words) {
+/**
+ * set the dic array.
+ * @param words
+ */
+  public final void setDictionary(final String[] words) {
 
     dic_Words = words;
 
   }
-
-  public String selectRandomSecretWord() {
+/**
+ * randomly select the secret word from the array.
+ */
+  public final String selectRandomSecretWord() {
     if (dic_Words == null || dic_Words.length == 0) {
       return null;
     } else {
@@ -42,11 +59,14 @@ public class HangMan implements IHangman {
 
     }
   }
-
-  public String guess(Character c) {
+/**
+ * guess the character.
+ * @param c
+ */
+  public final String guess( Character c) {
     if (secretword == null) {
-      return null; }
-
+      return null;
+      }
     else if (c == null) {
       return shownword;
 
@@ -76,8 +96,11 @@ public class HangMan implements IHangman {
       return shownword;
     }
   }
-
-  public void setMaxWrongGuesses(Integer max) {
+/**
+ * set the max number .
+ * @param max
+ */
+  public final void setMaxWrongGuesses(final Integer max) {
     this.maxNumofWrongGueses = max;
   }
 
