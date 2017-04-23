@@ -80,10 +80,5 @@ public class Stack implements IStack {
     return stack.getSize();
   }
 
-  public void print() {
-    for (int i = 0; i < stack.getSize(); i++) {
-      System.out.println(stack.get(i));
-
-    }
-  }
+  
 }
