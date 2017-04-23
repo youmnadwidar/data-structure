@@ -1,5 +1,9 @@
 package eg.edu.alexu.csd.datastructure.calculator;
-
+/**
+ * .
+ * @author HP
+ *
+ */
 public interface ICalculator {
   /**
    * Adds given two numbers.
@@ -14,7 +18,7 @@ public interface ICalculator {
 
   /**
    * Divids two numbers.
-   * 
+   *
    * @param x
    *          first number
    * @param y
