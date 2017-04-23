@@ -9,12 +9,12 @@ import java.lang.String;
  *
  */
 public class HangMan implements IHangman {
-/**
- * array of words.
- */
+  /**
+   * array of words.
+   */
   private String[] dic_Words = null;
   /**
-   * the secret word chosen from the dic. 
+   * the secret word chosen from the dic.
    */
   private String secretword = null;
   /**
@@ -26,18 +26,22 @@ public class HangMan implements IHangman {
    */
   public int maxNumofWrongGueses = 0;
 
-/**
- * set the dic array.
- * @param words
- */
+  /**
+   * set the dic array.
+   * 
+   * @param words
+   */
   public final void setDictionary(final String[] words) {
 
     dic_Words = words;
 
   }
-/**
- * randomly select the secret word from the array.
- */
+
+  /**
+   * randomly select the secret word from the array.
+   * 
+   * @return
+   */
   public final String selectRandomSecretWord() {
     if (dic_Words == null || dic_Words.length == 0) {
       return null;
@@ -59,15 +63,17 @@ public class HangMan implements IHangman {
 
     }
   }
-/**
- * guess the character.
- * @param c
- */
-  public final String guess( Character c) {
+
+  /**
+   * guess the character.
+   *
+   * @param c string
+   * @return the shown word after guessing
+   */
+  public final String guess(final Character c) {
     if (secretword == null) {
       return null;
-      }
-    else if (c == null) {
+    } else if (c == null) {
       return shownword;
 
     } else {
@@ -76,10 +82,10 @@ public class HangMan implements IHangman {
       word = shownword.toCharArray();
 
       int flag = 0;
-      c = Character.toLowerCase(c.charValue());
 
       for (int i = 0; i < word.length; i++) {
-        if (c == Character.toLowerCase(secretword.charAt(i))) {
+        if (Character.toLowerCase(c.charValue())
+            == Character.toLowerCase(secretword.charAt(i))) {
 
           flag = 1;
           word[i] = secretword.charAt(i);
@@ -96,10 +102,12 @@ public class HangMan implements IHangman {
       return shownword;
     }
   }
-/**
- * set the max number .
- * @param max
- */
+
+  /**
+   * set the max number .
+   *
+   * @param max integer
+   */
   public final void setMaxWrongGuesses(final Integer max) {
     this.maxNumofWrongGueses = max;
   }
