@@ -60,13 +60,10 @@ public class DoublyLinkedList implements ILinkedList {
  */
   public void add(final Object element) {
     NodeDL newNode = new NodeDL(null);
-    NodeDL current = head;
+    NodeDL current = tail.getPrev();
     newNode.setData(element);
 
-    while (current.getNext() != tail) {
-      current = current.getNext();
-
-    }
+   
 
     current.setNext(newNode);
     newNode.setPrev(current);
