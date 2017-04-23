@@ -4,24 +4,24 @@ import org.junit.Assert;
 
 import org.junit.Test;
 /**
- * 
- * @author HP
+ *
+ * @author HP.
  * junit test for the {@link DoublyLinkedList}
  *
  */
 
 public class DoubleTester {
   /**
-   * final parameters to use in the test;
+   * final parameters to use in the test.
    */
   private final int z0 = 0, z1 = 1, z2 = 2, z3 = 3, z4 = 4, z5 = 5,
       z6 = 6, z7 = 7, z8 = 8,
       z12 = 12, z20 = 20, z25 = 25, z50 = 50, z30 = 30;
 
-  @Test
   /**
-   * test the get method ;
+   * test the get method .
    */
+  @Test
   public void testGet() {
     DoublyLinkedList test = new DoublyLinkedList();
     test.add(z12);
@@ -32,10 +32,10 @@ public class DoubleTester {
 
   }
 
-  @Test(expected = NullPointerException.class)
   /**
-   * testing add in index > size ;
+   * testing add in index > size .
    */
+  @Test(expected = NullPointerException.class)
   public void testBiggerThanSize() {
 
     DoublyLinkedList test = new DoublyLinkedList();
@@ -46,10 +46,10 @@ public class DoubleTester {
 
   }
 
-  @Test(expected = NullPointerException.class)
   /**
-   * test the negative index ;
+   * test the negative index .
    */
+  @Test(expected = NullPointerException.class)
   public void testAddNegativeindex() {
 
     DoublyLinkedList test = new DoublyLinkedList();
@@ -60,7 +60,7 @@ public class DoubleTester {
 
   }
 /**
- * testing the size and the get methods;
+ * testing the size and the get methods.
  */
   @Test
   public void testGetAndSize() {
@@ -80,7 +80,7 @@ public class DoubleTester {
 
   }
 /**
- * testing the negative index ;
+ * testing the negative index .
  */
   @Test(expected = RuntimeException.class)
   public void testGetNegativeIndex() {
@@ -93,7 +93,7 @@ public class DoubleTester {
 
   }
 /**
- * testing the set method ;
+ * testing the set method .
  */
   @Test
   public void testset() {
@@ -109,7 +109,7 @@ public class DoubleTester {
 
   }
 /**
- * out of bounds set method ;
+ * out of bounds set method .
  */
   @Test(expected = NullPointerException.class)
   public void testSetOutOfBounds() {
@@ -123,7 +123,7 @@ public class DoubleTester {
 
   }
 /**
- * testing clear and is empty
+ * testing clear and is empty.
  */
   @Test
   public void testClearAndIsEmpty() {
@@ -139,10 +139,9 @@ public class DoubleTester {
 
   }
 /**
- * testing remove the head node;
+ * testing remove the head node.
  */
   @Test
-  
   public void testRemoveHead() {
     DoublyLinkedList test = new DoublyLinkedList();
     test.add(z0);
@@ -153,7 +152,7 @@ public class DoubleTester {
 
   }
 /**
- * testing remove the last node ;
+ * testing remove the last node .
  */
   @Test(expected = NullPointerException.class)
   public void testRemoveLast() {
@@ -167,10 +166,10 @@ public class DoubleTester {
 
   }
 
-  @Test
   /**
-   * testing remove method at the middle ;
+   * testing remove method at the middle .
    */
+  @Test
   public void testRemoveMiddle() {
     DoublyLinkedList test = new DoublyLinkedList();
     test.add(z0);
@@ -182,10 +181,10 @@ public class DoubleTester {
 
   }
 
-  @Test(expected = NullPointerException.class)
   /**
-   * testing remove method with unavailable index; 
+   * testing remove method with unavailable index.
    */
+  @Test(expected = NullPointerException.class)
   public void testRemoveOut() {
     DoublyLinkedList test = new DoublyLinkedList();
     test.add(z0);
@@ -196,10 +195,10 @@ public class DoubleTester {
 
   }
 
-  @Test
   /**
-   * testing contains method;
+   * testing contains method.
    */
+  @Test
   public void testContains() {
     DoublyLinkedList test = new DoublyLinkedList();
     test.add(z0);
@@ -212,10 +211,10 @@ public class DoubleTester {
 
   }
 
-  @Test
   /**
-   * testing sublist method ;
+   * testing sublist method .
    */
+  @Test
   public void testSubList() {
     DoublyLinkedList test = new DoublyLinkedList();
     test.add(z20);
@@ -233,10 +232,10 @@ public class DoubleTester {
 
   }
 
-  @Test(expected = NullPointerException.class)
   /**
-   * testing sublist with unavailable toindex ;
+   * testing sublist with unavailable toindex .
    */
+  @Test(expected = NullPointerException.class)
   public void testSubListFromBiggerThanTo() {
     DoublyLinkedList test = new DoublyLinkedList();
     test.add(z20);
@@ -248,10 +247,10 @@ public class DoubleTester {
 
   }
 
-  @Test(expected = NullPointerException.class)
   /**
-   * testing sublist method with unavailable indexes;
+   * testing sublist method with unavailable indexes.
    */
+  @Test(expected = NullPointerException.class)
   public void testSubListOutOfBounds() {
     DoublyLinkedList test = new DoublyLinkedList();
     test.add(z20);
@@ -264,10 +263,10 @@ public class DoubleTester {
 
   }
 
-  @Test(expected = NullPointerException.class)
   /**
-   * testing the sublist method with negative index;
+   * testing the sublist method with negative index.
    */
+  @Test(expected = NullPointerException.class)
   public void testSubListNegativeIndex() {
     DoublyLinkedList test = new DoublyLinkedList();
     test.add(z20);
@@ -279,8 +278,9 @@ public class DoubleTester {
 
   }
 /**
- * test adding an element in the middle ;
+ * test adding an element in the middle .
  */
+  @Test
   public final void testAddMiddle() {
     DoublyLinkedList test = new DoublyLinkedList();
     test.add(z20);

@@ -1,47 +1,86 @@
 package eg.edu.alexu.csd.datastructure.linkedList.cs74;
-
+/**
+ *
+ * @author HP.
+ *
+ */
 public class NodeDL {
-
+/**
+ * the data stored in the node.
+ */
   private Object data;
+  /**
+   * the node which follows.
+   */
   private NodeDL next;
+  /**
+   * the node before the current.
+   */
   private NodeDL prev;
+  /**
+   * constructor for the node.
+   * @param value
+   */
 
-  public NodeDL(Object value) {
+  public NodeDL(final Object value) {
     this.data = value;
     this.next = null;
 
     this.prev = null;
 
   }
-
-  public NodeDL(Object value, NodeDL after, NodeDL before) {
+/**
+ * 
+ * @param value.
+ * @param after
+ * @param before
+ */
+  public NodeDL(final Object value, final NodeDL after, final NodeDL before) {
     super();
     this.data = value;
     this.next = after;
     this.prev = before;
   }
-
-  public Object getData() {
+/**
+ * 
+ * @return.
+ */
+  public final Object getData() {
     return data;
   }
-
-  public void setData(Object value) {
+/**
+ * 
+ * @param value.
+ */
+  public final void setData(final Object value) {
     this.data = value;
   }
-
-  public NodeDL getNext() {
+/**
+ * getter.
+ * @return
+ */
+  public final NodeDL getNext() {
     return next;
   }
-
-  public void setNext(NodeDL after) {
+/**
+ * setter.
+ * @param after
+ */
+  public final void setNext(final NodeDL after) {
     this.next = after;
   }
-
-  public NodeDL getPrev() {
+/**
+ * getter.
+ * @return.
+ */
+  public final NodeDL getPrev() {
     return prev;
   }
-
-  public void setPrev(NodeDL before) {
+/**
+ * setter.
+ * @param before
+ */
+  public final void setPrev(final NodeDL before) {
     this.prev = before;
   }
 
