@@ -6,11 +6,11 @@ public class DoublyLinkedList implements ILinkedList {
   /** .
    * dummy node for the head.
    */
-  private NodeDL head = new NodeDL(null);
+  NodeDL head = new NodeDL(null);
   /** .
    * dummy node for the tail.
    */
- private NodeDL tail = new NodeDL(null);
+  NodeDL tail = new NodeDL(null);
   /**.
    * size variable for the list size.
    */
@@ -199,7 +199,7 @@ public class DoublyLinkedList implements ILinkedList {
   /**
    * Returns a view of the portion of this list between the specified.
    *  fromIndex and toIndex inclusively.
-   *  @param fromindex
+   *  @param from index
    *  @param toindex;
    */
 
