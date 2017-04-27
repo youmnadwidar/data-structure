@@ -16,8 +16,7 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
   public String infixToPostfix(final String expression) {
     Stack stack = new Stack();
     StringBuilder postfix = new StringBuilder();
-    if(expression.length()==0||expression==null||expression.charAt(0)<='0'
-        ||expression.charAt(0)>='9'&&expression.charAt(0)!=' '){
+    if(expression.length()==0||expression==null){
       throw new RuntimeException();
     }
     for (int i = 0; i < expression.length(); i++) {
