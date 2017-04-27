@@ -67,6 +67,7 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
     int ans = 0;
     Object temp = 0;
     Stack stack = new Stack();
+   System.out.println(expression);
     for (int i = 0; i < expression.length(); i++) {
       if (expression.charAt(i) >= '0' && expression.charAt(i) <= '9') {
         stack.push(Character.getNumericValue(expression.charAt(i)));
