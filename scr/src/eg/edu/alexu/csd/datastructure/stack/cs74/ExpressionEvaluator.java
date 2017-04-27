@@ -16,6 +16,9 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
   public String infixToPostfix(final String expression) {
     Stack stack = new Stack();
     StringBuilder postfix = new StringBuilder();
+    if(expression.length()==0||expression==null||expression.charAt(0)<='0'||expression.charAt(0)>='9'){
+      throw new RuntimeException();
+    }
     for (int i = 0; i < expression.length(); i++) {
       if (expression.charAt(i) == '*' || expression.charAt(i) == '/'
           || expression.charAt(i) == '-' || expression.charAt(i) == '+'
@@ -64,7 +67,7 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
    * @return the expression evaluated value
    */
   public int evaluate(String expression) {
-    float ans = 0;
+    int ans = 0;
     Object temp = 0;
     Stack stack = new Stack();
     for (int i = 0; i < expression.length(); i++) {
@@ -75,18 +78,18 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
         temp = stack.pop();
         switch (expression.charAt(i)) {
         case '+':
-          ans = (float)stack.pop() + (float)temp;
+          ans = (int )stack.pop() + (int)temp;
           break;
 
         case '-':
-          ans = (float)stack.pop() - (float)temp;
+          ans = (int )stack.pop() - (int)temp;
           break;
         case '*':
-          ans = (float)stack.pop() * (float)temp;
+          ans = (int )stack.pop() * (int)temp;
 
           break;
         case '/':
-          ans = (float)stack.pop() / (float)temp;
+          ans = (int )stack.pop() / (int)temp;
 
           break;
         
@@ -95,7 +98,7 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
       }
 
     }
-    return (int) ans;
+    return ans;
   }
 
 }
