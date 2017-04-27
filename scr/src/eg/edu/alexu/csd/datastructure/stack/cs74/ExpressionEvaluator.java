@@ -76,9 +76,9 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
   public int evaluate(String expression) {
     float ans = 0;
     Stack stack = new Stack();
-  /**  if (expression.length() == 0 || expression == null) {
+   if (expression.length() == 0 || expression == null) {
       throw new RuntimeException();
-    }**/
+    }
     for (int i = 0; i < expression.length(); i++) {
       if (expression.charAt(i) >= '0' && expression.charAt(i) <= '9') {
        
