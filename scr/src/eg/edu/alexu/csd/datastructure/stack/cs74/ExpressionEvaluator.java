@@ -51,7 +51,8 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
         }
 
       } else if (expression.charAt(i) != ' ') {
-        if(expression.charAt(i+1) >= '0' && expression.charAt(i+1) <= '9'){
+        if((expression.charAt(i+1) >= '0' && expression.charAt(i+1) <= '9')
+            ||(expression.charAt(i+1)>='a'&&expression.charAt(i+1)<='z')){
           throw new RuntimeException();
         }
         postfix.append(" " + expression.charAt(i));
