@@ -64,10 +64,9 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
    * @return the expression evaluated value
    */
   public int evaluate(String expression) {
-    int ans = 0;
+    float ans = 0;
     Object temp = 0;
     Stack stack = new Stack();
-   System.out.println(expression);
     for (int i = 0; i < expression.length(); i++) {
       if (expression.charAt(i) >= '0' && expression.charAt(i) <= '9') {
         stack.push(Character.getNumericValue(expression.charAt(i)));
@@ -76,18 +75,18 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
         temp = stack.pop();
         switch (expression.charAt(i)) {
         case '+':
-          ans = (int )stack.pop() + (int)temp;
+          ans = (float)stack.pop() + (float)temp;
           break;
 
         case '-':
-          ans = (int )stack.pop() - (int)temp;
+          ans = (float)stack.pop() - (float)temp;
           break;
         case '*':
-          ans = (int )stack.pop() * (int)temp;
+          ans = (float)stack.pop() * (float)temp;
 
           break;
         case '/':
-          ans = (int )stack.pop() / (int)temp;
+          ans = (float)stack.pop() / (float)temp;
 
           break;
         
@@ -96,7 +95,7 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
       }
 
     }
-    return ans;
+    return (int) ans;
   }
 
 }
