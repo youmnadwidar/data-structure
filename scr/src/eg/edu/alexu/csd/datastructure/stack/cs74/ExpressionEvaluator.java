@@ -57,7 +57,7 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
 
     }
     if(flag){
-      throw null;
+      throw new RuntimeException();
     }
     while (!(stack.isEmpty())) {
       postfix.append(" " + stack.pop());
