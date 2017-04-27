@@ -2,6 +2,10 @@ package eg.edu.alexu.csd.datastructure.linkedList.cs74;
 
 import eg.edu.alexu.csd.datastructure.linkedList.ILinkedList;
 
+/**
+ * @author HP.
+ *
+ */
 public class DoublyLinkedList implements ILinkedList {
   /** .
    * dummy node for the head.
@@ -27,9 +31,9 @@ public class DoublyLinkedList implements ILinkedList {
   }
 /**
  * the index to insert the element in.
- * @param index
+ * @param index the place of the added node
  * the value of the inserted node
- * @param element
+ * @param element the value of the added node
  */
   public void add(final int index, final Object element) {
     NodeDL newNode = new NodeDL(null);
@@ -56,14 +60,13 @@ public class DoublyLinkedList implements ILinkedList {
   }
 /**
  * the value of the inserted node.
- * @param element 
+ * @param element the value of the added node
  */
   public void add(final Object element) {
     NodeDL newNode = new NodeDL(null);
     NodeDL current = tail.getPrev();
     newNode.setData(element);
 
-   
 
     current.setNext(newNode);
     newNode.setPrev(current);
@@ -75,7 +78,7 @@ public class DoublyLinkedList implements ILinkedList {
 
 /**
  * the index of the wanted element.
- * @param index
+ * @param index of the wanted node
  * @return the data of the object
  */
   public Object get(final int index) {
@@ -111,8 +114,8 @@ public class DoublyLinkedList implements ILinkedList {
   /**
    * the index of the node.
    * @param index
-   * the value of the node 
-   * @param element
+   * the value of the node
+   * @param element the wanted set value
    */
   public final void set(final int index, final Object element) {
     NodeDL current = null;
@@ -142,7 +145,6 @@ public class DoublyLinkedList implements ILinkedList {
   /**
    * clear the linkedlist.
    */
-  
   public void clear() {
 
     this.head.setNext(this.tail);
@@ -151,13 +153,14 @@ public class DoublyLinkedList implements ILinkedList {
   }
 /**
  * check whether the list is empty.
+ * @return whether it's empty or not
  */
   public boolean isEmpty() {
     return (getSize() == 0);
   }
 /**
  * the index of the element that whats to be removed.
- * @param index
+ * @param index the removed node
  */
   public void remove(final int index) {
     int count;
@@ -190,7 +193,7 @@ public class DoublyLinkedList implements ILinkedList {
   }
   /**
    * the size of the linked list.
-   * @return
+   * @return the size of the linked list
    */
   public int size() {
     return this.getSize();
@@ -199,13 +202,14 @@ public class DoublyLinkedList implements ILinkedList {
   /**
    * Returns a view of the portion of this list between the specified.
    *  fromIndex and toIndex inclusively.
-   *  @param from index
-   *  @param toindex;
+   *  @param fromIndex the start of the sublist
+   *  @param toIndex  the end of the sublist
+   *  @return the sublist form the specified indexes
    */
 
   public ILinkedList sublist(final int fromIndex, final int toIndex) {
     DoublyLinkedList sub = new DoublyLinkedList();
-    if (this.size() > fromIndex && this.size() > toIndex 
+    if (this.size() > fromIndex && this.size() > toIndex
         && toIndex >= 0 && fromIndex >= 0
         && toIndex >= fromIndex) {
       NodeDL current = head.getNext();
@@ -227,7 +231,7 @@ public class DoublyLinkedList implements ILinkedList {
   }
 /**
  * the value of the node.
- * @param o
+ * @param o the value of the wanted node
  * @return whether it is found or not
  */
   public final boolean contains(final Object o) {
@@ -247,17 +251,17 @@ public class DoublyLinkedList implements ILinkedList {
   }
   /**
    * getter for the size.
-   * @return
+   * @return the size of the linked list getter
    */
 public int getSize() {
   return size;
 }
 /**
  * setter for the size.
- * @param size
+ * @param value set the size setter
  */
-public void setSize(final int size) {
-  this.size = size;
+public void setSize(final int value) {
+  this.size = value;
 }
 
 }
