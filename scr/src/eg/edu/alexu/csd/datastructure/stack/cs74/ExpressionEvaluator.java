@@ -101,6 +101,9 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
       }
 
     }
+    if(stack.size()!=1){
+      throw null;
+    }
     ans = Math.round(ans);
     return (int) ans;
   }
