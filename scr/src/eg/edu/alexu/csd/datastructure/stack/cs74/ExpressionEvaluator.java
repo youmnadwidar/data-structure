@@ -19,12 +19,13 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
     if (expression.length() == 0 || expression == null) {
       throw new RuntimeException();
     }
-  
+    boolean flag = false ;
+
     for (int i = 0; i < expression.length(); i++) {
       if (expression.charAt(i) == '*' || expression.charAt(i) == '/'
           || expression.charAt(i) == '-' || expression.charAt(i) == '+'
           || expression.charAt(i) == '(' || expression.charAt(i) == ')') {
-        boolean flag = true;
+        flag = true;
         if (stack.isEmpty() || expression.charAt(i) == '(') {
           stack.push(expression.charAt(i));
         } else if (expression.charAt(i) == ')') {
