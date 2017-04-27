@@ -16,18 +16,18 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
   public String infixToPostfix(final String expression) {
     Stack stack = new Stack();
     StringBuilder postfix = new StringBuilder();
-    if(expression.length()==0||expression==null){
+    if (expression.length() == 0 || expression == null) {
       throw new RuntimeException();
     }
     for (int i = 0; i < expression.length(); i++) {
       if (expression.charAt(i) == '*' || expression.charAt(i) == '/'
           || expression.charAt(i) == '-' || expression.charAt(i) == '+'
           || expression.charAt(i) == '(' || expression.charAt(i) == ')') {
-        int flag=1;
+        int flag = 1;
         if (stack.isEmpty() || expression.charAt(i) == '(') {
           stack.push(expression.charAt(i));
         } else if (expression.charAt(i) == ')') {
-          flag=0;
+          flag = 0;
           while (!stack.peek().equals('(')) {
             postfix.append(" " + stack.pop());
           }
@@ -54,7 +54,7 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
       }
 
     }
-  //  if(flag)
+    // if(flag)
     while (!(stack.isEmpty())) {
       postfix.append(" " + stack.pop());
     }
@@ -71,37 +71,37 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
    */
   public int evaluate(String expression) {
     float ans = 0;
-    Object temp = 0;
     Stack stack = new Stack();
     for (int i = 0; i < expression.length(); i++) {
       if (expression.charAt(i) >= '0' && expression.charAt(i) <= '9') {
-        stack.push(Character.getNumericValue(expression.charAt(i)));
+        stack.push((float)Character.getNumericValue(expression.charAt(i)));
+       // System.out.println(stack.peek());
       } else if (expression.charAt(i) == '*' || expression.charAt(i) == '/'
           || expression.charAt(i) == '-' || expression.charAt(i) == '+') {
-        temp = stack.pop();
+       float temp = (float)stack.pop();
         switch (expression.charAt(i)) {
         case '+':
-          ans = (float)stack.pop() + (float)temp;
+          ans = (float) stack.pop() + temp;
           break;
 
         case '-':
-          ans = (float)stack.pop() - (float)temp;
+          ans = (float) stack.pop() -  temp;
           break;
         case '*':
-          ans = (float)stack.pop() * (float)temp;
+          ans = (float)stack.pop() * temp;
 
           break;
         case '/':
-          ans = (float)stack.pop() / (float)temp;
+          ans = (float)stack.pop() / temp;
 
           break;
-        
+
         }
         stack.push(ans);
       }
 
     }
-    ans=Math.round(ans);
+    ans = Math.round(ans);
     return (int) ans;
   }
 
