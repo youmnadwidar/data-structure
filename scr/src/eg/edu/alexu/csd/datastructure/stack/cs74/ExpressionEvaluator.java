@@ -24,11 +24,11 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
       if (expression.charAt(i) == '*' || expression.charAt(i) == '/'
           || expression.charAt(i) == '-' || expression.charAt(i) == '+'
           || expression.charAt(i) == '(' || expression.charAt(i) == ')') {
-        int flag = 1;
+        boolean flag = true;
         if (stack.isEmpty() || expression.charAt(i) == '(') {
           stack.push(expression.charAt(i));
         } else if (expression.charAt(i) == ')') {
-          flag = 0;
+          flag = false;
           while (!stack.peek().equals('(')) {
             postfix.append(" " + stack.pop());
           }
@@ -51,15 +51,13 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
         }
 
       } else if (expression.charAt(i) != ' ') {
-        if((expression.charAt(i+1) >= '0' && expression.charAt(i+1) <= '9')
-            ||(expression.charAt(i+1)>='a'&&expression.charAt(i+1)<='z')){
-          throw new RuntimeException();
-        }
         postfix.append(" " + expression.charAt(i));
       }
 
     }
-    // if(flag)
+    if(flag){
+      throw null;
+    }
     while (!(stack.isEmpty())) {
       postfix.append(" " + stack.pop());
     }
