@@ -110,7 +110,7 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
 
     }
     if(stack.size()!=1){
-      throw null;
+      return 0;
     }
     ans = Math.round(ans);
     return (int) ans;
