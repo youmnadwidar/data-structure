@@ -20,9 +20,13 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
     boolean flag = false;
 
     for (int i = 0; i < expression.length(); i++) {
+      
       if (expression.charAt(i) == '*' || expression.charAt(i) == '/'
           || expression.charAt(i) == '-' || expression.charAt(i) == '+'
           || expression.charAt(i) == '(' || expression.charAt(i) == ')') {
+        if(prev=='*'||prev=='/'||prev=='+'||prev=='-')
+          throw null;
+        prev=expression.charAt(i);
         if (stack.isEmpty() || expression.charAt(i) == '(') {
           if (expression.charAt(i) == '(') {
             flag = true;
@@ -53,6 +57,8 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
         }
 
       } else if (expression.charAt(i) != ' ') {
+        prev=expression.charAt(i);
+
         postfix.append(" " + expression.charAt(i));
       }
 
