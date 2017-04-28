@@ -19,31 +19,36 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
   public String infixToPostfix(String expression) {
     Stack stack = new Stack();
     StringBuilder postfix = new StringBuilder();
-    int flag=0;
-    expression = expression.replaceAll("\\s", "");
+    int flag = 0;
+    String num = new String();
     String[] operations = { "+", "/", "*", "-", "(", ")" };
     List<String> list = Arrays.asList(operations);
-
-    for (int i = 0; i < expression.length(); i++) {
+    int i = 0;
+    while (i < expression.length()) {
 
       if (list.contains(Character.toString(expression.charAt(i)))) {
         if (list.contains(Character.toString(expression.charAt(i + 1)))
-            &&( expression.charAt(i + 1) != '('
-            &&expression.charAt(i) != ')')
-             && (expression.charAt(i) != ')'&&expression.charAt(i+1)!='(')) {
+            && (expression.charAt(i + 1) != '(' && expression.charAt(i) != ')')
+            && (expression.charAt(i) != ')'
+                && expression.charAt(i + 1) != '(')) {
           throw null;
         }
 
         if (stack.isEmpty() || expression.charAt(i) == '(') {
           if (expression.charAt(i) == '(') {
-            flag ++;
+
+            flag++;
           }
           stack.push(expression.charAt(i));
+          i++;
+
         } else if (expression.charAt(i) == ')') {
-          flag --;
+          flag--;
           while (!stack.peek().equals('(')) {
             postfix.append(" " + stack.pop());
           }
+          i++;
+
           stack.pop();
         } else if (expression.charAt(i) == '-' || expression.charAt(i) == '+') {
 
@@ -53,6 +58,8 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
 
           }
           stack.push(expression.charAt(i));
+          i++;
+
         } else if (expression.charAt(i) == '*' || expression.charAt(i) == '/') {
           if (!stack.isEmpty()
               && (stack.peek().equals('/') || stack.peek().equals('*'))) {
@@ -60,18 +67,23 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
             postfix.append(" " + stack.pop());
           }
           stack.push(expression.charAt(i));
+          i++;
 
         }
 
-      } else
+      } else if (expression.charAt(i) >= '0' && expression.charAt(i) <= '9') {
+        while (i < expression.length() && expression.charAt(i) >= '0'
+            && expression.charAt(i) <= '9') {
 
-      {
-
-        postfix.append(" " + expression.charAt(i));
+          num += expression.charAt(i);
+          i++;
+        }
+        postfix.append(" " + num);
       }
 
+      num = "";
     }
-    if (flag!=0) {
+    if (flag != 0) {
       throw new RuntimeException();
     }
     while (!(stack.isEmpty())) {
@@ -88,34 +100,50 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
    *          postfix expression
    * @return the expression evaluated value
    */
-  public int evaluate(final String expression) {
+  public int evaluate(String expression) {
     float ans = 0;
     Stack stack = new Stack();
+    String num = new String();
     if (expression.length() == 0 || expression == null) {
       throw new RuntimeException();
     }
-    for (int i = 0; i < expression.length(); i++) {
+    int i = 0; 
+    while ( i < expression.length()) {
       if (expression.charAt(i) >= '0' && expression.charAt(i) <= '9') {
+        while (expression.charAt(i) >= '0' && expression.charAt(i) <= '9') {
+          
+        num += expression.charAt(i);
+        i++;
+        }
 
-        stack.push((float) Character.getNumericValue(expression.charAt(i)));
-        // System.out.println(stack.peek());
+        stack.push((float) Integer.parseInt(num));
+        i--;
+
       } else if (expression.charAt(i) == '*' || expression.charAt(i) == '/'
           || expression.charAt(i) == '-' || expression.charAt(i) == '+') {
         float temp = (float) stack.pop();
+        
         switch (expression.charAt(i)) {
         case '+':
           ans = (float) stack.pop() + temp;
+          
+
           break;
 
         case '-':
           ans = (float) stack.pop() - temp;
+          
+
           break;
         case '*':
           ans = (float) stack.pop() * temp;
+          
+
 
           break;
         case '/':
           ans = (float) stack.pop() / temp;
+          
 
           break;
         default:
@@ -124,7 +152,8 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
         }
         stack.push(ans);
       }
-
+      i++;
+     num="";
     }
     if (stack.size() > 1) {
       return 0;
