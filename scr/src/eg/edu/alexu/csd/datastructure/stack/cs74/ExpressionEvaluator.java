@@ -71,7 +71,7 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
         }
 
       } else if (temp >= '0' && temp <= '9') {
-        num = num.delete(0, num.length());
+        num = new StringBuilder();
         while (i < expression.length() && expression.charAt(i) >= '0'
             && expression.charAt(i) <= '9') {
 
@@ -108,7 +108,7 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
     int i = 0;
     while (i < expression.length()) {
       if (expression.charAt(i) >= '0' && expression.charAt(i) <= '9') {
-        while (expression.charAt(i) >= '0' && expression.charAt(i) <= '9') {
+        while (expression.charAt(i) !=' ') {
 
           num += expression.charAt(i);
           i++;
