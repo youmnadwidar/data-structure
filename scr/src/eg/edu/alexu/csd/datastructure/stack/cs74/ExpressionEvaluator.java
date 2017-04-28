@@ -20,6 +20,7 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
     Stack stack = new Stack();
     StringBuilder postfix = new StringBuilder();
     int flag = 0;
+    expression=expression.replaceAll("\\s","");
     StringBuilder num = new StringBuilder();
     String[] operations = { "+", "/", "*", "-", "(", ")" };
     List<String> list = Arrays.asList(operations);
@@ -39,12 +40,14 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
             flag++;
           }
           stack.push(temp);
+          i++;
 
         } else if (temp == ')') {
           flag--;
           while (!stack.peek().equals('(')) {
             postfix.append(" " + stack.pop());
           }
+          i++;
 
           stack.pop();
         } else if (temp == '-' || temp == '+') {
@@ -55,6 +58,7 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
 
           }
           stack.push(expression.charAt(i));
+          i++;
 
         } else if (temp == '*' || temp == '/') {
           if (!stack.isEmpty()
@@ -63,21 +67,15 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
             postfix.append(" " + stack.pop());
           }
           stack.push(temp);
+          i++;
 
         }
 
-      } else if (temp >= '0' && temp <= '9') {
-       /* num = new StringBuilder();
-        while (i < expression.length() && expression.charAt(i) >= '0'
-            && expression.charAt(i) <= '9') {
-
-          num = num.append(expression.charAt(i));
-          i++;
-        }*/
+      } else {
+        
         postfix.append(" " + temp);
+        i++;
       }
-      i++;
-
     }
     if (flag != 0) {
       throw new RuntimeException();
