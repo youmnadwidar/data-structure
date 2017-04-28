@@ -26,7 +26,7 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
     for (int i = 0; i < expression.length(); i++) {
 
       if (list.contains(Character.toString(expression.charAt(i)))) {
-        if (list.contains(Character.toString(expression.charAt(i -1)))) {
+        if (expression.charAt(i)==expression.charAt(i +1)) {
           throw null;
         }
 
