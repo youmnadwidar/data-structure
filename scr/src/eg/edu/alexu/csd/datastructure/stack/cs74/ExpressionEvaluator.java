@@ -25,7 +25,7 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
     List<String> list = Arrays.asList(operations);
     int i = 0;
     while (i < expression.length()) {
-
+      num = "";
       if (list.contains(Character.toString(expression.charAt(i)))) {
         if (list.contains(Character.toString(expression.charAt(i + 1)))
             && (expression.charAt(i + 1) != '(' && expression.charAt(i) != ')')
@@ -80,8 +80,6 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
         }
         postfix.append(" " + num);
       }
-
-      num = "";
     }
     if (flag != 0) {
       throw new RuntimeException();
