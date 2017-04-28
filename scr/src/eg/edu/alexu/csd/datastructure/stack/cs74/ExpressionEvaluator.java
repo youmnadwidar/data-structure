@@ -39,14 +39,12 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
             flag++;
           }
           stack.push(temp);
-          i++;
 
         } else if (temp == ')') {
           flag--;
           while (!stack.peek().equals('(')) {
             postfix.append(" " + stack.pop());
           }
-          i++;
 
           stack.pop();
         } else if (temp == '-' || temp == '+') {
@@ -57,7 +55,6 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
 
           }
           stack.push(expression.charAt(i));
-          i++;
 
         } else if (temp == '*' || temp == '/') {
           if (!stack.isEmpty()
@@ -66,7 +63,6 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
             postfix.append(" " + stack.pop());
           }
           stack.push(temp);
-          i++;
 
         }
 
@@ -79,8 +75,9 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
           i++;
         }*/
         postfix.append(" " + temp);
-        i++;
       }
+      i++;
+
     }
     if (flag != 0) {
       throw new RuntimeException();
