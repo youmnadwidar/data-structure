@@ -20,7 +20,7 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
     Stack stack = new Stack();
     StringBuilder postfix = new StringBuilder();
     int flag = 0;
-    String num = new String();
+    StringBuilder num = new StringBuilder();
     String[] operations = { "+", "/", "*", "-", "(", ")" };
     List<String> list = Arrays.asList(operations);
     int i = 0;
@@ -71,11 +71,11 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
         }
 
       } else if (expression.charAt(i) >= '0' && expression.charAt(i) <= '9') {
-       // num=new String();
+       num=new StringBuilder();
         while (i < expression.length() && expression.charAt(i) >= '0'
             && expression.charAt(i) <= '9') {
 
-          num += expression.charAt(i);
+          num =num.append( expression.charAt(i));
           i++;
         }
         postfix.append(" " + num);
