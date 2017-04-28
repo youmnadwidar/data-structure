@@ -25,12 +25,11 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
     List<String> list = Arrays.asList(operations);
     int i = 0;
     while (i < expression.length()) {
-      char temp =expression.charAt(i);
+      char temp = expression.charAt(i);
       if (list.contains(Character.toString(expression.charAt(i)))) {
         if (list.contains(Character.toString(expression.charAt(i + 1)))
             && (expression.charAt(i + 1) != '(' && temp != ')')
-            && (temp != ')'
-                && expression.charAt(i + 1) != '(')) {
+            && (temp != ')' && expression.charAt(i + 1) != '(')) {
           throw null;
         }
 
