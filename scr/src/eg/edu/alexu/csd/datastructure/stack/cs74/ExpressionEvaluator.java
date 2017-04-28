@@ -71,11 +71,11 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
         }
 
       } else if (expression.charAt(i) >= '0' && expression.charAt(i) <= '9') {
-       num=new StringBuilder();
+        num = num.delete(0, num.length());
         while (i < expression.length() && expression.charAt(i) >= '0'
             && expression.charAt(i) <= '9') {
 
-          num =num.append( expression.charAt(i));
+          num = num.append(expression.charAt(i));
           i++;
         }
         postfix.append(" " + num);
@@ -105,13 +105,13 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
     if (expression.length() == 0 || expression == null) {
       throw new RuntimeException();
     }
-    int i = 0; 
-    while ( i < expression.length()) {
+    int i = 0;
+    while (i < expression.length()) {
       if (expression.charAt(i) >= '0' && expression.charAt(i) <= '9') {
         while (expression.charAt(i) >= '0' && expression.charAt(i) <= '9') {
-          
-        num += expression.charAt(i);
-        i++;
+
+          num += expression.charAt(i);
+          i++;
         }
 
         stack.push((float) Integer.parseInt(num));
@@ -120,28 +120,23 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
       } else if (expression.charAt(i) == '*' || expression.charAt(i) == '/'
           || expression.charAt(i) == '-' || expression.charAt(i) == '+') {
         float temp = (float) stack.pop();
-        
+
         switch (expression.charAt(i)) {
         case '+':
           ans = (float) stack.pop() + temp;
-          
 
           break;
 
         case '-':
           ans = (float) stack.pop() - temp;
-          
 
           break;
         case '*':
           ans = (float) stack.pop() * temp;
-          
-
 
           break;
         case '/':
           ans = (float) stack.pop() / temp;
-          
 
           break;
         default:
@@ -151,7 +146,7 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
         stack.push(ans);
       }
       i++;
-     num="";
+      num = "";
     }
     if (stack.size() > 1) {
       return 0;
