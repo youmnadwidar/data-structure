@@ -1,6 +1,5 @@
 package eg.edu.alexu.csd.datastructure.stack;
 /**
- * 
  * @author HP.
  *
  */
@@ -23,7 +22,7 @@ public interface IStack {
   Object peek();
   /**
   * Pushes an item onto the top of this stack.
-  * @param element
+  * @param element the value of the pushed elemnt
   */
   void push(Object element);
   /**

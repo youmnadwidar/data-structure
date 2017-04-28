@@ -80,7 +80,7 @@ public class Stack implements IStack {
     return stack.getSize();
   }
 
-  
+
 
 
 }

@@ -5,32 +5,35 @@ import java.util.Arrays;
 import java.util.List;
 import eg.edu.alexu.csd.datastructure.stack.IExpressionEvaluator;
 
+/**
+ * @author HP.
+ * convert to postfix and evaluate it
+ *
+ */
 public class ExpressionEvaluator implements IExpressionEvaluator {
 
   /**
    * Takes a symbolic/numeric infix expression as input and converts it to.
    * postfix notation. There is no assumption on spaces between terms or the
    * length of the term (e.g., two digits symbolic or numeric term)
-   * 
    * @param expression
    *          infix expression
    * @return postfix expression
    */
-  public String infixToPostfix(String expression) {
+  public String infixToPostfix(final String expression) {
     Stack stack = new Stack();
     StringBuilder postfix = new StringBuilder();
     int flag = 0;
-    expression=expression.replaceAll("\\s","");
-    StringBuilder num = new StringBuilder();
-    String[] operations = { "+", "/", "*", "-", "(", ")" };
+    String expressionM = expression.replaceAll("\\s", "");
+    String[] operations = {"+", "/", "*", "-", "(", ")" };
     List<String> list = Arrays.asList(operations);
     int i = 0;
-    while (i < expression.length()) {
-      char temp = expression.charAt(i);
-      if (list.contains(Character.toString(expression.charAt(i)))) {
-        if (list.contains(Character.toString(expression.charAt(i + 1)))
-            && (expression.charAt(i + 1) != '(' && temp != ')')
-            && (temp != ')' && expression.charAt(i + 1) != '(')) {
+    while (i < expressionM.length()) {
+      char temp = expressionM.charAt(i);
+      if (list.contains(Character.toString(expressionM.charAt(i)))) {
+        if (list.contains(Character.toString(expressionM.charAt(i + 1)))
+            && (expressionM.charAt(i + 1) != '(' && temp != ')')
+            && (temp != ')' && expressionM.charAt(i + 1) != '(')) {
           throw null;
         }
 
@@ -57,7 +60,7 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
             postfix.append(" " + stack.pop());
 
           }
-          stack.push(expression.charAt(i));
+          stack.push(expressionM.charAt(i));
           i++;
 
         } else if (temp == '*' || temp == '/') {
@@ -72,7 +75,7 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
         }
 
       } else {
-        
+
         postfix.append(" " + temp);
         i++;
       }
@@ -89,12 +92,11 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
 
   /**
    * Evaluate a postfix numeric expression, with a single space separator.
-   * 
    * @param expression
    *          postfix expression
    * @return the expression evaluated value
    */
-  public int evaluate(String expression) {
+  public int evaluate(final String expression) {
     float ans = 0;
     Stack stack = new Stack();
     String num = new String();
@@ -104,7 +106,7 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
     int i = 0;
     while (i < expression.length()) {
       if (expression.charAt(i) >= '0' && expression.charAt(i) <= '9') {
-        while (expression.charAt(i) !=' ') {
+        while (expression.charAt(i) != ' ') {
 
           num += expression.charAt(i);
           i++;
