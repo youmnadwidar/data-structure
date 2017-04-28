@@ -25,23 +25,24 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
     List<String> list = Arrays.asList(operations);
     int i = 0;
     while (i < expression.length()) {
+      char temp =expression.charAt(i);
       if (list.contains(Character.toString(expression.charAt(i)))) {
         if (list.contains(Character.toString(expression.charAt(i + 1)))
-            && (expression.charAt(i + 1) != '(' && expression.charAt(i) != ')')
-            && (expression.charAt(i) != ')'
+            && (expression.charAt(i + 1) != '(' && temp != ')')
+            && (temp != ')'
                 && expression.charAt(i + 1) != '(')) {
           throw null;
         }
 
-        if (stack.isEmpty() || expression.charAt(i) == '(') {
-          if (expression.charAt(i) == '(') {
+        if (stack.isEmpty() || temp == '(') {
+          if (temp == '(') {
 
             flag++;
           }
-          stack.push(expression.charAt(i));
+          stack.push(temp);
           i++;
 
-        } else if (expression.charAt(i) == ')') {
+        } else if (temp == ')') {
           flag--;
           while (!stack.peek().equals('(')) {
             postfix.append(" " + stack.pop());
@@ -49,7 +50,7 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
           i++;
 
           stack.pop();
-        } else if (expression.charAt(i) == '-' || expression.charAt(i) == '+') {
+        } else if (temp == '-' || temp == '+') {
 
           while (!stack.isEmpty() && !stack.peek().equals('(')) {
 
@@ -59,19 +60,19 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
           stack.push(expression.charAt(i));
           i++;
 
-        } else if (expression.charAt(i) == '*' || expression.charAt(i) == '/') {
+        } else if (temp == '*' || temp == '/') {
           if (!stack.isEmpty()
               && (stack.peek().equals('/') || stack.peek().equals('*'))) {
 
             postfix.append(" " + stack.pop());
           }
-          stack.push(expression.charAt(i));
+          stack.push(temp);
           i++;
 
         }
 
-      } else if (expression.charAt(i) >= '0' && expression.charAt(i) <= '9') {
-    //    num = num.delete(0, num.length());
+      } else if (temp >= '0' && temp <= '9') {
+        num = num.delete(0, num.length());
         while (i < expression.length() && expression.charAt(i) >= '0'
             && expression.charAt(i) <= '9') {
 
