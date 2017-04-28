@@ -25,7 +25,6 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
     List<String> list = Arrays.asList(operations);
     int i = 0;
     while (i < expression.length()) {
-      num = "";
       if (list.contains(Character.toString(expression.charAt(i)))) {
         if (list.contains(Character.toString(expression.charAt(i + 1)))
             && (expression.charAt(i + 1) != '(' && expression.charAt(i) != ')')
@@ -72,6 +71,7 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
         }
 
       } else if (expression.charAt(i) >= '0' && expression.charAt(i) <= '9') {
+        num="";
         while (i < expression.length() && expression.charAt(i) >= '0'
             && expression.charAt(i) <= '9') {
 
