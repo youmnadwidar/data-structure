@@ -71,7 +71,7 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
         }
 
       } else if (expression.charAt(i) >= '0' && expression.charAt(i) <= '9') {
-        num=new String();
+       // num=new String();
         while (i < expression.length() && expression.charAt(i) >= '0'
             && expression.charAt(i) <= '9') {
 
