@@ -71,14 +71,15 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
         }
 
       } else if (temp >= '0' && temp <= '9') {
-        num = new StringBuilder();
+       /* num = new StringBuilder();
         while (i < expression.length() && expression.charAt(i) >= '0'
             && expression.charAt(i) <= '9') {
 
           num = num.append(expression.charAt(i));
           i++;
-        }
-        postfix.append(" " + num);
+        }*/
+        postfix.append(" " + temp);
+        i++;
       }
     }
     if (flag != 0) {
