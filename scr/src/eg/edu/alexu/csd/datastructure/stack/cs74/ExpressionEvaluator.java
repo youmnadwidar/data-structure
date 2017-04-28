@@ -28,7 +28,9 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
       if (list.contains(Character.toString(expression.charAt(i)))) {
         if (list.contains(Character.toString(expression.charAt(i+1)))
             &&expression.charAt(i+1)!='('
-            &&expression.charAt(i+1)!=')') {
+            &&expression.charAt(i+1)!=')'
+            &&expression.charAt(i)!='('
+            &&expression.charAt(i)!=')') {
           throw null;
         }
 
