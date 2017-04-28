@@ -19,7 +19,7 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
   public String infixToPostfix(String expression) {
     Stack stack = new Stack();
     StringBuilder postfix = new StringBuilder();
-    boolean flag = false;
+    int flag=0;
     expression = expression.replaceAll("\\s", "");
     String[] operations = { "+", "/", "*", "-", "(", ")" };
     List<String> list = Arrays.asList(operations);
@@ -36,11 +36,11 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
 
         if (stack.isEmpty() || expression.charAt(i) == '(') {
           if (expression.charAt(i) == '(') {
-            flag = true;
+            flag ++;
           }
           stack.push(expression.charAt(i));
         } else if (expression.charAt(i) == ')') {
-          flag = false;
+          flag --;
           while (!stack.peek().equals('(')) {
             postfix.append(" " + stack.pop());
           }
@@ -71,7 +71,7 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
       }
 
     }
-    if (flag) {
+    if (flag!=0) {
       throw new RuntimeException();
     }
     while (!(stack.isEmpty())) {
