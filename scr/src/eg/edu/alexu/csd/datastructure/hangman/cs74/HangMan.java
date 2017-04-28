@@ -28,8 +28,7 @@ public class HangMan implements IHangman {
 
   /**
    * set the dic array.
-   * 
-   * @param words
+   * @param wordsthe dic array
    */
   public final void setDictionary(final String[] words) {
 
@@ -40,7 +39,7 @@ public class HangMan implements IHangman {
   /**
    * randomly select the secret word from the array.
    * 
-   * @return
+   * @return the secret word
    */
   public final String selectRandomSecretWord() {
     if (dic_Words == null || dic_Words.length == 0) {

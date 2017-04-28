@@ -10,6 +10,9 @@ import eg.edu.alexu.csd.datastructure.iceHockey.cs74.PlayersFinder;
 public class IcehockeyTest {
   PlayersFinder icehockey = new PlayersFinder();
 
+  /**
+   * 
+   */
   @Test
   public void testEmpty() {
     icehockey = (PlayersFinder) icehockey;
