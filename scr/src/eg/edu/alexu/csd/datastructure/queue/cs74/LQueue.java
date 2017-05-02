@@ -4,7 +4,7 @@ import eg.edu.alexu.csd.datastructure.linkedList.cs74.DoublyLinkedList;
 import eg.edu.alexu.csd.datastructure.queue.ILinkedBased;
 import eg.edu.alexu.csd.datastructure.queue.IQueue;
 
-public class LinkedBasedQueue implements IQueue,ILinkedBased{
+public class LQueue implements IQueue,ILinkedBased{
 
   
 DoublyLinkedList queue=new DoublyLinkedList();  
