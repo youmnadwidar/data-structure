@@ -2,8 +2,9 @@ package eg.edu.alexu.csd.datastructure.queue.cs74;
 
 import eg.edu.alexu.csd.datastructure.linkedList.cs74.DoublyLinkedList;
 import eg.edu.alexu.csd.datastructure.queue.ILinkedBased;
+import eg.edu.alexu.csd.datastructure.queue.IQueue;
 
-public class LinkedBasedQueue implements ILinkedBased{
+public class LinkedBasedQueue implements IQueue,ILinkedBased{
 
   
 DoublyLinkedList queue=new DoublyLinkedList();  
