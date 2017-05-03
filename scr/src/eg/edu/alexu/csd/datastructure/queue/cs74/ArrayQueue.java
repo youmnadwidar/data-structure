@@ -34,9 +34,8 @@ public class ArrayQueue implements IQueue, IArrayBased {
     }
     r = (r + 1);
     size++;
-    if (r >= size && size!=0) {
-      r %= size;
-      System.out.println("this value"+r);
+    if (r >= maxLenght ) {
+      r %= maxLenght;
 
     }
     queue[r] = item;
@@ -49,16 +48,16 @@ public class ArrayQueue implements IQueue, IArrayBased {
    * @return the dequeued item
    */
   public Object dequeue() {
-    if (f == r) {
+    if (size ==0) {
       return null;
-    }
-    Object item = queue[f + 1];
-    queue[f + 1] = null;
-    f = (f + 1);
+    } f = (f + 1);
     size--;
-    if (f >= size && size!=0) {
-      f %= size;
+    if (f >= maxLenght ) {
+      f %= maxLenght;
     }
+    Object item = queue[f];
+    queue[f] = null;
+   
     return item;
   }
 
