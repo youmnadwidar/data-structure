@@ -29,16 +29,18 @@ public class ArrayQueue implements IQueue, IArrayBased {
    *          that wanted to be added
    */
   public void enqueue(final Object item) {
-    if (r == maxLenght - 1) {
+    if (size == maxLenght) {
       throw new NullPointerException();
     }
-    queue[r + 1] = item;
     r = (r + 1);
     size++;
-    if (r > size && size!=0) {
+    if (r >= size && size!=0) {
       r %= size;
-    }
+      System.out.println("this value"+r);
 
+    }
+    queue[r] = item;
+    
   }
 
   /**
@@ -54,7 +56,7 @@ public class ArrayQueue implements IQueue, IArrayBased {
     queue[f + 1] = null;
     f = (f + 1);
     size--;
-    if (f > size && size!=0) {
+    if (f >= size && size!=0) {
       f %= size;
     }
     return item;
@@ -67,7 +69,7 @@ public class ArrayQueue implements IQueue, IArrayBased {
    */
   public boolean isEmpty() {
 
-    return f == r;
+    return size==0;
   }
 
   /**
