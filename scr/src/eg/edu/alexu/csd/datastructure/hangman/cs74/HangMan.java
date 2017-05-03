@@ -12,7 +12,7 @@ public class HangMan implements IHangman {
   /**
    * array of words.
    */
-  private String[] dic_Words = null;
+  private String[] dicWords = null;
   /**
    * the secret word chosen from the dic.
    */
@@ -24,30 +24,45 @@ public class HangMan implements IHangman {
   /**
    * the number of the max wrong guesses.
    */
-  public int maxNumofWrongGueses = 0;
+  private int maxNumofWrongGueses = 0;
+
+  /**
+   * @return getter
+   */
+
+  public final int getMaxNumofWrongGueses() {
+    return maxNumofWrongGueses;
+  }
+
+  /**
+   * @param maxNumofWrong value.
+   */
+  public final void setMaxNumofWrongGueses(final int maxNumofWrong) {
+    this.maxNumofWrongGueses = maxNumofWrong;
+  }
 
   /**
    * set the dic array.
-   * @param wordsthe dic array
+   * @param words
+   *          the dic array
    */
   public final void setDictionary(final String[] words) {
 
-    dic_Words = words;
+    dicWords = words;
 
   }
 
   /**
    * randomly select the secret word from the array.
-   * 
    * @return the secret word
    */
   public final String selectRandomSecretWord() {
-    if (dic_Words == null || dic_Words.length == 0) {
+    if (dicWords == null || dicWords.length == 0) {
       return null;
     } else {
-      int x = (int) (Math.random() * (dic_Words.length));
-      this.secretword = this.dic_Words[x];
-      this.shownword = this.dic_Words[x];
+      int x = (int) (Math.random() * (dicWords.length));
+      this.secretword = this.dicWords[x];
+      this.shownword = this.dicWords[x];
 
       char[] word;
       word = new char[this.shownword.length()];
@@ -66,7 +81,8 @@ public class HangMan implements IHangman {
   /**
    * guess the character.
    *
-   * @param c string
+   * @param c
+   *          string
    * @return the shown word after guessing
    */
   public final String guess(final Character c) {
@@ -83,8 +99,8 @@ public class HangMan implements IHangman {
       int flag = 0;
 
       for (int i = 0; i < word.length; i++) {
-        if (Character.toLowerCase(c.charValue())
-            == Character.toLowerCase(secretword.charAt(i))) {
+        if (Character.toLowerCase(c.charValue()) == Character
+            .toLowerCase(secretword.charAt(i))) {
 
           flag = 1;
           word[i] = secretword.charAt(i);
@@ -105,7 +121,8 @@ public class HangMan implements IHangman {
   /**
    * set the max number .
    *
-   * @param max integer
+   * @param max
+   *          integer
    */
   public final void setMaxWrongGuesses(final Integer max) {
     this.maxNumofWrongGueses = max;

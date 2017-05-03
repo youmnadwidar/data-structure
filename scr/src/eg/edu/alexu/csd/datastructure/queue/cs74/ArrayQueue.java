@@ -4,15 +4,30 @@ import eg.edu.alexu.csd.datastructure.queue.IArrayBased;
 import eg.edu.alexu.csd.datastructure.queue.IQueue;
 
 public class ArrayQueue implements IQueue, IArrayBased {
-
+  /**
+   * index of the cell before the first element.
+   */
   int f;
+  /**
+   * index of the last element.
+   */
   int r;
+  /**
+   * size of the queue.
+   */
   int size;
+  /**
+   * the max length of the array used.
+   */
   int maxLenght;
+  /**
+   * the array used.
+   */
   Object[] queue;
 
   /**
-   * @param number max number of the array size .
+   * @param number
+   *          max number of the array size .
    */
   public ArrayQueue(final int number) {
     this.maxLenght = number;
@@ -34,12 +49,12 @@ public class ArrayQueue implements IQueue, IArrayBased {
     }
     r = (r + 1);
     size++;
-    if (r >= maxLenght ) {
+    if (r >= maxLenght) {
       r %= maxLenght;
 
     }
     queue[r] = item;
-    
+
   }
 
   /**
@@ -48,16 +63,17 @@ public class ArrayQueue implements IQueue, IArrayBased {
    * @return the dequeued item
    */
   public Object dequeue() {
-    if (size ==0) {
+    if (size == 0) {
       throw null;
-    } f = (f + 1);
+    }
+    f = (f + 1);
     size--;
-    if (f >= maxLenght ) {
+    if (f >= maxLenght) {
       f %= maxLenght;
     }
     Object item = queue[f];
     queue[f] = null;
-   
+
     return item;
   }
 
@@ -68,7 +84,7 @@ public class ArrayQueue implements IQueue, IArrayBased {
    */
   public boolean isEmpty() {
 
-    return size==0;
+    return size == 0;
   }
 
   /**
