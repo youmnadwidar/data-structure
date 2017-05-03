@@ -30,7 +30,7 @@ public class ArrayQueue implements IQueue, IArrayBased {
    */
   public void enqueue(final Object item) {
     if (size == maxLenght) {
-      throw new NullPointerException();
+      throw null;
     }
     r = (r + 1);
     size++;
@@ -49,7 +49,7 @@ public class ArrayQueue implements IQueue, IArrayBased {
    */
   public Object dequeue() {
     if (size ==0) {
-      return null;
+      throw null;
     } f = (f + 1);
     size--;
     if (f >= maxLenght ) {
