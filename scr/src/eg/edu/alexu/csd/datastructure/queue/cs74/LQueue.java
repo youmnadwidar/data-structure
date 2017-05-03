@@ -9,6 +9,7 @@ public class LQueue implements IQueue, ILinkedBased {
  * the list used.
  */
   private DoublyLinkedList queue = new DoublyLinkedList();
+  private int size ;
   /**
    * Inserts an item at the queue front.
    * @param item
@@ -16,6 +17,7 @@ public class LQueue implements IQueue, ILinkedBased {
    */
   public void enqueue(final Object item) {
     this.queue.add(0, item);
+    this.size++;
   }
   /**
    * Removes the object at the queue rear and returns it.
@@ -24,6 +26,7 @@ public class LQueue implements IQueue, ILinkedBased {
   public Object dequeue() {
     Object item = this.queue.get(this.queue.getSize() - 1);
     this.queue.remove(this.queue.getSize() - 1);
+    this.size--;
     return item;
   }
 
@@ -41,7 +44,7 @@ public class LQueue implements IQueue, ILinkedBased {
    * @return size
    */
   public int size() {
-    return this.queue.size();
+    return this.size;
   }
 
 }
