@@ -35,7 +35,7 @@ public class ArrayQueue implements IQueue, IArrayBased {
     queue[r + 1] = item;
     r = (r + 1);
     size++;
-    if (r >= size && size!=0) {
+    if (r > size && size!=0) {
       r %= size;
     }
 
@@ -54,7 +54,7 @@ public class ArrayQueue implements IQueue, IArrayBased {
     queue[f + 1] = null;
     f = (f + 1);
     size--;
-    if (f >= size && size!=0) {
+    if (f > size && size!=0) {
       f %= size;
     }
     return item;
