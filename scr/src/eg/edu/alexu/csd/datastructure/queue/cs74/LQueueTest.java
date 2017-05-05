@@ -69,7 +69,9 @@ public class LQueueTest {
     test.dequeue();
 
   }
-  
+  /**
+   * 
+   */
 @Test
 public void testDE(){
   LQueue test = new LQueue();
