@@ -11,27 +11,32 @@ import eg.edu.alexu.csd.datastructure.iceHockey.IPlayersFinder;
  *
  */
 public class PlayersFinder implements IPlayersFinder {
-
-  public int numofsquaresrequired;
-  public int numofsquares;
-  Point min = new Point();
-  Point max = new Point();
-  boolean visited[][];
-  int squares = 4;
+/**
+ * 
+ */
+  private int numofsquaresrequired, numofsquares;
+  private Point min = new Point();
+  private Point max = new Point();
+  private boolean visited[][];
+  private final int squares = 4;
 
   public Point players(int row, int col, String[] photo, int team) {
 
     if (min.x > row) {
       min.x = row;
     }
-    if (min.y > col)
+    if (min.y > col) {
       min.y = col;
-    if (max.x < row)
+    }
+    if (max.x < row) {
       max.x = row;
-    if (max.y < col)
+    }
+    if (max.y < col) {
       max.y = col;
+    }
     if (col + 1 < photo[0].length()) {
-      if (photo[row].charAt(col + 1) == (team + '0') && visited[row][col + 1] == false) {
+      if (photo[row].charAt(col + 1) == (team + '0') 
+          && !visited[row][col + 1]) {
 
         numofsquares++;
         visited[row][col + 1] = true;

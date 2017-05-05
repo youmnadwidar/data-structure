@@ -28,6 +28,7 @@ public class LQueue implements IQueue, ILinkedBased {
     this.queue.remove(this.queue.getSize() - 1);
     this.size--;
     return item;
+    
   }
 
   /**

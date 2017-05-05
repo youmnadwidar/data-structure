@@ -54,8 +54,8 @@ public class IcehockeyTest {
   @Test
   public void testMin() {
     icehockey = (PlayersFinder) icehockey;
-    String[] photo = { "11", "11" };
-    Point[] expected = { new Point(z2, z2) };
+    String[] photo = {"11", "11" };
+    Point[] expected = {new Point(z2, z2) };
 
     Assert.assertArrayEquals(expected, icehockey.findPlayers(photo, z1, z2));
 
@@ -67,7 +67,8 @@ public class IcehockeyTest {
   @Test
   public void testMax() {
     icehockey = (PlayersFinder) icehockey;
-    String[] photo = { "11JGKOWPED4433L1111HOGRTY3HKF1112KJH2ROL2222W3FDB1",
+    String[] photo = {
+        "11JGKOWPED4433L1111HOGRTY3HKF1112KJH2ROL2222W3FDB1",
         "11JGKOWPED4433L1111HOGRTY3HKF1112KJH2ROL2222W3FDB1",
         "11JGKOWPED4433L1111HOGRTY3HKF1112KJH2ROL2222W3FDB1",
         "11JGKOWPED4433L1111HOGRTY3HKF1112KJH2ROL2222W3FDB1",
@@ -118,7 +119,7 @@ public class IcehockeyTest {
         "11JGKOWPED4433L1111HOGRTY3HKF1112KJH2ROL2222W3FDB1",
         "11JGKOWPED4433L1111HOGRTY3HKF1112KJH2ROL2222W3FDB1",
         "11JGKOWPED4433L1111HOGRTY3HKF1112KJH2ROL2222W3FDB1", };
-    Point[] expected = { new Point(z2, z51), new Point(z34, z51),
+    Point[] expected = {new Point(z2, z51), new Point(z34, z51),
         new Point(z61, z51), new Point(z99, z51) };
 
     Assert.assertArrayEquals(expected, icehockey.findPlayers(photo, 1, z20));
@@ -131,7 +132,7 @@ public class IcehockeyTest {
   @Test
   public void testnoPlayers() {
     icehockey = (PlayersFinder) icehockey;
-    String[] photo = { "1G1E1T1J1U1Y1E1", "G1E1P1U1B1A1Y1W", "1G1E1T1J1U1Y1E1",
+    String[] photo = {"1G1E1T1J1U1Y1E1", "G1E1P1U1B1A1Y1W", "1G1E1T1J1U1Y1E1",
         "G1E1P1U1B1A1Y1W", "1G1E1T1J1U1Y1E1", "G1E1P1U1B1A1Y1W", };
     Point[] expected = {};
 
@@ -144,14 +145,14 @@ public class IcehockeyTest {
   @Test
   public void test1() {
     icehockey = (PlayersFinder) icehockey;
-    String[] photo = { "44444H44S4", "K444K4L444", "4LJ44T44XH", "444O4VIF44",
+    String[] photo = {"44444H44S4", "K444K4L444", "4LJ44T44XH", "444O4VIF44",
         "44C4D4U444", "4V4Y4KB4M4", "G4W4HP4O4W", "4444ZDQ4S4", "4BR4Y4A444",
         "4G4V4T4444" };
-    Point[] expected = { new Point(z3, z8), new Point(z4, z16),
+    Point[] expected = {new Point(z3, z8), new Point(z4, z16),
         new Point(z5, z4), new Point(z16, z3), new Point(z16, z17),
         new Point(z17, z9) };
 
-    Assert.assertArrayEquals(expected, icehockey.findPlayers(photo, 4, 16));
+    Assert.assertArrayEquals(expected, icehockey.findPlayers(photo, z4, z16));
   }
 
   /**
@@ -160,12 +161,12 @@ public class IcehockeyTest {
   @Test
   public void test2() {
     icehockey = (PlayersFinder) icehockey;
-    String[] photo = { "8D88888J8L8E888", "88NKMG8N8E8JI88", "888NS8EU88HN8EO",
+    String[] photo = {"8D88888J8L8E888", "88NKMG8N8E8JI88", "888NS8EU88HN8EO",
         "LUQ888A8TH8OIH8", "888QJ88R8SG88TY", "88ZQV88B88OUZ8O",
         "FQ88WF8Q8GG88B8", "8S888HGSB8FT8S8", "8MX88D88888T8K8",
         "8S8A88MGVDG8XK8", "M88S8B8I8M88J8N", "8W88X88ZT8KA8I8",
         "88SQGB8I8J88W88", "U88H8NI8CZB88B8", "8PK8H8T8888TQR8" };
-    Point[] expected = { new Point(z1, z17), new Point(z3, z3),
+    Point[] expected = {new Point(z1, z17), new Point(z3, z3),
         new Point(z3, z10), new Point(z3, z25), new Point(z5, z21),
         new Point(z8, z17), new Point(z9, z2), new Point(z10, z9),
         new Point(z12, z23), new Point(z17, z16), new Point(z18, z3),
@@ -182,8 +183,8 @@ public class IcehockeyTest {
   @Test
   public void test3() {
     icehockey = (PlayersFinder) icehockey;
-    String[] photo = { "11111", "1AAA1", "1A1A1", "1AAA1", "11111" };
-    Point[] expected = { new Point(z5, z5), new Point(z5, z5) };
+    String[] photo = {"11111", "1AAA1", "1A1A1", "1AAA1", "11111" };
+    Point[] expected = {new Point(z5, z5), new Point(z5, z5) };
 
     Assert.assertArrayEquals(expected, icehockey.findPlayers(photo, 1, z3));
   }
@@ -194,8 +195,8 @@ public class IcehockeyTest {
   @Test
   public void test4() {
     icehockey = (PlayersFinder) icehockey;
-    String[] photo = { "4KJ2344", "4OPLJI4", "44HJK45", "K4AKL4L", "4RHOA44" };
-    Point[] expected = { new Point(z2, z4), new Point(z12, z2),
+    String[] photo = {"4KJ2344", "4OPLJI4", "44HJK45", "K4AKL4L", "4RHOA44" };
+    Point[] expected = {new Point(z2, z4), new Point(z12, z2),
         new Point(z12, z7) };
 
     Assert.assertArrayEquals(expected, icehockey.findPlayers(photo, z4, z12));
@@ -207,9 +208,9 @@ public class IcehockeyTest {
   @Test
   public void test5() {
     icehockey = (PlayersFinder) icehockey;
-    String[] photo = { "1G1E1T1J1", "G1E1P1U1B", "1G1E1T1J1", "G1E1P1U1B" };
+    String[] photo = {"1G1E1T1J1", "G1E1P1U1B", "1G1E1T1J1", "G1E1P1U1B" };
 
-    Point[] expected = { new Point(z1, z1), new Point(z1, z5),
+    Point[] expected = {new Point(z1, z1), new Point(z1, z5),
         new Point(z3, z3), new Point(z3, z7), new Point(z5, z1),
         new Point(z5, z5), new Point(z7, z3), new Point(z7, z7),
         new Point(z9, z1), new Point(z9, z5), new Point(z11, z3),

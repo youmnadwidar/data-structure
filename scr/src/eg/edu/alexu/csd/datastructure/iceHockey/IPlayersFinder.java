@@ -2,7 +2,6 @@ package eg.edu.alexu.csd.datastructure.iceHockey;
 
 import java.awt.Point;
 /**
- * 
  * @author HP.
  *
  */
