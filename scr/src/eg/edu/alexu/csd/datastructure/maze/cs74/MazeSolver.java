@@ -26,7 +26,7 @@ public class MazeSolver implements IMazeSolver {
   /**
    * end point.
    */
-  Point end = new Point();
+  Point end ;
   /**
    * the maze array.
    */
@@ -43,6 +43,10 @@ public class MazeSolver implements IMazeSolver {
    */
   public int[][] solveBFS(final File maze) {
     mazeArray = readFile(maze);
+    if(end == null || start == null)
+    {
+      return null;
+    }
     LQueue operate = new LQueue();
     LQueue path = new LQueue();
     boolean found = false;
@@ -92,6 +96,10 @@ public class MazeSolver implements IMazeSolver {
    */
   public final int[][] solveDFS(final File maze) {
     mazeArray = readFile(maze);
+    if(end == null || start == null)
+    {
+      return null;
+    }
     Stack operate = new Stack();
     LQueue path = new LQueue();
     boolean[][] visited = new boolean[mazeArray.length][mazeArray[0].toString()
@@ -155,12 +163,11 @@ public class MazeSolver implements IMazeSolver {
       int i = 0;
       while ((currentLine = read.readLine()) != null) {
         if (currentLine.contains("S")) {
-          start.x = i;
-          start.y = currentLine.indexOf("S");
+          start = new Point(i, currentLine.indexOf("S"));
         }
         if (currentLine.contains("E")) {
-          end.x = i;
-          end.y = currentLine.indexOf("E");
+          end = new Point(i, currentLine.indexOf("E"));
+        
         }
         parts[i] = currentLine;
 
