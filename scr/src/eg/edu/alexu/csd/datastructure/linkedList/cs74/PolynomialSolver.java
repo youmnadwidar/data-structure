@@ -8,7 +8,7 @@ public class PolynomialSolver implements IPolynomialSolver {
   /**
    * .
    */
-  final int num =1000;
+  final int num =10000;
   /**
    * .
    */
