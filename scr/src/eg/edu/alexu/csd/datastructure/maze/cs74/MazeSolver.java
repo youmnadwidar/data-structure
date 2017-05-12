@@ -45,7 +45,7 @@ public class MazeSolver implements IMazeSolver {
     mazeArray = readFile(maze);
     if(end == null || start == null)
     {
-      return null;
+      throw null;
     }
     LQueue operate = new LQueue();
     LQueue path = new LQueue();
