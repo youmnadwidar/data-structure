@@ -91,10 +91,10 @@ public class MazeSolver implements IMazeSolver {
 
     }
     if (found) {
-      NodeMaze end = last;
-      while (end.parent != null) {
-        path.push(new Point(end.position.x, end.position.y));
-        end = end.parent;
+      NodeMaze finish = last;
+      while (finish.parent != null) {
+        path.push(new Point(finish.position.x, finish.position.y));
+        finish = finish.parent;
       }
       return getPath(path);
 
@@ -105,7 +105,6 @@ public class MazeSolver implements IMazeSolver {
 
   /**
    * Read the maze file, and solve it using Depth First Search.
-   * 
    * @param maze
    *          maze file
    * @return the coordinates of the found path from point 'S' to point 'E'
@@ -167,7 +166,6 @@ public class MazeSolver implements IMazeSolver {
 
   /**
    * read a file.
-   * 
    * @param maze
    *          the file
    * @return the file read in char 2D array.
@@ -205,7 +203,6 @@ public class MazeSolver implements IMazeSolver {
 
   /**
    * check the point.
-   * 
    * @param temp
    *          the point
    * @param visit
@@ -224,7 +221,6 @@ public class MazeSolver implements IMazeSolver {
 
   /**
    * .
-   * 
    * @param path
    *          the solution path.
    * @return the path in 2D array.
@@ -240,7 +236,12 @@ public class MazeSolver implements IMazeSolver {
     }
     return answer;
   }
-
+  /**
+   * .
+   * @param path
+   *          the solution path.
+   * @return the path in 2D array.
+   */
   public final int[][] getPath(final Stack path) {
     int[][] answer = new int[path.size()][2];
     int i = 0;
