@@ -3,7 +3,7 @@ package eg.edu.alexu.csd.datastructure.iceHockey.cs74;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Arrays;
-
+import java.util.Comparator;
 import eg.edu.alexu.csd.datastructure.iceHockey.IPlayersFinder;
 
 /**
@@ -140,12 +140,15 @@ public class PlayersFinder implements IPlayersFinder {
 
     finalplaces = places.toArray(finalplaces);
 
-    Arrays.sort(finalplaces, (a, b) -> {
-      int ans = Integer.compare(a.x, b.x);
-      if (ans == 0)
-        return Integer.compare(a.y, b.y);
-      else
-        return ans;
+    Arrays.sort(finalplaces, new Comparator<Point>() {
+      public int compare(final Point a, final Point b) {
+        int ans = Integer.compare(a.x, b.x);
+        if (ans == 0) {
+          return Integer.compare(a.y, b.y);
+        } else {
+          return ans;
+        }
+      }
     });
 
     return finalplaces;
