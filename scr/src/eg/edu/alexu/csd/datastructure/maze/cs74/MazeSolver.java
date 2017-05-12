@@ -65,15 +65,14 @@ public class MazeSolver implements IMazeSolver {
         operate.push(new Point(temp.x, temp.y + 1));
         visited[temp.x][temp.y+1] = true;
       }
-      if (checkValid(new Point(temp.x + 1, temp.y), visited)) {
-        operate.push(new Point(temp.x + 1, temp.y));
-        visited[temp.x+1][temp.y] = true;
-      }
       if (checkValid(new Point(temp.x, temp.y - 1), visited)) {
         operate.push(new Point(temp.x, temp.y - 1));
         visited[temp.x][temp.y-1] = true;
       }
-      
+      if (checkValid(new Point(temp.x + 1, temp.y), visited)) {
+        operate.push(new Point(temp.x + 1, temp.y));
+        visited[temp.x+1][temp.y] = true;
+      }
 
     }
 if(operate.size()==0)
@@ -146,7 +145,7 @@ public int[][] getPath(LQueue path) {
     Point temp = (Point) path.dequeue();
     answer[i][0] = temp.x;
     answer[i][1] = temp.y;
-
+i++;
   }
   return answer;
 }
