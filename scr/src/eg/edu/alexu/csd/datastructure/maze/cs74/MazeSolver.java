@@ -56,10 +56,11 @@ public class MazeSolver implements IMazeSolver {
         operate.push(temp);
         break;
       }
-      if (checkValid(new Point(temp.x + 1, temp.y), visited)) {
-        operate.push(new Point(temp.x + 1, temp.y));
-        visited[temp.x+1][temp.y] = true;
+      if (checkValid(new Point(temp.x - 1, temp.y), visited)) {
+        operate.push(new Point(temp.x - 1, temp.y));
+        visited[temp.x-1][temp.y] = true;
       }
+     
       if (checkValid(new Point(temp.x, temp.y + 1), visited)) {
         operate.push(new Point(temp.x, temp.y + 1));
         visited[temp.x][temp.y+1] = true;
@@ -68,9 +69,9 @@ public class MazeSolver implements IMazeSolver {
         operate.push(new Point(temp.x, temp.y - 1));
         visited[temp.x][temp.y-1] = true;
       }
-      if (checkValid(new Point(temp.x - 1, temp.y), visited)) {
-        operate.push(new Point(temp.x - 1, temp.y));
-        visited[temp.x-1][temp.y] = true;
+      if (checkValid(new Point(temp.x + 1, temp.y), visited)) {
+        operate.push(new Point(temp.x + 1, temp.y));
+        visited[temp.x+1][temp.y] = true;
       }
 
     }
