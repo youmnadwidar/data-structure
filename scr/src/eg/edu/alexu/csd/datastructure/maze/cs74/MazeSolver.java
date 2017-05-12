@@ -207,10 +207,7 @@ public class MazeSolver implements IMazeSolver {
         || mazeArray[temp.x][temp.y] == '#') {
       return false;
     }
-    return true;if(end == null || start == null)
-    {
-      return null;
-    }
+    return true;
 
   }
 
