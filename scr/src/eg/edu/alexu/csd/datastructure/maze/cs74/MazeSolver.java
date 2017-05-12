@@ -49,41 +49,49 @@ public class MazeSolver implements IMazeSolver {
       throw null;
     }
     LQueue operate = new LQueue();
-    LQueue path = new LQueue();
+    Stack path = new Stack();
     boolean found = false;
+    NodeMaze last = null ;
     boolean[][] visited = new boolean[mazeArray.length][mazeArray[0].length];
-    operate.enqueue(start);
+    operate.enqueue(new NodeMaze(start, null));
     while (operate.size() != 0) {
-      Point temp = (Point) operate.dequeue();
-      visited[temp.x][temp.y] = true;
-      path.enqueue(temp);
+      NodeMaze temp = (NodeMaze) operate.dequeue();
+      visited[temp.position.x][temp.position.y] = true;
+     
       if (temp.equals(end)) {
+        last = temp;
         found = true;
         break;
       }
 
-      if (checkValid(new Point(temp.x + 1, temp.y), visited)) {
-        operate.enqueue(new Point(temp.x + 1, temp.y));
-        visited[temp.x + 1][temp.y] = true;
+      if (checkValid(new Point(temp.position.x + 1, temp.position.y), visited)) {
+        operate.enqueue(new NodeMaze(new Point(temp.position.x + 1,
+            temp.position.y),temp));
+        visited[temp.position.x + 1][temp.position.y] = true;
       }
-      if (checkValid(new Point(temp.x, temp.y + 1), visited)) {
-        operate.enqueue(new Point(temp.x, temp.y + 1));
-        visited[temp.x][temp.y + 1] = true;
+      if (checkValid(new Point(temp.position.x, temp.position.y + 1), visited)) {
+        operate.enqueue(new NodeMaze(new Point(temp.position.x, temp.position.y + 1),temp));
+        visited[temp.position.x][temp.position.y + 1] = true;
       }
-      if (checkValid(new Point(temp.x, temp.y - 1), visited)) {
-        operate.enqueue(new Point(temp.x, temp.y - 1));
-        visited[temp.x][temp.y - 1] = true;
+      if (checkValid(new Point(temp.position.x, temp.position.y - 1), visited)) {
+        operate.enqueue(new NodeMaze(new Point(temp.position.x, temp.position.y - 1),temp));
+        visited[temp.position.x][temp.position.y - 1] = true;
       }
-      if (checkValid(new Point(temp.x, temp.y + 1), visited)) {
-        operate.enqueue(new Point(temp.x, temp.y + 1));
-        visited[temp.x][temp.y + 1] = true;
+      if (checkValid(new Point(temp.position.x+1, temp.position.y ), visited)) {
+        operate.enqueue(new NodeMaze(new Point(temp.position.x+1, temp.position.y),temp));
+        visited[temp.position.x][temp.position.y + 1] = true;
       }
      
      
       
     }
     if (found) {
-      return getPath(path);
+      NodeMaze end = last;
+      while (end.parent!=null) {
+        path.push(new Point(end.position.x, end.position.y));
+        end = end.parent;
+      }
+      return getPath(path); 
 
     } else {
       return null;
@@ -218,6 +226,17 @@ public class MazeSolver implements IMazeSolver {
     int i = 0;
     while (path.size() != 0) {
       Point temp = (Point) path.dequeue();
+      answer[i][0] = temp.x;
+      answer[i][1] = temp.y;
+      i++;
+    }
+    return answer;
+  }
+  public final int[][] getPath(final Stack path) {
+    int[][] answer = new int[path.size()][2];
+    int i = 0;
+    while (path.size() != 0) {
+      Point temp = (Point) path.pop();
       answer[i][0] = temp.x;
       answer[i][1] = temp.y;
       i++;
