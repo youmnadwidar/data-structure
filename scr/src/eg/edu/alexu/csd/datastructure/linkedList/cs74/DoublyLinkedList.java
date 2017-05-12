@@ -10,11 +10,11 @@ public class DoublyLinkedList implements ILinkedList {
   /** .
    * dummy node for the head.
    */
-  NodeDL head = new NodeDL(null);
+  private NodeDL head = new NodeDL(null);
   /** .
    * dummy node for the tail.
    */
-  NodeDL tail = new NodeDL(null);
+  private NodeDL tail = new NodeDL(null);
   /**.
    * size variable for the list size.
    */

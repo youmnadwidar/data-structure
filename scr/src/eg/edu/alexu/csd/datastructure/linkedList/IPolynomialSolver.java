@@ -1,9 +1,11 @@
 package eg.edu.alexu.csd.datastructure.linkedList;
-
+/**
+ * @author HP.
+ *
+ */
 public interface IPolynomialSolver {
   /**
-   * Set polynomial terms (coefficients & exponents)
-   * 
+   * Set polynomial terms (coefficients & exponents).
    * @param poly
    *          name of the polynomial
    * @param terms
@@ -12,8 +14,7 @@ public interface IPolynomialSolver {
   void setPolynomial(char poly, int[][] terms);
 
   /**
-   * Print the polynomial in human readable representation
-   * 
+   * Print the polynomial in human readable representation.
    * @param poly
    *          name of the polynomial
    * @return polynomial in the form like 27x^2+x-1
@@ -21,27 +22,23 @@ public interface IPolynomialSolver {
   String print(char poly);
 
   /**
-   * Clear the polynomial
-   * 
+   * Clear the polynomial.
    * @param poly
    *          name of the polynomial
    */
   void clearPolynomial(char poly);
 
   /**
-   * Evaluate the polynomial
-   * 
+   * Evaluate the polynomial.
    * @param poly
    *          name of the polynomial
-   * @param the
-   *          polynomial constant value
+   * @param value the polynomial constant value
    * @return the value of the polynomial
    */
   float evaluatePolynomial(char poly, float value);
 
   /**
-   * Add two polynomials
-   * 
+   * Add two polynomials.
    * @param poly1
    *          first polynomial
    * @param poly2
@@ -51,8 +48,7 @@ public interface IPolynomialSolver {
   int[][] add(char poly1, char poly2);
 
   /**
-   * Subtract two polynomials
-   * 
+   * Subtract two polynomials.
    * @param poly1
    *          first polynomial
    * @param poly2
@@ -62,8 +58,7 @@ public interface IPolynomialSolver {
   int[][] subtract(char poly1, char poly2);
 
   /**
-   * Multiply two polynomials * @param poly1 first polynomial
-   * 
+   * Multiply two polynomials * @param poly1 first polynomial.
    * @param poly2
    *          second polynomial
    * @return the result polynomial

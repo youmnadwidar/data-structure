@@ -1,8 +1,13 @@
 package eg.edu.alexu.csd.datastructure.linkedList.cs74;
 
 public class NodeSL {
-
+/**
+ * data of the node.
+ */
   private Object data;
+  /**
+   * 
+   */
 
   private NodeSL next;
 
@@ -11,7 +16,7 @@ public class NodeSL {
     this.next = null;
   }
 
-  public NodeSL(Object value, NodeSL after) {
+  public NodeSL(final Object value, final NodeSL after) {
 
     this.data = value;
     this.next = after;
