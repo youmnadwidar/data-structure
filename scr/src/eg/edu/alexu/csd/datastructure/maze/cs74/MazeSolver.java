@@ -42,6 +42,8 @@ public class MazeSolver implements IMazeSolver {
    *         based.
    */
   public int[][] solveBFS(final File maze) {
+    start = null;
+    end = null;
     mazeArray = readFile(maze);
     if(end == null || start == null || mazeArray == null) 
     {
@@ -95,8 +97,10 @@ public class MazeSolver implements IMazeSolver {
    *         based.
    */
   public final int[][] solveDFS(final File maze) {
+    start = null;
+    end = null;
     mazeArray = readFile(maze);
-    if(end == null || start == null)
+    if(end == null || start == null || mazeArray == null)
     {
       return null;
     }
