@@ -3,9 +3,16 @@ package eg.edu.alexu.csd.datastructure.queue.cs74;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
-
+/**
+ * .
+ * @author HP
+ *
+ */
 public class LQueueTest {
-  final int z1 = 1, z2 = 2, z3 = 3, z4 = 4, z5 = 5, z7 = 7;
+  /**
+   * .
+   */
+ private final int z1 = 1, z2 = 2, z3 = 3, z4 = 4, z5 = 5, z7 = 7;
   /**
    * simple test.
    */
