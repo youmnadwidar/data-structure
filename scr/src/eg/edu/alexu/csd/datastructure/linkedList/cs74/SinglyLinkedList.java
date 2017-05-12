@@ -10,7 +10,7 @@ public class SinglyLinkedList implements ILinkedList {
   /**
    * .
    */
- private int size;
+ int size;
 /**
  * .
  */
