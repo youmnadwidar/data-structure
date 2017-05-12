@@ -19,14 +19,14 @@ import eg.edu.alexu.csd.datastructure.stack.cs74.Stack;
  *
  */
 public class MazeSolver implements IMazeSolver {
-  /**
+      /**
    * start point.
    */
-  Point start = null;
+  Point start ;
   /**
    * end point.
    */
-  Point end = null ;
+  Point end ;
   /**
    * the maze array.
    */
@@ -34,7 +34,7 @@ public class MazeSolver implements IMazeSolver {
 
   /**
    * Read the maze file, and solve it using Breadth First Search.
-   * 
+   *
    * @param maze
    *          maze file
    * @return the coordinates of the found path from point 'S' to point 'E'
@@ -45,8 +45,7 @@ public class MazeSolver implements IMazeSolver {
     start = null;
     end = null;
     mazeArray = readFile(maze);
-    if(end == null || start == null || mazeArray == null) 
-    {
+    if (end == null || start == null || mazeArray == null) {
       throw null;
     }
     LQueue operate = new LQueue();
@@ -63,33 +62,33 @@ public class MazeSolver implements IMazeSolver {
         break;
       }
 
-      if (checkValid(new Point(temp.x, temp.y - 1), visited)) {
-        operate.enqueue(new Point(temp.x, temp.y - 1));
-        visited[temp.x][temp.y - 1] = true;
-      }
-      if (checkValid(new Point(temp.x, temp.y + 1), visited)) {
-        operate.enqueue(new Point(temp.x, temp.y + 1));
-        visited[temp.x][temp.y + 1] = true;
+      if (checkValid(new Point(temp.x + 1, temp.y), visited)) {
+        operate.enqueue(new Point(temp.x + 1, temp.y));
+        visited[temp.x + 1][temp.y] = true;
       }
       if (checkValid(new Point(temp.x - 1, temp.y), visited)) {
         operate.enqueue(new Point(temp.x - 1, temp.y));
         visited[temp.x - 1][temp.y] = true;
       }
-      if (checkValid(new Point(temp.x + 1, temp.y), visited)) {
-        operate.enqueue(new Point(temp.x + 1, temp.y));
-        visited[temp.x + 1][temp.y] = true;
+      if (checkValid(new Point(temp.x, temp.y + 1), visited)) {
+        operate.enqueue(new Point(temp.x, temp.y + 1));
+        visited[temp.x][temp.y + 1] = true;
+      }
+      if (checkValid(new Point(temp.x, temp.y - 1), visited)) {
+        operate.enqueue(new Point(temp.x, temp.y - 1));
+        visited[temp.x][temp.y - 1] = true;
       }
     }
     if (found) {
       return getPath(path);
 
-    } else
+    } else {
       return null;
+    }
   }
 
   /**
    * Read the maze file, and solve it using Depth First Search.
-   * 
    * @param maze
    *          maze file
    * @return the coordinates of the found path from point 'S' to point 'E'
@@ -100,8 +99,7 @@ public class MazeSolver implements IMazeSolver {
     start = null;
     end = null;
     mazeArray = readFile(maze);
-    if(end == null || start == null || mazeArray == null)
-    {
+    if (end == null || start == null || mazeArray == null) {
       throw null;
     }
     Stack operate = new Stack();
@@ -152,7 +150,6 @@ public class MazeSolver implements IMazeSolver {
 
   /**
    * read a file.
-   * 
    * @param maze
    *          the file
    * @return the file read in char 2D array.
@@ -168,12 +165,10 @@ public class MazeSolver implements IMazeSolver {
       while ((currentLine = read.readLine()) != null) {
         if (currentLine.contains("S")) {
           start = new Point(i, currentLine.indexOf("S"));
-   
+
         }
         if (currentLine.contains("E")) {
-          
           end = new Point(i, currentLine.indexOf("E"));
-        
         }
         parts[i] = currentLine;
 
@@ -192,7 +187,7 @@ public class MazeSolver implements IMazeSolver {
 
   /**
    * check the point.
-   * 
+
    * @param temp
    *          the point
    * @param visit
@@ -211,7 +206,6 @@ public class MazeSolver implements IMazeSolver {
 
   /**
    * .
-   * 
    * @param path
    *          the solution path.
    * @return the path in 2D array.
