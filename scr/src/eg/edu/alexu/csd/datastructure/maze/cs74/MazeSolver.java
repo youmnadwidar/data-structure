@@ -163,9 +163,17 @@ public class MazeSolver implements IMazeSolver {
       int i = 0;
       while ((currentLine = read.readLine()) != null) {
         if (currentLine.contains("S")) {
+          if(start != null){
+            throw null ;
+          }
           start = new Point(i, currentLine.indexOf("S"));
+          
+          
         }
         if (currentLine.contains("E")) {
+          if(end!=null){
+            return null;
+          }
           end = new Point(i, currentLine.indexOf("E"));
         
         }
