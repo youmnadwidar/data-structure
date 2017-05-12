@@ -105,8 +105,8 @@ public class PolynomialSolver implements IPolynomialSolver {
 
     if (poly == 'A' && A != null && !A.isEmpty()) {
 
-      newNode = A.head.getNext();
-      while (newNode != A.tail) {
+      newNode = A.getHead().getNext();
+      while (newNode != A.getTail()) {
         Point point = new Point(0, 0);
         point = (Point) newNode.getData();
         answer += point.x * Math.pow(value, point.y);
@@ -116,8 +116,8 @@ public class PolynomialSolver implements IPolynomialSolver {
       return answer;
     } else if (poly == 'B' && B != null && !B.isEmpty()) {
 
-      newNode = B.head.getNext();
-      while (newNode != B.tail) {
+      newNode = B.getHead().getNext();
+      while (newNode != B.getTail()) {
         Point point = new Point(0, 0);
         point = (Point) newNode.getData();
         answer += point.x * Math.pow(value, point.y);
@@ -129,8 +129,8 @@ public class PolynomialSolver implements IPolynomialSolver {
 
     else if (poly == 'C' && C != null && !C.isEmpty()) {
 
-      newNode = C.head.getNext();
-      while (newNode != C.tail) {
+      newNode = C.getHead().getNext();
+      while (newNode != C.getTail()) {
         Point point = new Point(0, 0);
         point = (Point) newNode.getData();
         answer += point.x * Math.pow(value, point.y);
@@ -212,7 +212,7 @@ public class PolynomialSolver implements IPolynomialSolver {
     } else {
       throw new RuntimeException();
     }
-    NodeDL current = R.head.getNext();
+    NodeDL current = R.getHead().getNext();
     int[][] resultArray = new int[R.getSize()][2];
     for (int i = 0; i < resultArray.length; i++) {
       Point point = new Point(0, 0);
@@ -286,7 +286,7 @@ public class PolynomialSolver implements IPolynomialSolver {
     } else {
       throw new RuntimeException();
     }
-    NodeDL current = R.head.getNext();
+    NodeDL current = R.getHead().getNext();
     int[][] resaultArray = new int[R.getSize()][2];
     for (int i = 0; i < resaultArray.length; i++) {
       Point point = new Point();
@@ -369,7 +369,7 @@ public class PolynomialSolver implements IPolynomialSolver {
     } else {
       throw new RuntimeException();
     }
-    NodeDL current = R.head.getNext();
+    NodeDL current = R.getHead().getNext();
     int[][] resaultArray = new int[R.getSize()][2];
     for (int i = 0; i < resaultArray.length; i++) {
       Point point = new Point();
@@ -387,9 +387,9 @@ public class PolynomialSolver implements IPolynomialSolver {
     if (list1 == null || list2 == null)
       throw new RuntimeException();
     result.clear();
-    NodeDL temp1 = list1.head.getNext(), temp2 = list2.head.getNext();
+    NodeDL temp1 = list1.getHead().getNext(), temp2 = list2.getHead().getNext();
 
-    while (temp1 != list1.tail && temp2 != list2.tail) {
+    while (temp1 != list1.getTail() && temp2 != list2.getTail()) {
       Point point1 = new Point(0, 0);
       Point point2 = new Point(0, 0);
       Point point3 = new Point(0, 0);
@@ -414,12 +414,12 @@ public class PolynomialSolver implements IPolynomialSolver {
         result.add(point3);
       }
     }
-    while (temp1 != list1.tail) {
+    while (temp1 != list1.getTail()) {
       result.add(temp1.getData());
       temp1 = temp1.getNext();
 
     }
-    while (temp2 != list2.tail) {
+    while (temp2 != list2.getTail()) {
       result.add(temp2.getData());
       temp2 = temp2.getNext();
     }
@@ -432,10 +432,10 @@ public class PolynomialSolver implements IPolynomialSolver {
     R.clear();
     NodeDL temp1;
     NodeDL temp2;
-    temp1 = list1.head.getNext();
-    temp2 = list2.head.getNext();
+    temp1 = list1.getHead().getNext();
+    temp2 = list2.getHead().getNext();
 
-    while (temp1 != list1.tail && temp2 != list2.tail) {
+    while (temp1 != list1.getTail() && temp2 != list2.getTail()) {
       Point point1 = new Point(0, 0);
       Point point2 = new Point(0, 0);
       point1 = (Point) temp1.getData();
@@ -469,11 +469,11 @@ public class PolynomialSolver implements IPolynomialSolver {
       }
     }
 
-    while (temp1 != list1.tail) {
+    while (temp1 != list1.getTail()) {
       R.add(temp1.getData());
       temp1 = temp1.getNext();
     }
-    while (temp2 != list2.tail) {
+    while (temp2 != list2.getTail()) {
       Point point = new Point(0, 0);
       point = (Point) temp2.getData();
       point.x = -point.x;
@@ -503,11 +503,11 @@ public class PolynomialSolver implements IPolynomialSolver {
 
   public String printPoly(DoublyLinkedList list, NodeDL node) {
     String polyy = "";
-    node = list.head.getNext();
-    while (node != list.tail) {
+    node = list.getHead().getNext();
+    while (node != list.getTail()) {
       Point point = new Point(0, 0);
       point = (Point) node.getData();
-      if (node.getPrev() != list.head && point.x > 0) {
+      if (node.getPrev() != list.getHead() && point.x > 0) {
         polyy += "+";
       }
 
@@ -531,18 +531,18 @@ public class PolynomialSolver implements IPolynomialSolver {
  */
   public void multiplyLists(DoublyLinkedList list1, DoublyLinkedList list2) {
     R.clear();
-    NodeDL temp1 = list1.head.getNext(), temp2 = list2.head.getNext();
+    NodeDL temp1 = list1.getHead().getNext(), temp2 = list2.getHead().getNext();
     DoublyLinkedList templist1 = new DoublyLinkedList();
     DoublyLinkedList templist2 = new DoublyLinkedList();
     DoublyLinkedList templist3 = new DoublyLinkedList();
 
-    while (temp1 != list1.tail) {
+    while (temp1 != list1.getTail()) {
       Point point1 = new Point(0, 0);
       point1 = (Point) temp1.getData();
       templist1.clear();
       templist3.clear();
-      temp2 = list2.head.getNext();
-      while (temp2 != list2.tail) {
+      temp2 = list2.getHead().getNext();
+      while (temp2 != list2.getTail()) {
 
         Point point2 = new Point(0, 0);
         Point point3 = new Point(0, 0);
@@ -552,27 +552,27 @@ public class PolynomialSolver implements IPolynomialSolver {
         templist1.add(point3);
         temp2 = temp2.getNext();
       }
-      if (templist2.head.getNext() == templist2.tail) {
-        templist3.head.setNext(templist1.head.getNext());
-        templist1.head.getNext().setPrev(templist3.head);
-        templist3.tail.setPrev(templist1.tail.getPrev());
-        templist1.tail.getPrev().setNext(templist3.tail);
+      if (templist2.getHead().getNext() == templist2.getTail()) {
+        templist3.getHead().setNext(templist1.getHead().getNext());
+        templist1.getHead().getNext().setPrev(templist3.getHead());
+        templist3.getTail().setPrev(templist1.getTail().getPrev());
+        templist1.getTail().getPrev().setNext(templist3.getTail());
       } else {
         addLinked(templist1, templist2, templist3);
       }
 
-      templist2.head.setNext(templist3.head.getNext());
-      templist3.head.getNext().setPrev(templist2.head);
-      templist2.tail.setPrev(templist3.tail.getPrev());
-      templist3.tail.getPrev().setNext(templist2.tail);
+      templist2.getHead().setNext(templist3.getHead().getNext());
+      templist3.getHead().getNext().setPrev(templist2.getHead());
+      templist2.getTail().setPrev(templist3.getTail().getPrev());
+      templist3.getTail().getPrev().setNext(templist2.getTail());
       temp1 = temp1.getNext();
     }
-    R.head.setNext(templist2.head.getNext());
-    templist2.head.getNext().setPrev(R.head);
-    templist2.tail.getPrev().setNext(R.tail);
-    R.tail.setPrev(templist2.tail.getPrev());
-    NodeDL getSizeNode = R.head.getNext();
-    while (getSizeNode != R.tail) {
+    R.getHead().setNext(templist2.getHead().getNext());
+    templist2.getHead().getNext().setPrev(R.getHead());
+    templist2.getTail().getPrev().setNext(R.getTail());
+    R.getTail().setPrev(templist2.getTail().getPrev());
+    NodeDL getSizeNode = R.getHead().getNext();
+    while (getSizeNode != R.getTail()) {
       R.setSize(R.getSize() + 1);
       getSizeNode = getSizeNode.getNext();
     }

@@ -133,7 +133,7 @@ public class DoubleTester {
     test.add(z3);
     Assert.assertEquals(z3, test.getSize());
     test.clear();
-    Assert.assertEquals(test.tail, test.head.getNext());
+    Assert.assertEquals(test.getTail(), test.getHead().getNext());
     Assert.assertEquals(true, test.isEmpty());
     Assert.assertEquals(z0, test.getSize());
 

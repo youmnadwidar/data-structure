@@ -10,7 +10,7 @@ public class DoublyLinkedList implements ILinkedList {
   /** .
    * dummy node for the head.
    */
-  private NodeDL head = new NodeDL(null);
+    NodeDL head = new NodeDL(null);
   /** .
    * dummy node for the tail.
    */
@@ -23,10 +23,10 @@ public class DoublyLinkedList implements ILinkedList {
  * constructor.
  */
   public DoublyLinkedList() {
-    head.setNext(tail);
-    head.setPrev(null);
-    tail.setNext(null);
-    tail.setPrev(head);
+    getHead().setNext(getTail());
+    getHead().setPrev(null);
+    getTail().setNext(null);
+    getTail().setPrev(getHead());
     setSize(0);
   }
 /**
@@ -37,7 +37,7 @@ public class DoublyLinkedList implements ILinkedList {
  */
   public void add(final int index, final Object element) {
     NodeDL newNode = new NodeDL(null);
-    NodeDL current = head;
+    NodeDL current = getHead();
     newNode.setData(element);
     if (this.size() >= index && index >= 0) {
 
@@ -64,14 +64,14 @@ public class DoublyLinkedList implements ILinkedList {
  */
   public void add(final Object element) {
     NodeDL newNode = new NodeDL(null);
-    NodeDL current = tail.getPrev();
+    NodeDL current = getTail().getPrev();
     newNode.setData(element);
 
 
     current.setNext(newNode);
     newNode.setPrev(current);
-    newNode.setNext(tail);
-    tail.setPrev(newNode);
+    newNode.setNext(getTail());
+    getTail().setPrev(newNode);
     setSize(getSize() + 1);
 
   }
@@ -87,14 +87,14 @@ public class DoublyLinkedList implements ILinkedList {
 
     if (this.size() > index) {
       if (index < this.size() / 2) {
-        current = head;
+        current = getHead();
         int count = 0;
         while (count <= index) {
           current = current.getNext();
           count++;
         }
       } else {
-        current = tail;
+        current = getTail();
         int count = this.size();
         while (count > index) {
           current = current.getPrev();
@@ -121,7 +121,7 @@ public class DoublyLinkedList implements ILinkedList {
     NodeDL current = null;
     if (this.size() > index && index >= 0) {
       if (index < this.size() / 2) {
-        current = head;
+        current = getHead();
         int count = 0;
         while (count <= index) {
           current = current.getNext();
@@ -129,7 +129,7 @@ public class DoublyLinkedList implements ILinkedList {
         }
         current.setData(element);
       } else {
-        current = tail;
+        current = getTail();
         int count = this.size();
         while (count > index) {
           current = current.getPrev();
@@ -147,8 +147,8 @@ public class DoublyLinkedList implements ILinkedList {
    */
   public void clear() {
 
-    this.head.setNext(this.tail);
-    this.tail.setPrev(this.head);
+    this.getHead().setNext(this.getTail());
+    this.getTail().setPrev(this.getHead());
     setSize(0);
   }
 /**
@@ -168,14 +168,14 @@ public class DoublyLinkedList implements ILinkedList {
       NodeDL current;
 
       if (this.size() / 2 > index) {
-        current = head.getNext();
+        current = getHead().getNext();
         count = 0;
         while (count < index) {
           current = current.getNext();
           count++;
         }
       } else {
-        current = tail.getPrev();
+        current = getTail().getPrev();
         count = this.size() - 1;
         while (count > index) {
           count--;
@@ -212,7 +212,7 @@ public class DoublyLinkedList implements ILinkedList {
     if (this.size() > fromIndex && this.size() > toIndex
         && toIndex >= 0 && fromIndex >= 0
         && toIndex >= fromIndex) {
-      NodeDL current = head.getNext();
+      NodeDL current = getHead().getNext();
       int count = 0;
       while (count < fromIndex) {
         current = current.getNext();
@@ -237,8 +237,8 @@ public class DoublyLinkedList implements ILinkedList {
   public final boolean contains(final Object o) {
     if (this.size() != 0) {
 
-      NodeDL current = head.getNext();
-      while (current != tail) {
+      NodeDL current = getHead().getNext();
+      while (current != getTail()) {
         if (o.equals(current.getData())) {
           return true;
         } else {
@@ -262,6 +262,18 @@ public int getSize() {
  */
 public void setSize(final int value) {
   this.size = value;
+}
+public NodeDL getHead() {
+  return head;
+}
+public void setHead(NodeDL head) {
+  this.head = head;
+}
+public NodeDL getTail() {
+  return tail;
+}
+public void setTail(NodeDL tail) {
+  this.tail = tail;
 }
 
 }
