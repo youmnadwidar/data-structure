@@ -161,10 +161,10 @@ public class MazeSolver implements IMazeSolver {
       int rows = Integer.parseInt(parts[0]);
       parts = new String[rows];
       int i = 0;
-      int counter = 0 ;
-      while ((currentLine = read.readLine()) != null && counter < rows) {
+      while ((currentLine = read.readLine()) != null) {
         if (currentLine.contains("S")) {
-          start = new Point(i, currentLine.indexOf("S")); 
+          start = new Point(i, currentLine.indexOf("S"));
+   
         }
         if (currentLine.contains("E")) {
           
@@ -172,23 +172,18 @@ public class MazeSolver implements IMazeSolver {
         
         }
         parts[i] = currentLine;
-counter++;
+
         i++;
       }
       char[][] text = new char[parts.length][];
       for (int j = 0; j < parts.length; j++) {
         text[j] = parts[j].toCharArray();
-        
-      }
-      if(counter>=rows){
-        return null;
       }
       return text;
     } catch (IOException e) {
       e.printStackTrace();
       return null;
     }
-   
   }
 
   /**
