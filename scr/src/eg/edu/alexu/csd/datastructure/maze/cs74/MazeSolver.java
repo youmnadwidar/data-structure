@@ -102,7 +102,7 @@ public class MazeSolver implements IMazeSolver {
     mazeArray = readFile(maze);
     if(end == null || start == null || mazeArray == null)
     {
-      return null;
+      throw null;
     }
     Stack operate = new Stack();
     LQueue path = new LQueue();
