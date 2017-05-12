@@ -30,7 +30,7 @@ public class MazeSolver implements IMazeSolver {
   /**
    * the maze array.
    */
-  char[][] mazeArray;
+  char[][] mazeArray = null;
 
   /**
    * Read the maze file, and solve it using Breadth First Search.
@@ -96,7 +96,7 @@ public class MazeSolver implements IMazeSolver {
    */
   public final int[][] solveDFS(final File maze) {
     mazeArray = readFile(maze);
-    if(end == null || start == null || mazeArray == null) 
+    if(end == null || start == null || mazeArray == null)
     {
       return null;
     }
