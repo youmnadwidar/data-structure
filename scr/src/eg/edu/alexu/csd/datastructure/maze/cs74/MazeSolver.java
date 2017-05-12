@@ -43,7 +43,7 @@ public class MazeSolver implements IMazeSolver {
    */
   public int[][] solveBFS(final File maze) {
     mazeArray = readFile(maze);
-    if(end == null || start == null)
+    if(end == null || start == null || mazeArray == null) 
     {
       throw null;
     }
