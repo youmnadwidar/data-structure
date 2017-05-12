@@ -2,12 +2,21 @@ package eg.edu.alexu.csd.datastructure.linkedList.cs74;
 
 import org.junit.Assert;
 import org.junit.Test;
-
+/**
+ * .
+ * @author HP
+ *
+ */
 public class SingleTester {
+  /**
+   * .
+   */
   private final int z0 = 0, z1 = 1, z2 = 2, z3 = 3, z4 = 4,
-      z5 = 5, z6 = 6, z7 = 7, z8 = 8, 
+      z5 = 5, z6 = 6, z7 = 7, z8 = 8,
       z12 = 12, z20 = 20, z25 = 25, z50 = 50, z30 = 30;
-
+/**
+ * test.
+ */
   @Test
   public void testGet() {
     SinglyLinkedList test = new SinglyLinkedList();
@@ -18,7 +27,9 @@ public class SingleTester {
     Assert.assertEquals(z7, test.get(z2));
 
   }
-
+/**
+ * test.
+ */
   @Test(expected = NullPointerException.class)
   public void testBiggerThanSize() {
 
@@ -29,7 +40,9 @@ public class SingleTester {
     test.add(z8, z7);
 
   }
-
+/**
+ * test.
+ */
   @Test(expected = NullPointerException.class)
   public void testAddNegativeindex() {
 
@@ -40,7 +53,9 @@ public class SingleTester {
     test.add(-z5, z7);
 
   }
-
+  /**
+   * test.
+   */
   @Test
   public void testGetAndSize() {
     SinglyLinkedList test = new SinglyLinkedList();
@@ -58,7 +73,9 @@ public class SingleTester {
     Assert.assertEquals(z4, test.size);
 
   }
-
+  /**
+   * test.
+   */
   @Test(expected = NullPointerException.class)
   public void testGetNegativeIndex() {
 
@@ -69,7 +86,9 @@ public class SingleTester {
     test.get(-z5);
 
   }
-
+  /**
+   * test.
+   */
   @Test
   public void testset() {
 
@@ -82,7 +101,9 @@ public class SingleTester {
     Assert.assertEquals(z8, test.get(z0));
     Assert.assertEquals(z1, test.get(z1));
   }
-
+  /**
+   * test.
+   */
   @Test(expected = NullPointerException.class)
   public void testSetOutOfBounds() {
 
@@ -94,7 +115,9 @@ public class SingleTester {
     test.set(z50, z5);
 
   }
-
+  /**
+   * test.
+   */
   @Test
   public void testClearAndIsEmpty() {
     SinglyLinkedList test = new SinglyLinkedList();
@@ -107,7 +130,9 @@ public class SingleTester {
     Assert.assertEquals(true, test.isEmpty());
     Assert.assertEquals(z0, test.size);
   }
-
+  /**
+   * test.
+   */
   @Test
   public void testRemoveHead() {
     SinglyLinkedList test = new SinglyLinkedList();
@@ -118,7 +143,9 @@ public class SingleTester {
     Assert.assertEquals(z1, test.get(z0));
 
   }
-
+  /**
+   * test.
+   */
   @Test(expected = NullPointerException.class)
   public void testRemoveLast() {
     SinglyLinkedList test = new SinglyLinkedList();
@@ -130,7 +157,9 @@ public class SingleTester {
     Assert.assertEquals(z2, test.size());
 
   }
-
+  /**
+   * test.
+   */
   @Test
   public void testRemoveMiddle() {
     SinglyLinkedList test = new SinglyLinkedList();
@@ -142,7 +171,9 @@ public class SingleTester {
     Assert.assertEquals(z2, test.size());
 
   }
-
+  /**
+   * test.
+   */
   @Test(expected = NullPointerException.class)
   public void testRemoveOut() {
     SinglyLinkedList test = new SinglyLinkedList();
@@ -152,7 +183,9 @@ public class SingleTester {
     test.remove(-z1);
     test.remove(z50);
   }
-
+  /**
+   * test.
+   */
   @Test
   public void testContains() {
     SinglyLinkedList test = new SinglyLinkedList();
@@ -165,7 +198,9 @@ public class SingleTester {
     Assert.assertEquals(false, test.contains(z50));
 
   }
-
+  /**
+   * test.
+   */
   @Test
   public void testSubList() {
     SinglyLinkedList test = new SinglyLinkedList();
@@ -182,7 +217,9 @@ public class SingleTester {
     Assert.assertEquals(z3, test.sublist(z1, z3).size());
     Assert.assertEquals(z1, test.sublist(z0, z0).size());
   }
-
+  /**
+   * test.
+   */
   @Test(expected = NullPointerException.class)
   public void testSubListFromBiggerThanTo() {
     SinglyLinkedList test = new SinglyLinkedList();
@@ -194,7 +231,9 @@ public class SingleTester {
     test.sublist(z20, z5);
 
   }
-
+  /**
+   * test.
+   */
   @Test(expected = NullPointerException.class)
   public void testSubListOutOfBounds() {
     SinglyLinkedList test = new SinglyLinkedList();
@@ -206,7 +245,9 @@ public class SingleTester {
     test.sublist(z20, z25);
     test.sublist(z2, z25);
   }
-
+  /**
+   * test.
+   */
   @Test(expected = NullPointerException.class)
   public void testSubListNegativeIndex() {
     SinglyLinkedList test = new SinglyLinkedList();
@@ -218,7 +259,9 @@ public class SingleTester {
     test.sublist(-z1, z5);
 
   }
-
+  /**
+   * test.
+   */
   @Test
   public void testAddMiddle() {
     SinglyLinkedList test = new SinglyLinkedList();
