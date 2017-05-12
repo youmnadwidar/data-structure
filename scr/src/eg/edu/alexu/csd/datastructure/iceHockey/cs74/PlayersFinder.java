@@ -3,7 +3,7 @@ package eg.edu.alexu.csd.datastructure.iceHockey.cs74;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
+
 import eg.edu.alexu.csd.datastructure.iceHockey.IPlayersFinder;
 
 /**
@@ -12,15 +12,34 @@ import eg.edu.alexu.csd.datastructure.iceHockey.IPlayersFinder;
  */
 public class PlayersFinder implements IPlayersFinder {
 /**
- * 
+ *.
  */
   private int numofsquaresrequired, numofsquares;
+  /**
+   * .
+   */
   private Point min = new Point();
+  /**
+   * .
+   */
   private Point max = new Point();
-  private boolean visited[][];
+  /**
+   * .
+   */
+  private boolean[][] visited;
+  /**
+   * .
+   */
   private final int squares = 4;
-
-  public Point players(int row, int col, String[] photo, int team) {
+/**
+ * @param row the row in the photo.
+ * @param col the col in the photo.
+ * @param photo of the field.
+ * @param team the number of the team.
+ * @return the point of the players
+ */
+  public Point players(final int row, final int col,
+      final String[] photo, final int team) {
 
     if (min.x > row) {
       min.x = row;
@@ -35,7 +54,7 @@ public class PlayersFinder implements IPlayersFinder {
       max.y = col;
     }
     if (col + 1 < photo[0].length()) {
-      if (photo[row].charAt(col + 1) == (team + '0') 
+      if (photo[row].charAt(col + 1) == (team + '0')
           && !visited[row][col + 1]) {
 
         numofsquares++;
@@ -45,7 +64,8 @@ public class PlayersFinder implements IPlayersFinder {
       }
     }
     if ((col - 1 >= 0)) {
-      if (photo[row].charAt(col - 1) == team + '0' && visited[row][col - 1] == false) {
+      if (photo[row].charAt(col - 1) == team + '0'
+          && !visited[row][col - 1]) {
         numofsquares++;
         visited[row][col - 1] = true;
 
@@ -53,14 +73,16 @@ public class PlayersFinder implements IPlayersFinder {
       }
     }
     if (row + 1 < photo.length) {
-      if (photo[row + 1].charAt(col) == team + '0' && visited[row + 1][col] == false) {
+      if (photo[row + 1].charAt(col) == team + '0'
+          && !visited[row + 1][col]) {
         numofsquares++;
         visited[row + 1][col] = true;
         players(row + 1, col, photo, team);
       }
     }
     if (row - 1 >= 0) {
-      if (photo[row - 1].charAt(col) == team + '0' && visited[row - 1][col] == false) {
+      if (photo[row - 1].charAt(col) == team + '0'
+          && !visited[row - 1][col]) {
         numofsquares++;
         visited[row - 1][col] = true;
 
@@ -76,14 +98,20 @@ public class PlayersFinder implements IPlayersFinder {
       return null;
     }
   }
+/**
+ * @param photo of the field.
+ * @param team the number of the team.
+ * @param threshold the number needed to prove it's a player
+ * @return the places of the players found.
+ */
+  public Point[] findPlayers(final String[] photo,
+      final int team, final int threshold) {
 
-  public Point[] findPlayers(String[] photo, int team, int threshold) {
-    // if(photo.length==0)
-    // return new Point[0];
-    if (photo == null)
+    if (photo == null) {
       return null;
-    else if (photo.length == 0)
+    } else if (photo.length == 0) {
       return new Point[0];
+    }
 
     numofsquaresrequired = threshold;
 
@@ -92,7 +120,7 @@ public class PlayersFinder implements IPlayersFinder {
     visited = new boolean[photo.length][photo[0].length()];
     for (int i = 0; i < photo.length; i++) {
       for (int j = 0; j < photo[0].length(); j++) {
-        if (visited[i][j] == false) {
+        if (!visited[i][j]) {
           visited[i][j] = true;
 
           if ((photo[i].charAt(j)) == team + '0') {
@@ -112,14 +140,12 @@ public class PlayersFinder implements IPlayersFinder {
 
     finalplaces = places.toArray(finalplaces);
 
-    Arrays.sort(finalplaces, new Comparator<Point>() {
-      public int compare(Point a, Point b) {
-        int ans = Integer.compare(a.x, b.x);
-        if (ans == 0)
-          return Integer.compare(a.y, b.y);
-        else
-          return ans;
-      }
+    Arrays.sort(finalplaces, (a, b) -> {
+      int ans = Integer.compare(a.x, b.x);
+      if (ans == 0)
+        return Integer.compare(a.y, b.y);
+      else
+        return ans;
     });
 
     return finalplaces;
