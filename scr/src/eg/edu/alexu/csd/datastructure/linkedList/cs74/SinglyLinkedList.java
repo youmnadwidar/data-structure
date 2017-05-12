@@ -3,17 +3,28 @@ package eg.edu.alexu.csd.datastructure.linkedList.cs74;
 import eg.edu.alexu.csd.datastructure.linkedList.ILinkedList;
 
 public class SinglyLinkedList implements ILinkedList {
-
+/**
+ * .
+ */
   NodeSL head = new NodeSL(null);
+  /**
+   * .
+   */
   int size;
-
+/**
+ * .
+ */
   public SinglyLinkedList() {
     head = null;
     size = 0;
 
   }
-
-  public void add(int index, Object element) {
+/**
+ * add.
+ * @param index  .
+ * @param element   .
+ */
+  public void add(final int index, final Object element) {
     NodeSL newnode = new NodeSL(element);
 
     if (this.size >= index && index >= 0) {
@@ -39,8 +50,11 @@ public class SinglyLinkedList implements ILinkedList {
     }
 
   }
-
-  public void add(Object element) {
+/**
+ * add.
+ * @param element  .
+ */
+  public void add(final Object element) {
     NodeSL newnode = new NodeSL(element);
     if (head == null) {
       head = newnode;
@@ -54,8 +68,12 @@ public class SinglyLinkedList implements ILinkedList {
     size++;
 
   }
-
-  public Object get(int index) {
+/**
+ * get.
+ * @param index  .
+ * @return  .
+ */
+  public Object get(final int index) {
     if (this.size > index && index >= 0) {
       int count = 0;
       NodeSL current;
@@ -65,15 +83,17 @@ public class SinglyLinkedList implements ILinkedList {
         count++;
       }
       return current.getData();
-       } 
-
-    else {
+    } else {
 
       throw null;
     }
   }
-
-  public void set(int index, Object element) {
+/**
+ * set.
+ * @param index .
+ * @param element  .
+ */
+  public void set(final int index, final Object element) {
     if (this.size > index && index >= 0) {
       NodeSL current = head;
       int count = 0;
@@ -86,20 +106,28 @@ public class SinglyLinkedList implements ILinkedList {
       throw null;
     }
   }
-
+/**
+ * clear .
+ */
   public void clear() {
     head.setNext(null);
     head = null;
     size = 0;
 
   }
-
+/**
+ * is empty or not .
+ * @return  .
+ */
   public boolean isEmpty() {
 
     return (size == 0);
   }
-
-  public void remove(int index) {
+/**
+ * remove .
+ * @param index  .
+ */
+  public void remove(final int index) {
     NodeSL v = head;
     if (index == 0) {
       head = head.getNext();
@@ -117,14 +145,20 @@ public class SinglyLinkedList implements ILinkedList {
       throw null;
     }
   }
-
+/**
+ * @return size.
+ */
   public int size() {
     return this.size;
   }
-
-  public ILinkedList sublist(int fromIndex, int toIndex) {
+/**
+ * @param fromIndex .
+ * @param toIndex  .
+ * @return sublist .
+ */
+  public ILinkedList sublist(final int fromIndex, final int toIndex) {
     SinglyLinkedList sub = new SinglyLinkedList();
-    if (this.size() > fromIndex && this.size() > toIndex 
+    if (this.size() > fromIndex && this.size() > toIndex
         && fromIndex >= 0 && toIndex >= 0
         && toIndex >= fromIndex) {
       NodeSL current = head;
@@ -145,8 +179,11 @@ public class SinglyLinkedList implements ILinkedList {
     }
     throw null;
   }
-
-  public boolean contains(Object o) {
+/**
+ * @param o exists.
+ * @return exist or not.
+ */
+  public boolean contains(final Object o) {
     NodeSL current = head;
 
     while (current != null) {
