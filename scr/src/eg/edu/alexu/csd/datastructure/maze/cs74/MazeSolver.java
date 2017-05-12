@@ -12,15 +12,16 @@ import javax.xml.transform.Templates;
 import eg.edu.alexu.csd.datastructure.maze.IMazeSolver;
 import eg.edu.alexu.csd.datastructure.queue.cs74.LQueue;
 import eg.edu.alexu.csd.datastructure.stack.cs74.Stack;
+
 /**
  *
  * @author HP.
  *
  */
 public class MazeSolver implements IMazeSolver {
-/**
- * start point.
- */
+  /**
+   * start point.
+   */
   Point start = new Point();
   /**
    * end point.
@@ -30,59 +31,64 @@ public class MazeSolver implements IMazeSolver {
    * the maze array.
    */
   char[][] mazeArray;
+
   /**
    * Read the maze file, and solve it using Breadth First Search.
-   * @param maze maze file
-   * @return the coordinates of the found path from point 'S'
-   * to point 'E' inclusive, or null if no path found.
-   * coordinates indexes are zero based.
+   * 
+   * @param maze
+   *          maze file
+   * @return the coordinates of the found path from point 'S' to point 'E'
+   *         inclusive, or null if no path found. coordinates indexes are zero
+   *         based.
    */
   public int[][] solveBFS(final File maze) {
-     mazeArray = readFile(maze);
-LQueue operate = new LQueue();
-LQueue path = new LQueue();
-boolean found = false;
-boolean[][] visited = new boolean[mazeArray.length][mazeArray[0].length];
-operate.enqueue(start);
-while(operate.size()!=0){
-  Point temp = (Point) operate.dequeue();
-  visited[temp.x][temp.y] = true;
-  path.enqueue(temp);
-  if(temp.equals(end)){
-    found = true;
-    break;
-  }
-  
-if (checkValid(new Point(temp.x, temp.y - 1), visited)) {
-  operate.enqueue(new Point(temp.x, temp.y - 1));
-  visited[temp.x][temp.y - 1] = true;
-}
-if (checkValid(new Point(temp.x, temp.y + 1), visited)) {
-  operate.enqueue(new Point(temp.x, temp.y + 1));
-  visited[temp.x][temp.y + 1] = true;
-}
-if (checkValid(new Point(temp.x - 1, temp.y), visited)) {
-  operate.enqueue(new Point(temp.x - 1, temp.y));
-  visited[temp.x - 1][temp.y] = true;
-}
-if (checkValid(new Point(temp.x + 1, temp.y), visited)) {
-  operate.enqueue(new Point(temp.x + 1, temp.y));
-  visited[temp.x + 1][temp.y] = true;
-}
-}
-if(operate.size()==0){
-    return null;
-}else if (found){
-  return getPath(path);
-}
+    mazeArray = readFile(maze);
+    LQueue operate = new LQueue();
+    LQueue path = new LQueue();
+    boolean found = false;
+    boolean[][] visited = new boolean[mazeArray.length][mazeArray[0].length];
+    operate.enqueue(start);
+    while (operate.size() != 0) {
+      Point temp = (Point) operate.dequeue();
+      visited[temp.x][temp.y] = true;
+      path.enqueue(temp);
+      if (temp.equals(end)) {
+        found = true;
+        break;
+      }
+
+      if (checkValid(new Point(temp.x, temp.y - 1), visited)) {
+        operate.enqueue(new Point(temp.x, temp.y - 1));
+        visited[temp.x][temp.y - 1] = true;
+      }
+      if (checkValid(new Point(temp.x, temp.y + 1), visited)) {
+        operate.enqueue(new Point(temp.x, temp.y + 1));
+        visited[temp.x][temp.y + 1] = true;
+      }
+      if (checkValid(new Point(temp.x - 1, temp.y), visited)) {
+        operate.enqueue(new Point(temp.x - 1, temp.y));
+        visited[temp.x - 1][temp.y] = true;
+      }
+      if (checkValid(new Point(temp.x + 1, temp.y), visited)) {
+        operate.enqueue(new Point(temp.x + 1, temp.y));
+        visited[temp.x + 1][temp.y] = true;
+      }
+    }
+    if (found) {
+      return getPath(path);
+
+    } else
+      return null;
   }
 
   /**
    * Read the maze file, and solve it using Depth First Search.
-   * @param maze maze file
-   * @return the coordinates of the found path from point 'S'
-   * to point 'E' inclusive, or null if no path found.
-   * coordinates indexes are zero based.
+   * 
+   * @param maze
+   *          maze file
+   * @return the coordinates of the found path from point 'S' to point 'E'
+   *         inclusive, or null if no path found. coordinates indexes are zero
+   *         based.
    */
   public final int[][] solveDFS(final File maze) {
     mazeArray = readFile(maze);
@@ -119,23 +125,26 @@ if(operate.size()==0){
       }
 
     }
-if (operate.size() == 0) {
-  return null;
-} else {
-  Point ended = (Point) operate.peek();
-  if (ended.equals(end)) {
-    return getPath(path);
-  } else {
-    return null;
-  }
-}
+    if (operate.size() == 0) {
+      return null;
+    } else {
+      Point ended = (Point) operate.peek();
+      if (ended.equals(end)) {
+        return getPath(path);
+      } else {
+        return null;
+      }
+    }
 
   }
-/**
- * read a file.
- * @param maze the file
- * @return the file read in char 2D array.
- */
+
+  /**
+   * read a file.
+   * 
+   * @param maze
+   *          the file
+   * @return the file read in char 2D array.
+   */
   public char[][] readFile(final File maze) {
     try (BufferedReader read = new BufferedReader(new FileReader(maze))) {
       String currentLine;
@@ -167,12 +176,16 @@ if (operate.size() == 0) {
       return null;
     }
   }
-/**
- * check the point.
- * @param temp the point
- * @param visit visited or not
- * @return is this point valid,
- */
+
+  /**
+   * check the point.
+   * 
+   * @param temp
+   *          the point
+   * @param visit
+   *          visited or not
+   * @return is this point valid,
+   */
   public final boolean checkValid(final Point temp, final boolean[][] visit) {
     if (temp.x > mazeArray.length - 1 || temp.y > mazeArray[0].length - 1
         || temp.y < 0 || temp.x < 0 || visit[temp.x][temp.y]
@@ -182,20 +195,23 @@ if (operate.size() == 0) {
     return true;
 
   }
+
   /**
-   *.
-   * @param path the solution path.
+   * .
+   * 
+   * @param path
+   *          the solution path.
    * @return the path in 2D array.
    */
-public final int[][] getPath(final LQueue path) {
-  int[][] answer = new int[path.size()][2];
-  int i = 0;
+  public final int[][] getPath(final LQueue path) {
+    int[][] answer = new int[path.size()][2];
+    int i = 0;
     while (path.size() != 0) {
-    Point temp = (Point) path.dequeue();
-    answer[i][0] = temp.x;
-    answer[i][1] = temp.y;
-i++;
+      Point temp = (Point) path.dequeue();
+      answer[i][0] = temp.x;
+      answer[i][1] = temp.y;
+      i++;
+    }
+    return answer;
   }
-  return answer;
-}
 }
