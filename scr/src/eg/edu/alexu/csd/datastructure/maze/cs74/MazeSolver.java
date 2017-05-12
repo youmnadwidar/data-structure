@@ -19,14 +19,14 @@ import eg.edu.alexu.csd.datastructure.stack.cs74.Stack;
  *
  */
 public class MazeSolver implements IMazeSolver {
-      /**
+  /**
    * start point.
    */
-  Point start ;
+  Point start;
   /**
    * end point.
    */
-  Point end ;
+  Point end;
   /**
    * the maze array.
    */
@@ -51,47 +51,52 @@ public class MazeSolver implements IMazeSolver {
     LQueue operate = new LQueue();
     Stack path = new Stack();
     boolean found = false;
-    NodeMaze last = null ;
+    NodeMaze last = null;
     boolean[][] visited = new boolean[mazeArray.length][mazeArray[0].length];
     operate.enqueue(new NodeMaze(start, null));
     while (operate.size() != 0) {
       NodeMaze temp = (NodeMaze) operate.dequeue();
       visited[temp.position.x][temp.position.y] = true;
-     
+
       if (temp.equals(end)) {
         last = temp;
         found = true;
         break;
       }
 
-      if (checkValid(new Point(temp.position.x + 1, temp.position.y), visited)) {
-        operate.enqueue(new NodeMaze(new Point(temp.position.x + 1,
-            temp.position.y),temp));
+      if (checkValid(new Point(temp.position.x + 1, temp.position.y),
+          visited)) {
+        operate.enqueue(new NodeMaze(
+            new Point(temp.position.x + 1, temp.position.y), temp));
         visited[temp.position.x + 1][temp.position.y] = true;
       }
-      if (checkValid(new Point(temp.position.x, temp.position.y + 1), visited)) {
-        operate.enqueue(new NodeMaze(new Point(temp.position.x, temp.position.y + 1),temp));
-        visited[temp.position.x][temp.position.y + 1] = true;
+      if (checkValid(new Point(temp.position.x - 1, temp.position.y),
+          visited)) {
+        operate.enqueue(new NodeMaze(
+            new Point(temp.position.x - 1, temp.position.y), temp));
+        visited[temp.position.x - 1][temp.position.y] = true;
       }
-      if (checkValid(new Point(temp.position.x, temp.position.y - 1), visited)) {
-        operate.enqueue(new NodeMaze(new Point(temp.position.x, temp.position.y - 1),temp));
+      if (checkValid(new Point(temp.position.x, temp.position.y - 1),
+          visited)) {
+        operate.enqueue(new NodeMaze(
+            new Point(temp.position.x, temp.position.y - 1), temp));
         visited[temp.position.x][temp.position.y - 1] = true;
       }
-      if (checkValid(new Point(temp.position.x - 1, temp.position.y ), visited)) {
-        operate.enqueue(new NodeMaze(new Point(temp.position.x-1, temp.position.y),temp));
-        visited[temp.position.x-1][temp.position.y ] = true;
+      if (checkValid(new Point(temp.position.x, temp.position.y + 1),
+          visited)) {
+        operate.enqueue(new NodeMaze(
+            new Point(temp.position.x, temp.position.y + 1), temp));
+        visited[temp.position.x][temp.position.y + 1] = true;
       }
-     
-     
-      
+
     }
     if (found) {
       NodeMaze end = last;
-      while (end.parent!=null) {
+      while (end.parent != null) {
         path.push(new Point(end.position.x, end.position.y));
         end = end.parent;
       }
-      return getPath(path); 
+      return getPath(path);
 
     } else {
       return null;
@@ -100,6 +105,7 @@ public class MazeSolver implements IMazeSolver {
 
   /**
    * Read the maze file, and solve it using Depth First Search.
+   * 
    * @param maze
    *          maze file
    * @return the coordinates of the found path from point 'S' to point 'E'
@@ -161,6 +167,7 @@ public class MazeSolver implements IMazeSolver {
 
   /**
    * read a file.
+   * 
    * @param maze
    *          the file
    * @return the file read in char 2D array.
@@ -198,7 +205,7 @@ public class MazeSolver implements IMazeSolver {
 
   /**
    * check the point.
-
+   * 
    * @param temp
    *          the point
    * @param visit
@@ -217,6 +224,7 @@ public class MazeSolver implements IMazeSolver {
 
   /**
    * .
+   * 
    * @param path
    *          the solution path.
    * @return the path in 2D array.
@@ -232,6 +240,7 @@ public class MazeSolver implements IMazeSolver {
     }
     return answer;
   }
+
   public final int[][] getPath(final Stack path) {
     int[][] answer = new int[path.size()][2];
     int i = 0;
