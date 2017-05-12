@@ -7,6 +7,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+import javax.xml.transform.Templates;
+
 import eg.edu.alexu.csd.datastructure.maze.IMazeSolver;
 import eg.edu.alexu.csd.datastructure.queue.cs74.LQueue;
 import eg.edu.alexu.csd.datastructure.stack.cs74.Stack;
@@ -37,8 +39,42 @@ public class MazeSolver implements IMazeSolver {
    */
   public int[][] solveBFS(final File maze) {
      mazeArray = readFile(maze);
-
+LQueue operate = new LQueue();
+LQueue path = new LQueue();
+boolean found = false;
+boolean[][] visited = new boolean[mazeArray.length][mazeArray[0].length];
+operate.enqueue(start);
+while(operate.size()!=0){
+  Point temp = (Point) operate.dequeue();
+  visited[temp.x][temp.y] = true;
+  path.enqueue(temp);
+  if(temp.equals(end)){
+    found = true;
+    break;
+  }
+  
+if (checkValid(new Point(temp.x, temp.y - 1), visited)) {
+  operate.enqueue(new Point(temp.x, temp.y - 1));
+  visited[temp.x][temp.y - 1] = true;
+}
+if (checkValid(new Point(temp.x, temp.y + 1), visited)) {
+  operate.enqueue(new Point(temp.x, temp.y + 1));
+  visited[temp.x][temp.y + 1] = true;
+}
+if (checkValid(new Point(temp.x - 1, temp.y), visited)) {
+  operate.enqueue(new Point(temp.x - 1, temp.y));
+  visited[temp.x - 1][temp.y] = true;
+}
+if (checkValid(new Point(temp.x + 1, temp.y), visited)) {
+  operate.enqueue(new Point(temp.x + 1, temp.y));
+  visited[temp.x + 1][temp.y] = true;
+}
+}
+if(operate.size()==0){
     return null;
+}else if (found){
+  return getPath(path);
+}
   }
 
   /**
