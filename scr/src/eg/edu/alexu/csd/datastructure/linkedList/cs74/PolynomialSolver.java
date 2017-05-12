@@ -5,10 +5,25 @@ import java.awt.Point;
 import eg.edu.alexu.csd.datastructure.linkedList.IPolynomialSolver;
 
 public class PolynomialSolver implements IPolynomialSolver {
+  /**
+   * .
+   */
   final int num =1000;
+  /**
+   * .
+   */
   DoublyLinkedList A = null;
+  /**
+   * .
+   */
   DoublyLinkedList B = null;
+  /**
+   * .
+   */
   DoublyLinkedList C = null;
+  /**
+   * .
+   */
   DoublyLinkedList R = null;
 /**
  * the name of the polynomial equation
@@ -16,7 +31,7 @@ public class PolynomialSolver implements IPolynomialSolver {
  * @return
  */
   public final boolean isSet(char poly) {
-    poly=Character.toUpperCase(poly);
+    poly = Character.toUpperCase(poly);
     switch (poly) {
     case 'A':
       return !(A == null);
@@ -58,7 +73,7 @@ public class PolynomialSolver implements IPolynomialSolver {
   }
 
   /**
-   * @param poly.
+   * @param poly  .scr
    */
   public String print(char poly) {
     poly = Character.toUpperCase(poly);
@@ -76,7 +91,8 @@ public class PolynomialSolver implements IPolynomialSolver {
     return null;
   }
 /**
- * @param poly.
+ * .
+ * @param poly polynomial.
  */
   public void clearPolynomial(char poly) {
     poly = Character.toUpperCase(poly);
@@ -95,10 +111,11 @@ public class PolynomialSolver implements IPolynomialSolver {
   }
 
   /**
-   * @param poly.
-   * @param value
+   * .
+   * @param poly polynomial.
+   * @param value the value of it.
    */
-  public float evaluatePolynomial(char poly, float value) {
+  public float evaluatePolynomial( char poly, final float value) {
     poly = Character.toUpperCase(poly);
     int answer = 0;
     NodeDL newNode;
@@ -124,10 +141,8 @@ public class PolynomialSolver implements IPolynomialSolver {
 
         newNode = newNode.getNext();
       }
-      return answer; 
-       }
-
-    else if (poly == 'C' && C != null && !C.isEmpty()) {
+      return answer;
+     } else if (poly == 'C' && C != null && !C.isEmpty()) {
 
       newNode = C.getHead().getNext();
       while (newNode != C.getTail()) {
@@ -144,8 +159,10 @@ public class PolynomialSolver implements IPolynomialSolver {
   }
 
 /**
- * @param poly1.
- * @param poly2
+ * .
+ * @param poly1  polynomial1.
+ * @param poly2 polynomial2
+ * @return the add
  */
   public int[][] add(char poly1, char poly2) {
     poly1 = Character.toUpperCase(poly1);
@@ -225,8 +242,10 @@ public class PolynomialSolver implements IPolynomialSolver {
   }
 
   /**
-   * @param poly1.
-   * @param poly2
+   * .
+   * @param poly1 polynomial1.
+   * @param poly2 polynomial2
+   * @return subtract
    */
   public int[][] subtract(char poly1, char poly2) {
     poly1 = Character.toUpperCase(poly1);
@@ -300,8 +319,9 @@ public class PolynomialSolver implements IPolynomialSolver {
      }
 
   /**
-   * @param poly1.
-   * @param poly2
+   * @param poly1 polynomial1.
+   * @param poly2 polynomial2.
+   * @return multiply.
    */
   public int[][] multiply(char poly1, char poly2) {
     poly1 = Character.toUpperCase(poly1);
@@ -382,10 +402,17 @@ public class PolynomialSolver implements IPolynomialSolver {
     return resaultArray;
 
   }
-
-  public void addLinked(DoublyLinkedList list1, DoublyLinkedList list2, DoublyLinkedList result) {
-    if (list1 == null || list2 == null)
+  /**
+   * add .
+   * @param list1 the first operand.
+   * @param list2 the second operand.
+   * @param result the result of the added.
+ */
+  public void addLinked(final DoublyLinkedList list1,
+      final DoublyLinkedList list2, final DoublyLinkedList result) {
+    if (list1 == null || list2 == null) {
       throw new RuntimeException();
+    }
     result.clear();
     NodeDL temp1 = list1.getHead().getNext(), temp2 = list2.getHead().getNext();
 
@@ -424,9 +451,16 @@ public class PolynomialSolver implements IPolynomialSolver {
       temp2 = temp2.getNext();
     }
   }
-
-  public void subtractLinked(DoublyLinkedList list1, DoublyLinkedList list2) {
-    if (list1.getSize() == 0 || list2.getSize() == 0 || list1 == null || list2 == null) {
+/**
+ *.
+ * @param list1 first operand.
+ * @param list2 second operand.
+ *
+ */
+  public final void subtractLinked(final DoublyLinkedList list1,
+      final DoublyLinkedList list2) {
+    if (list1.getSize() == 0 || list2.getSize() == 0
+        || list1 == null || list2 == null) {
       throw new RuntimeException();
     }
     R.clear();
@@ -482,8 +516,12 @@ public class PolynomialSolver implements IPolynomialSolver {
     }
 
   }
-
-  public void setPoly(DoublyLinkedList list, int[][] terms) {
+/**
+ * .
+ * @param list the set polynomial.
+ * @param terms the array of terms .
+ */
+  public void setPoly(final DoublyLinkedList list, final int[][] terms) {
     int max = num;
     for (int i = 0; i < terms.length; i++) {
       if (terms[i][1] < 0) {
@@ -500,8 +538,13 @@ public class PolynomialSolver implements IPolynomialSolver {
       }
     }
   }
-
-  public String printPoly(DoublyLinkedList list, NodeDL node) {
+/**
+ *.
+ * @param list the polynomial.
+ * @param node linked node.
+ * @return string polynomial
+ */
+  public String printPoly(final DoublyLinkedList list, NodeDL node) {
     String polyy = "";
     node = list.getHead().getNext();
     while (node != list.getTail()) {
@@ -526,10 +569,11 @@ public class PolynomialSolver implements IPolynomialSolver {
   }
 /**
  * the two linked lists.
- * @param list1
- * @param list2
+ * @param list1 first operand
+ * @param list2 second operand
  */
-  public void multiplyLists(DoublyLinkedList list1, DoublyLinkedList list2) {
+  public void multiplyLists(final DoublyLinkedList list1,
+      final DoublyLinkedList list2) {
     R.clear();
     NodeDL temp1 = list1.getHead().getNext(), temp2 = list2.getHead().getNext();
     DoublyLinkedList templist1 = new DoublyLinkedList();
