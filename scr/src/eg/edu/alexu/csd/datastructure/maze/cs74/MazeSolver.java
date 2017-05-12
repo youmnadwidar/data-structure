@@ -164,7 +164,7 @@ public class MazeSolver implements IMazeSolver {
       while ((currentLine = read.readLine()) != null) {
         if (currentLine.contains("S")) {
           if(start != null){
-            throw null ;
+            return null ;
           }
           start = new Point(i, currentLine.indexOf("S"));
           
@@ -207,7 +207,10 @@ public class MazeSolver implements IMazeSolver {
         || mazeArray[temp.x][temp.y] == '#') {
       return false;
     }
-    return true;
+    return true;if(end == null || start == null)
+    {
+      return null;
+    }
 
   }
 
