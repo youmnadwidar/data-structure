@@ -22,11 +22,11 @@ public class MazeSolver implements IMazeSolver {
   /**
    * start point.
    */
-  Point start = new Point();
+  Point start = null;
   /**
    * end point.
    */
-  Point end ;
+  Point end = null ;
   /**
    * the maze array.
    */
