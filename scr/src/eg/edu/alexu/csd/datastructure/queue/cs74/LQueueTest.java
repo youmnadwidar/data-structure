@@ -50,7 +50,7 @@ public class LQueueTest {
   }
 
   /**
-   * test size method
+   * test size method.
    */
   @Test(expected = RuntimeException.class)
   public void testSize() {
@@ -70,10 +70,10 @@ public class LQueueTest {
 
   }
   /**
-   * 
+   * .
    */
 @Test
-public void testDE(){
+public void testDE() {
   LQueue test = new LQueue();
   test.enqueue("5");
   test.enqueue("7");

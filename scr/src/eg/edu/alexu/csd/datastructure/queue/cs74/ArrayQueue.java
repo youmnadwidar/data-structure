@@ -39,7 +39,6 @@ public class ArrayQueue implements IQueue, IArrayBased {
 
   /**
    * Inserts an item at the queue front.
-   * 
    * @param item
    *          that wanted to be added
    */
@@ -59,7 +58,6 @@ public class ArrayQueue implements IQueue, IArrayBased {
 
   /**
    * Removes the object at the queue rear and returns it.
-   * 
    * @return the dequeued item
    */
   public Object dequeue() {
@@ -79,7 +77,7 @@ public class ArrayQueue implements IQueue, IArrayBased {
 
   /**
    * Tests if this queue is empty.
-   * 
+
    * @return whether it is empty or not
    */
   public boolean isEmpty() {
@@ -89,7 +87,7 @@ public class ArrayQueue implements IQueue, IArrayBased {
 
   /**
    * . Returns the number of elements in the queue.
-   * 
+
    * @return size of the queue
    */
   public int size() {

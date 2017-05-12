@@ -16,9 +16,17 @@ import eg.edu.alexu.csd.datastructure.stack.cs74.Stack;
  *
  */
 public class MazeSolver implements IMazeSolver {
-
+/**
+ * start point.
+ */
   Point start = new Point();
+  /**
+   * end point.
+   */
   Point end = new Point();
+  /**
+   * the maze array.
+   */
   char[][] mazeArray;
   /**
    * Read the maze file, and solve it using Breadth First Search.
@@ -56,36 +64,36 @@ public class MazeSolver implements IMazeSolver {
         operate.push(temp);
         break;
       }
-      
+
       if (checkValid(new Point(temp.x, temp.y - 1), visited)) {
         operate.push(new Point(temp.x, temp.y - 1));
-        visited[temp.x][temp.y-1] = true;
+        visited[temp.x][temp.y - 1] = true;
       }
       if (checkValid(new Point(temp.x, temp.y + 1), visited)) {
         operate.push(new Point(temp.x, temp.y + 1));
-        visited[temp.x][temp.y+1] = true;
+        visited[temp.x][temp.y + 1] = true;
       }
       if (checkValid(new Point(temp.x - 1, temp.y), visited)) {
         operate.push(new Point(temp.x - 1, temp.y));
-        visited[temp.x-1][temp.y] = true;
+        visited[temp.x - 1][temp.y] = true;
       }
       if (checkValid(new Point(temp.x + 1, temp.y), visited)) {
         operate.push(new Point(temp.x + 1, temp.y));
-        visited[temp.x+1][temp.y] = true;
+        visited[temp.x + 1][temp.y] = true;
       }
 
     }
-if(operate.size()==0)
-    return null;
-else {
-  Point ended =(Point) operate.peek();
-  if(ended.equals(end))
+if (operate.size() == 0) {
+  return null;
+} else {
+  Point ended = (Point) operate.peek();
+  if (ended.equals(end)) {
     return getPath(path);
-  else {
+  } else {
     return null;
   }
 }
-  
+
   }
 /**
  * read a file.
@@ -138,10 +146,15 @@ else {
     return true;
 
   }
-public int[][] getPath(LQueue path) {
+  /**
+   *.
+   * @param path the solution path.
+   * @return the path in 2D array.
+   */
+public final int[][] getPath(final LQueue path) {
   int[][] answer = new int[path.size()][2];
   int i = 0;
-  while (path.size()!=0){
+    while (path.size() != 0) {
     Point temp = (Point) path.dequeue();
     answer[i][0] = temp.x;
     answer[i][1] = temp.y;

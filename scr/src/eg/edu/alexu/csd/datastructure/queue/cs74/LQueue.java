@@ -3,13 +3,20 @@ package eg.edu.alexu.csd.datastructure.queue.cs74;
 import eg.edu.alexu.csd.datastructure.linkedList.cs74.DoublyLinkedList;
 import eg.edu.alexu.csd.datastructure.queue.ILinkedBased;
 import eg.edu.alexu.csd.datastructure.queue.IQueue;
-
+/**
+ * .
+ * @author HP
+ *
+ */
 public class LQueue implements IQueue, ILinkedBased {
 /**
  * the list used.
  */
   private DoublyLinkedList queue = new DoublyLinkedList();
-  private int size ;
+  /**
+   * .
+   */
+  private int size;
   /**
    * Inserts an item at the queue front.
    * @param item
@@ -28,7 +35,7 @@ public class LQueue implements IQueue, ILinkedBased {
     this.queue.remove(this.queue.getSize() - 1);
     this.size--;
     return item;
-    
+
   }
 
   /**
