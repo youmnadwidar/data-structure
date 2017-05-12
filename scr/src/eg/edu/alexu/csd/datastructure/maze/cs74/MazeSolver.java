@@ -77,9 +77,9 @@ public class MazeSolver implements IMazeSolver {
         operate.enqueue(new NodeMaze(new Point(temp.position.x, temp.position.y - 1),temp));
         visited[temp.position.x][temp.position.y - 1] = true;
       }
-      if (checkValid(new Point(temp.position.x+1, temp.position.y ), visited)) {
-        operate.enqueue(new NodeMaze(new Point(temp.position.x+1, temp.position.y),temp));
-        visited[temp.position.x][temp.position.y + 1] = true;
+      if (checkValid(new Point(temp.position.x - 1, temp.position.y ), visited)) {
+        operate.enqueue(new NodeMaze(new Point(temp.position.x-1, temp.position.y),temp));
+        visited[temp.position.x-1][temp.position.y ] = true;
       }
      
      
