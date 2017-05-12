@@ -45,7 +45,7 @@ public class MazeSolver implements IMazeSolver {
     mazeArray = readFile(maze);
     if(end == null || start == null || mazeArray == null) 
     {
-      throw null;
+      return null;
     }
     LQueue operate = new LQueue();
     LQueue path = new LQueue();
@@ -96,7 +96,7 @@ public class MazeSolver implements IMazeSolver {
    */
   public final int[][] solveDFS(final File maze) {
     mazeArray = readFile(maze);
-    if(end == null || start == null)
+    if(end == null || start == null || mazeArray == null) 
     {
       return null;
     }
@@ -161,11 +161,10 @@ public class MazeSolver implements IMazeSolver {
       int rows = Integer.parseInt(parts[0]);
       parts = new String[rows];
       int i = 0;
-      while ((currentLine = read.readLine()) != null) {
+      int counter = 0 ;
+      while ((currentLine = read.readLine()) != null && counter < rows) {
         if (currentLine.contains("S")) {
-          start = new Point(i, currentLine.indexOf("S"));
-          
-          
+          start = new Point(i, currentLine.indexOf("S")); 
         }
         if (currentLine.contains("E")) {
           
@@ -173,18 +172,23 @@ public class MazeSolver implements IMazeSolver {
         
         }
         parts[i] = currentLine;
-
+counter++;
         i++;
       }
       char[][] text = new char[parts.length][];
       for (int j = 0; j < parts.length; j++) {
         text[j] = parts[j].toCharArray();
+        
+      }
+      if(counter>=rows){
+        return null ;
       }
       return text;
     } catch (IOException e) {
       e.printStackTrace();
       return null;
     }
+   
   }
 
   /**
