@@ -182,14 +182,12 @@ public class MazeSolver implements IMazeSolver {
       if (parts.length != 2 || rows <= 0 || col <= 0) {
         throw new RuntimeException();
       }
-      if((currentLine = read.readLine()) == null){
-        throw new RuntimeException();
-
-      }
+      int counter = 0;
       parts = new String[rows];
       int i = 0;
 
       while ((currentLine = read.readLine()) != null) {
+        counter++;
 
         if (currentLine.contains("S")) {
           start = new Point(i, currentLine.indexOf("S"));
@@ -201,6 +199,9 @@ public class MazeSolver implements IMazeSolver {
         parts[i] = currentLine;
 
         i++;
+      }
+      if(counter==0){
+        throw new RuntimeException();
       }
       char[][] text = new char[parts.length][];
       for (int j = 0; j < parts.length; j++) {
