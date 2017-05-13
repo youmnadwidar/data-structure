@@ -183,9 +183,9 @@ public class MazeSolver implements IMazeSolver {
       int counter = 0;
       while ((currentLine = read.readLine()) != null) {
         counter++;
-        if(rows <=0 || col<=0)
+        if(rows <=0 || col <=0)
         {
-          throw new RuntimeException();
+          throw null;
         }
       
         if (currentLine.contains("S")) {
