@@ -58,7 +58,7 @@ public class MazeSolver implements IMazeSolver {
       NodeMaze temp = (NodeMaze) operate.dequeue();
       visited[temp.position.x][temp.position.y] = true;
 
-      if (temp.equals(end)) {
+      if (temp.position.equals(end)) {
         last = temp;
         found = true;
         break;
