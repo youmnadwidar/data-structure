@@ -207,6 +207,9 @@ public class MazeSolver implements IMazeSolver {
       for (int j = 0; j < parts.length; j++) {
         text[j] = parts[j].toCharArray();
       }
+      if(parts[0].length()!=col){
+        throw new RuntimeException();
+      }
       return text;
     } catch (IOException e) {
       e.printStackTrace();
