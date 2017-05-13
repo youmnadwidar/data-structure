@@ -143,9 +143,9 @@ public class MazeSolver implements IMazeSolver {
         operate.push(new Point(temp.x, temp.y + 1));
         visited[temp.x][temp.y + 1] = true;
       }
-      }//else {
-       // throw new RuntimeException(mazeArray[0].toString());
-    //  }
+      }else {
+       throw new RuntimeException(mazeArray[0].toString());
+      }
       if (checkValid(new Point(temp.x - 1, temp.y), visited)) {
         operate.push(new Point(temp.x - 1, temp.y));
         visited[temp.x - 1][temp.y] = true;
