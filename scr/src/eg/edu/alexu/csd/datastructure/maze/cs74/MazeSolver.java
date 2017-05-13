@@ -138,7 +138,7 @@ public class MazeSolver implements IMazeSolver {
         operate.push(new Point(temp.x, temp.y - 1));
         visited[temp.x][temp.y - 1] = true;
       }
-      if(temp.y + 1 <mazeArray[0].length){
+      if(temp.y + 1 >=mazeArray[0].length){
       if (checkValid(new Point(temp.x, temp.y + 1), visited)) {
         operate.push(new Point(temp.x, temp.y + 1));
         visited[temp.x][temp.y + 1] = true;
