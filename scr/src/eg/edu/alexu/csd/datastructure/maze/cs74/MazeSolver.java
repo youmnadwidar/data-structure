@@ -96,7 +96,7 @@ public class MazeSolver implements IMazeSolver {
         path.push(new Point(finish.position.x, finish.position.y));
         finish = finish.parent;
       }
-      path.push(finish);
+      path.push(new Point(finish.position.x,finish.position.y));
       return getPath(path);
 
     } else {
