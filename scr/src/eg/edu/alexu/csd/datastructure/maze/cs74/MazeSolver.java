@@ -186,9 +186,9 @@ public class MazeSolver implements IMazeSolver {
         {
           throw null;
         }*/
-        if(currentLine.length()!=Integer.parseInt(parts[1])){
+       /* if(currentLine.length()!=Integer.parseInt(parts[1])){
           return null ;
-        }
+        }*/
         if (currentLine.contains("S")) {
           start = new Point(i, currentLine.indexOf("S"));
 
