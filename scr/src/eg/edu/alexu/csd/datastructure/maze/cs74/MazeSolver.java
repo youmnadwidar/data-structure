@@ -182,17 +182,14 @@ public class MazeSolver implements IMazeSolver {
       String[] parts = currentLine.split(" ");
       int rows = Integer.parseInt(parts[0]);
       int col = Integer.parseInt(parts[1]);
-      if (parts.length != 2 || rows <= 0 || col <= 0)
-      {
+      if (parts.length != 2 || rows <= 0 || col <= 0) {
         throw new RuntimeException();
       }
-    
       parts = new String[rows];
       int i = 0;
 
       while ((currentLine = read.readLine()) != null) {
-        if(currentLine.length()!= col)
-        {
+        if (currentLine.length() != col) {
           throw new RuntimeException();
         }
         if (currentLine.contains("S")) {
