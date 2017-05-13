@@ -182,7 +182,7 @@ public class MazeSolver implements IMazeSolver {
       int i = 0;
       if(rows <=0 || col <=0)
       {
-        throw null;
+        throw new RuntimeException();
       }
 
       while ((currentLine = read.readLine()) != null) {
