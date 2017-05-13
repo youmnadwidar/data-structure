@@ -180,14 +180,12 @@ public class MazeSolver implements IMazeSolver {
       int col = Integer.parseInt(parts[1]);
       parts = new String[rows];
       int i = 0;
-      int counter = 0;
+      if(rows <=0 || col <=0)
+      {
+        throw null;
+      }
+
       while ((currentLine = read.readLine()) != null) {
-        counter++;
-        if(rows <=0 || col <=0)
-        {
-          throw null;
-        }
-      
         if (currentLine.contains("S")) {
           start = new Point(i, currentLine.indexOf("S"));
 
