@@ -220,10 +220,14 @@ public class MazeSolver implements IMazeSolver {
    */
   public final boolean checkValid(final Point temp, final boolean[][] visit) {
     if (temp.x >= mazeArray.length  || temp.y >= mazeArray[0].length
-        || temp.y < 0 || temp.x < 0 || mazeArray[temp.x][temp.y] == '#'
-        || visit[temp.x][temp.y]) {
+        || temp.y < 0 || temp.x < 0 ){
       return false;
     }
+        if(mazeArray[temp.x][temp.y] == '#'
+        || visit[temp.x][temp.y]) {
+      return false;
+        }
+    
     return true;
 
   }
