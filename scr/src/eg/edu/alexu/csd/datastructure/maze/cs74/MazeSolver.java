@@ -211,7 +211,7 @@ public class MazeSolver implements IMazeSolver {
    * @return is this point valid,
    */
   public final boolean checkValid(final Point temp, final boolean[][] visit) {
-    if (temp.x > mazeArray.length - 1 || temp.y > mazeArray[0].length - 1
+    if (temp.x == mazeArray.length  || temp.y == mazeArray[0].length 
         || temp.y < 0 || temp.x < 0 || visit[temp.x][temp.y]
         || mazeArray[temp.x][temp.y] == '#') {
       return false;
