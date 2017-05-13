@@ -179,8 +179,12 @@ public class MazeSolver implements IMazeSolver {
       String[] parts = currentLine.split(" ");
       int rows = Integer.parseInt(parts[0]);
       int col = Integer.parseInt(parts[1]);
-      if (parts.length != 2 || rows <= 0 || col <= 0 ||read.readLine()==null) {
+      if (parts.length != 2 || rows <= 0 || col <= 0) {
         throw new RuntimeException();
+      }
+      if((currentLine = read.readLine()) == null){
+        throw new RuntimeException();
+
       }
       parts = new String[rows];
       int i = 0;
