@@ -178,12 +178,12 @@ public class MazeSolver implements IMazeSolver {
       String[] parts = currentLine.split(" ");
       int rows = Integer.parseInt(parts[0]);
       int col = Integer.parseInt(parts[1]);
-      parts = new String[rows];
-      int i = 0;
       if(rows <=0 || col <=0)
       {
         throw new RuntimeException();
       }
+      parts = new String[rows];
+      int i = 0;
 
       while ((currentLine = read.readLine()) != null) {
         if (currentLine.contains("S")) {
