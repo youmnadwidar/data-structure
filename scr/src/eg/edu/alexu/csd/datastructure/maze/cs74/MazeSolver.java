@@ -121,8 +121,7 @@ public class MazeSolver implements IMazeSolver {
     }
     Stack operate = new Stack();
     LQueue path = new LQueue();
-    boolean[][] visited = new boolean[mazeArray.length][mazeArray[0].toString()
-        .length()];
+    boolean[][] visited = new boolean[mazeArray.length][mazeArray[0].length];
     operate.push(start);
     while (operate.size() != 0) {
       Point temp;
@@ -138,13 +137,12 @@ public class MazeSolver implements IMazeSolver {
         operate.push(new Point(temp.x, temp.y - 1));
         visited[temp.x][temp.y - 1] = true;
       }
-      if(temp.y + 1 <mazeArray[0].length){
+      
       if (checkValid(new Point(temp.x, temp.y + 1), visited)) {
         operate.push(new Point(temp.x, temp.y + 1));
         visited[temp.x][temp.y + 1] = true;
       }
-      }else 
-      throw new RuntimeException(mazeArray[0].toString());
+      
       if (checkValid(new Point(temp.x - 1, temp.y), visited)) {
         operate.push(new Point(temp.x - 1, temp.y));
         visited[temp.x - 1][temp.y] = true;
