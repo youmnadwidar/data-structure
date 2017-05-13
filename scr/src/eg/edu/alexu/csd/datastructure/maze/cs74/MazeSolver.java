@@ -182,12 +182,12 @@ public class MazeSolver implements IMazeSolver {
       int counter = 0;
       while ((currentLine = read.readLine()) != null) {
         counter++;
-        if(counter>rows)
+      /*  if(counter>rows)
         {
           throw null;
-        }
+        }*/
         if(currentLine.length()!=Integer.parseInt(parts[1])){
-          throw null ;
+          return null ;
         }
         if (currentLine.contains("S")) {
           start = new Point(i, currentLine.indexOf("S"));
