@@ -137,12 +137,12 @@ public class MazeSolver implements IMazeSolver {
         operate.push(new Point(temp.x, temp.y - 1));
         visited[temp.x][temp.y - 1] = true;
       }
-      
+
       if (checkValid(new Point(temp.x, temp.y + 1), visited)) {
         operate.push(new Point(temp.x, temp.y + 1));
         visited[temp.x][temp.y + 1] = true;
       }
-      
+
       if (checkValid(new Point(temp.x - 1, temp.y), visited)) {
         operate.push(new Point(temp.x - 1, temp.y));
         visited[temp.x - 1][temp.y] = true;
@@ -188,7 +188,7 @@ public class MazeSolver implements IMazeSolver {
 
       while ((currentLine = read.readLine()) != null) {
         counter++;
-        if (counter > rows){
+        if (counter > rows || currentLine.toCharArray().length != col) {
           throw new RuntimeException();
         }
         if (currentLine.contains("S")) {
@@ -202,14 +202,13 @@ public class MazeSolver implements IMazeSolver {
 
         i++;
       }
-     
       char[][] text = new char[parts.length][];
       for (int j = 0; j < parts.length; j++) {
         text[j] = parts[j].toCharArray();
       }
-      if(parts[0].length()!=col){
-        throw new RuntimeException();
-      }
+    //  if(parts[0].length()!=col){
+    //    throw new RuntimeException();
+     // }
       return text;
     } catch (IOException e) {
       e.printStackTrace();
