@@ -188,7 +188,9 @@ public class MazeSolver implements IMazeSolver {
 
       while ((currentLine = read.readLine()) != null) {
         counter++;
-
+        if (counter > rows){
+          throw new RuntimeException();
+        }
         if (currentLine.contains("S")) {
           start = new Point(i, currentLine.indexOf("S"));
 
@@ -200,9 +202,7 @@ public class MazeSolver implements IMazeSolver {
 
         i++;
       }
-      if(counter==0){
-        throw new RuntimeException();
-      }
+     
       char[][] text = new char[parts.length][];
       for (int j = 0; j < parts.length; j++) {
         text[j] = parts[j].toCharArray();
