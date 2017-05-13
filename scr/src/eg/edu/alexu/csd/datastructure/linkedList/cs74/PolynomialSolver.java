@@ -48,11 +48,11 @@ public class PolynomialSolver implements IPolynomialSolver {
   }
 
  /**
-  * @param poly.
-  * @param terms
-  * 
+  * @param poly polynomial 1
+  * @param terms polynomial 2
+  *
   */
-  public void setPolynomial(char poly, int[][] terms) {
+  public void setPolynomial(char poly, final int[][] terms) {
     poly = Character.toUpperCase(poly);
 
     if (poly == 'A') {
@@ -67,13 +67,15 @@ public class PolynomialSolver implements IPolynomialSolver {
       C = new DoublyLinkedList();
       C.clear();
       setPoly(C, terms);
-    } else
+    } else {
       throw new RuntimeException();
+    }
 
   }
 
   /**
    * @param poly  .scr
+   * @return string
    */
   public String print(char poly) {
     poly = Character.toUpperCase(poly);
@@ -114,6 +116,7 @@ public class PolynomialSolver implements IPolynomialSolver {
    * .
    * @param poly polynomial.
    * @param value the value of it.
+   * @return float value
    */
   public float evaluatePolynomial( char poly, final float value) {
     poly = Character.toUpperCase(poly);
