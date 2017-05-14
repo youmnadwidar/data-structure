@@ -106,7 +106,7 @@ public void testDE() {
  * test add after max.
  */
 @Test(expected = RuntimeException.class)
-public void testmax (){
+public void testmax() {
   ArrayQueue test = new ArrayQueue(z5);
   test.enqueue("5");
   test.enqueue("7");
