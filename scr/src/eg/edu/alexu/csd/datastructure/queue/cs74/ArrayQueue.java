@@ -2,7 +2,11 @@ package eg.edu.alexu.csd.datastructure.queue.cs74;
 
 import eg.edu.alexu.csd.datastructure.queue.IArrayBased;
 import eg.edu.alexu.csd.datastructure.queue.IQueue;
-
+/**
+ * .
+ * @author HP
+ *
+ */
 public class ArrayQueue implements IQueue, IArrayBased {
   /**
    * index of the cell before the first element.
