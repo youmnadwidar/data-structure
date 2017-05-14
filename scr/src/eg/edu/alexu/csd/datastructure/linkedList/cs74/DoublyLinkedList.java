@@ -277,9 +277,17 @@ public NodeDL getHead() {
 public void setHead(final NodeDL head1) {
   this.head = head1;
 }
+/**
+ * .
+ * @return tail1
+ */
 public NodeDL getTail() {
   return tail;
 }
+/**
+ * .
+ * @param tail1 set tail
+ */
 public final void setTail(final NodeDL tail1) {
   this.tail = tail1;
 }

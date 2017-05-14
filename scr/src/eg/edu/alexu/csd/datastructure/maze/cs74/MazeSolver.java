@@ -3,11 +3,9 @@ package eg.edu.alexu.csd.datastructure.maze.cs74;
 import java.awt.Point;
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-import javax.xml.transform.Templates;
 
 import eg.edu.alexu.csd.datastructure.maze.IMazeSolver;
 import eg.edu.alexu.csd.datastructure.queue.cs74.LQueue;

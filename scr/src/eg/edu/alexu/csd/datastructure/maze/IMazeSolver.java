@@ -21,5 +21,5 @@ public interface IMazeSolver {
   * coordinates indexes are zero based.
   */
   int[][] solveDFS(java.io.File maze);
-  
+
 }

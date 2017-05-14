@@ -1,7 +1,11 @@
 package eg.edu.alexu.csd.datastructure.maze.cs74;
 
 import java.awt.Point;
-
+/**
+ * .
+ * @author HP
+ *
+ */
 public class NodeMaze {
   /**
    * .
