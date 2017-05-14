@@ -2,7 +2,7 @@ package eg.edu.alexu.csd.datastructure.hangman.cs74;
 
 import eg.edu.alexu.csd.datastructure.hangman.IHangman;
 
-import java.lang.String;
+
 
 /**
  * @author HP

@@ -1,7 +1,11 @@
 package eg.edu.alexu.csd.datastructure.linkedList.cs74;
 
 import eg.edu.alexu.csd.datastructure.linkedList.ILinkedList;
-
+/**
+ * .
+ * @author HP
+ *
+ */
 public class SinglyLinkedList implements ILinkedList {
 /**
  * .

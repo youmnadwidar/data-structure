@@ -263,17 +263,25 @@ public int getSize() {
 public void setSize(final int value) {
   this.size = value;
 }
+/**
+ * .
+ * @return head
+ */
 public NodeDL getHead() {
   return head;
 }
-public void setHead(NodeDL head) {
-  this.head = head;
+/**
+ *
+ * @param head1 set head.
+ */
+public void setHead(final NodeDL head1) {
+  this.head = head1;
 }
 public NodeDL getTail() {
   return tail;
 }
-public void setTail(NodeDL tail) {
-  this.tail = tail;
+public final void setTail(final NodeDL tail1) {
+  this.tail = tail1;
 }
 
 }

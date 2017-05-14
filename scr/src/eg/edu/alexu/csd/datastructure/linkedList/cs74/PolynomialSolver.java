@@ -3,12 +3,16 @@ package eg.edu.alexu.csd.datastructure.linkedList.cs74;
 import java.awt.Point;
 
 import eg.edu.alexu.csd.datastructure.linkedList.IPolynomialSolver;
-
+/**
+ * .
+ * @author HP
+ *
+ */
 public class PolynomialSolver implements IPolynomialSolver {
   /**
    * .
    */
-  final int num =10000;
+  final int num = 10000;
   /**
    * .
    */
@@ -25,10 +29,10 @@ public class PolynomialSolver implements IPolynomialSolver {
    * .
    */
   DoublyLinkedList R = null;
-/**
- * the name of the polynomial equation
- * @param poly
- * @return
+/**.
+ * the name of the polynomial equation.
+ * @param poly polynomial
+ * @return boolean
  */
   public final boolean isSet(char poly) {
     poly = Character.toUpperCase(poly);
@@ -118,7 +122,7 @@ public class PolynomialSolver implements IPolynomialSolver {
    * @param value the value of it.
    * @return float value
    */
-  public float evaluatePolynomial( char poly, final float value) {
+  public float evaluatePolynomial(char poly, final float value) {
     poly = Character.toUpperCase(poly);
     int answer = 0;
     NodeDL newNode;
